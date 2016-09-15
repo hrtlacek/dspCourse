@@ -1,0 +1,60 @@
+\BOOKMARK [1][-]{section*.1}{Introduction/Notes}{}% 1
+\BOOKMARK [1][-]{section*.2}{Form}{}% 2
+\BOOKMARK [1][-]{section*.3}{Inverted Classroom}{}% 3
+\BOOKMARK [1][-]{section*.4}{Sinnfrage d. Inhalts/unterrichts kl\344ren}{}% 4
+\BOOKMARK [1][-]{section*.5}{Unterscheidung: Tool lernen, technik/theorie lernen}{}% 5
+\BOOKMARK [-1][-]{part.1}{Semester 3}{}% 6
+\BOOKMARK [0][-]{chapter.1.1}{Sampling, Waveshaping, und nicht Linearit\344t}{part.1}% 7
+\BOOKMARK [1][-]{section.1.1.1}{Notizen}{chapter.1.1}% 8
+\BOOKMARK [1][-]{section.1.1.2}{Uebersicht}{chapter.1.1}% 9
+\BOOKMARK [1][-]{section.1.1.3}{Waveshaping}{chapter.1.1}% 10
+\BOOKMARK [2][-]{subsection.1.1.3.1}{Einfachster fall, linear transfer function.}{section.1.1.3}% 11
+\BOOKMARK [2][-]{subsection.1.1.3.2}{Einfache nicht linearit\344t: X 2}{section.1.1.3}% 12
+\BOOKMARK [1][-]{section.1.1.4}{Sampler}{chapter.1.1}% 13
+\BOOKMARK [1][-]{section.1.1.5}{Haus\374bung}{chapter.1.1}% 14
+\BOOKMARK [2][-]{subsection.1.1.5.1}{Testmodul}{section.1.1.5}% 15
+\BOOKMARK [2][-]{subsection.1.1.5.2}{Distortion}{section.1.1.5}% 16
+\BOOKMARK [0][-]{chapter.1.2}{Modulation}{part.1}% 17
+\BOOKMARK [1][-]{section.1.2.1}{Notizen}{chapter.1.2}% 18
+\BOOKMARK [1][-]{section.1.2.2}{AM}{chapter.1.2}% 19
+\BOOKMARK [1][-]{section.1.2.3}{FM}{chapter.1.2}% 20
+\BOOKMARK [1][-]{section.1.2.4}{Haus\374bung}{chapter.1.2}% 21
+\BOOKMARK [0][-]{chapter.1.3}{Filter}{part.1}% 22
+\BOOKMARK [1][-]{section.1.3.1}{Notizen}{chapter.1.3}% 23
+\BOOKMARK [1][-]{section.1.3.2}{einfuehrung}{chapter.1.3}% 24
+\BOOKMARK [2][-]{subsection.1.3.2.1}{Raetsel}{section.1.3.2}% 25
+\BOOKMARK [1][-]{section.1.3.3}{kammfilter}{chapter.1.3}% 26
+\BOOKMARK [1][-]{section.1.3.4}{Moving Average}{chapter.1.3}% 27
+\BOOKMARK [1][-]{section.1.3.5}{convolution, Faltung}{chapter.1.3}% 28
+\BOOKMARK [1][-]{section.1.3.6}{IIR/FIR}{chapter.1.3}% 29
+\BOOKMARK [2][-]{subsection.1.3.6.1}{Onepole}{section.1.3.6}% 30
+\BOOKMARK [1][-]{section.1.3.7}{Haus\374bung}{chapter.1.3}% 31
+\BOOKMARK [0][-]{chapter.1.4}{Polyphonie/Message domain}{part.1}% 32
+\BOOKMARK [1][-]{section.1.4.1}{Notizen}{chapter.1.4}% 33
+\BOOKMARK [1][-]{section.1.4.2}{Einf\374hrung}{chapter.1.4}% 34
+\BOOKMARK [1][-]{section.1.4.3}{HUE kontrolle}{chapter.1.4}% 35
+\BOOKMARK [1][-]{section.1.4.4}{Filter wiederholen}{chapter.1.4}% 36
+\BOOKMARK [1][-]{section.1.4.5}{Signale betrachten}{chapter.1.4}% 37
+\BOOKMARK [1][-]{section.1.4.6}{Synth auffetten}{chapter.1.4}% 38
+\BOOKMARK [2][-]{subsection.1.4.6.1}{Polyphonie}{section.1.4.6}% 39
+\BOOKMARK [1][-]{section.1.4.7}{Unison}{chapter.1.4}% 40
+\BOOKMARK [1][-]{section.1.4.8}{Hall}{chapter.1.4}% 41
+\BOOKMARK [1][-]{section.1.4.9}{Sequencer}{chapter.1.4}% 42
+\BOOKMARK [1][-]{section.1.4.10}{drumpad/evenlope following}{chapter.1.4}% 43
+\BOOKMARK [0][-]{chapter.1.5}{Karplus}{part.1}% 44
+\BOOKMARK [1][-]{section.1.5.1}{Notizen}{chapter.1.5}% 45
+\BOOKMARK [1][-]{section.1.5.2}{Vorbereitung}{chapter.1.5}% 46
+\BOOKMARK [1][-]{section.1.5.3}{Uebersicht}{chapter.1.5}% 47
+\BOOKMARK [1][-]{section.1.5.4}{Theorie, Schwingungsf\344hige systeme}{chapter.1.5}% 48
+\BOOKMARK [1][-]{section.1.5.5}{Parktical Karplus-Strong}{chapter.1.5}% 49
+\BOOKMARK [1][-]{section.1.5.6}{Schul\374bung, Sounddesign challenge}{chapter.1.5}% 50
+\BOOKMARK [1][-]{section.1.5.7}{Hausuebung}{chapter.1.5}% 51
+\BOOKMARK [0][-]{chapter.1.6}{FFT}{part.1}% 52
+\BOOKMARK [1][-]{section.1.6.1}{Notizen}{chapter.1.6}% 53
+\BOOKMARK [1][-]{section.1.6.2}{Fourier Transformation}{chapter.1.6}% 54
+\BOOKMARK [-1][-]{part.2}{Semester 4}{}% 55
+\BOOKMARK [0][-]{chapter.2.1}{Jitter}{part.2}% 56
+\BOOKMARK [1][-]{section.2.1.1}{Notizen}{chapter.2.1}% 57
+\BOOKMARK [1][-]{section.2.1.2}{\334berblick}{chapter.2.1}% 58
+\BOOKMARK [1][-]{section.2.1.3}{Andere Software Pakete f\374r visuelle Echtzeit Arbeit}{chapter.2.1}% 59
+\BOOKMARK [1][-]{section.2.1.4}{Introduction}{chapter.2.1}% 60

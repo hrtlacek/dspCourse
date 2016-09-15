@@ -1,0 +1,951 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rep",
+				"representation"
+			],
+			[
+				"i",
+				"itd	\\item[description]"
+			],
+			[
+				"it",
+				"item	Itemize"
+			],
+			[
+				"repre",
+				"representationen"
+			],
+			[
+				"su",
+				"sub	Sub Section"
+			],
+			[
+				"gener",
+				"general"
+			],
+			[
+				"q",
+				"quotes	quotes"
+			],
+			[
+				"sinus",
+				"sinusoids"
+			],
+			[
+				"se",
+				"section	section"
+			],
+			[
+				"synthe",
+				"synthesized"
+			],
+			[
+				"qu",
+				"quality"
+			],
+			[
+				"re",
+				"resonator"
+			],
+			[
+				"co",
+				"comb"
+			],
+			[
+				"c",
+				"comb"
+			],
+			[
+				"e",
+				"exciter"
+			],
+			[
+				"de",
+				"decay"
+			],
+			[
+				"over",
+				"Overview"
+			],
+			[
+				"python",
+				"Python"
+			],
+			[
+				"sec",
+				"section	section"
+			],
+			[
+				"a",
+				"accu"
+			],
+			[
+				"figu",
+				"figure	figureCenter"
+			],
+			[
+				"band",
+				"bandpass"
+			],
+			[
+				"freque",
+				"frequency"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"d",
+				"draw"
+			],
+			[
+				"find",
+				"finding"
+			],
+			[
+				"ti",
+				"tikz	TikzDiagram"
+			],
+			[
+				"tik",
+				"tikzpicture"
+			],
+			[
+				"beg",
+				"begin"
+			],
+			[
+				"fig",
+				"figure	figureCenter"
+			],
+			[
+				"fi",
+				"figure	figureCenter"
+			],
+			[
+				"ch",
+				"chapter	chapter"
+			],
+			[
+				"use",
+				"usepackage"
+			],
+			[
+				"sw",
+				"switchVal1_1"
+			],
+			[
+				"SW",
+				"SWITCH1_1"
+			],
+			[
+				"di",
+				"digitalRead	Arduino digitalRead"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "05_filters.tex",
+			"settings":
+			{
+				"buffer_size": 15528,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"sid",
+				"View: Toggle Side Bar"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"snip bol",
+				"Snippet: bold"
+			],
+			[
+				"en",
+				"Snippet: Enumerate"
+			],
+			[
+				"sni bol",
+				"Snippet: bold"
+			],
+			[
+				"bol",
+				"Snippet: bold"
+			],
+			[
+				"sni ite",
+				"Snippet: Itemize"
+			],
+			[
+				"sni bul",
+				"Snippet: Tabular"
+			],
+			[
+				"sni it",
+				"Snippet: italics"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"gen ",
+				"Set Syntax: GenExpr"
+			],
+			[
+				"sni q",
+				"Snippet: quotes"
+			],
+			[
+				"snip q",
+				"Snippet: quotes"
+			],
+			[
+				"snip",
+				"Snippet: Description"
+			],
+			[
+				"sn",
+				"Snippet: quotes"
+			],
+			[
+				"sni ",
+				"Snippet: quotes"
+			],
+			[
+				"sni qu",
+				"Snippet: quotes"
+			],
+			[
+				"sip q",
+				"Snippet: quotes"
+			],
+			[
+				"max",
+				"SublimeREPL: Maxima"
+			],
+			[
+				"tog side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"late",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"lat",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"node",
+				"Snippet: node"
+			],
+			[
+				"snip ti",
+				"Snippet: TikzDiagram"
+			],
+			[
+				"snippet",
+				"Snippet: Monospace text"
+			],
+			[
+				"sni ci",
+				"Snippet: cite"
+			],
+			[
+				"vie sid",
+				"View: Toggle Side Bar"
+			],
+			[
+				"vie",
+				"View: Toggle Minimap"
+			],
+			[
+				"sn fig",
+				"Snippet: figureCenter"
+			],
+			[
+				"sni fig",
+				"Snippet: figureCenter"
+			],
+			[
+				"sni no",
+				"Snippet: node"
+			],
+			[
+				"snip nod",
+				"Snippet: node"
+			],
+			[
+				"snip nde",
+				"Snippet: node"
+			],
+			[
+				"pref",
+				"Preferences: Settings - Default"
+			],
+			[
+				"syn lat",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"vie to",
+				"View: Toggle Side Bar"
+			],
+			[
+				"view",
+				"View: Toggle Side Bar"
+			],
+			[
+				"toggl",
+				"View: Toggle Side Bar"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"packa",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"br",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"sni subs",
+				"Snippet: subsection"
+			],
+			[
+				"snip do",
+				"Snippet: Description"
+			],
+			[
+				"syn al",
+				"Set Syntax: LaTeX Memoir"
+			],
+			[
+				"syn la",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"syn late",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"syn",
+				"Set Syntax: Python"
+			],
+			[
+				"snip fi",
+				"Snippet: Figure"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"lin",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"re",
+				"SublimeREPL: Python"
+			],
+			[
+				"py",
+				"SublimeREPL: Python"
+			],
+			[
+				"packc",
+				"Package Control: Install Package"
+			],
+			[
+				"repl py",
+				"SublimeREPL: Python"
+			],
+			[
+				"syn py",
+				"Set Syntax: Python"
+			],
+			[
+				"sy py",
+				"Set Syntax: Python"
+			],
+			[
+				"re py",
+				"SublimeREPL: Python"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 236.0,
+		"history":
+		[
+			"clear",
+			"print (\"test\")",
+			"print \"test\"",
+			"print 'test';",
+			"print 'test'",
+			"print test",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/macuserin/Dropbox/LaTeX/EPRO script/ue_05"
+	],
+	"file_history":
+	[
+		"/Users/macuserin/Dropbox/LaTeX/EPRO script/ue_05/main.tex",
+		"/Users/macuserin/Dropbox/LaTeX/EPRO script/ue_05/EPRO_ue.sublime-project",
+		"/Users/macuserin/Dropbox/LaTeX/EPRO script/ue_05/07_MaxImpl.tex",
+		"/Users/macuserin/Dropbox/LaTeX/EPRO script/ue_05/theory.tex",
+		"/Users/macuserin/Dropbox/LaTeX/EPRO script/ue_05/01_titel.tex",
+		"/Users/macuserin/Dropbox/LaTeX/EPRO script/ue_05/00_Vorlage Abschlussarbeit.tex",
+		"/Users/macuserin/Dropbox/sublimeTextLicence",
+		"/Applications/Pd-0.45-4.app/Contents/Resources/src/d_filter.c",
+		"/Users/macuserin/Dropbox/EPRO3_NEU/InvertedLinks/videoLinkSammlung",
+		"/Applications/Pd-extended.app/Contents/Resources/doc/manuals/pd-msg/0.intro.txt",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/ExampleDrawing.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/05_grundlagen.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/Bakk01.sublime-project",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/07_Max:MSP implementation.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/01_titel.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/09_diskussion.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/08_results.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/07_MaxImpl.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKKlibrary4.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/05_Method.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/04_introduction.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAK4_final.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKKlibrary5.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKKlibrary3.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKKlibrary2.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKKlibrary1.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/audio/TischIR.wav",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/test.txt",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/06_theGeneralAlgorithm.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/6_1_gainsDecays.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/Pyext-class.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/03_zusammenfassung.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/02_danksagungen.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKK3.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKK2.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/BAKK01.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/00_Vorlage Abschlussarbeit.tex",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/User/latex/cite.sublime-snippet",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/User/latex/node.sublime-snippet",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/User/latex/TikzDiagram",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/06_standdertechnik.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/main.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/01_introduction.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/05_Method",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/User/latex/bold.sublime-snippet",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/realImag.ipynb",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/00_Vorlage Abschlussarbeit.lof",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/macuserin/Documents/CVsAndPress/BioDeutsch1",
+		"/Users/macuserin/Documents/CVsAndPress/BioEnglish1",
+		"/Users/macuserin/formerDesktop/MyMonokai.tmTheme",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/02_Erklaerung.tex",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/Literatur.bib",
+		"/Users/macuserin/Dropbox/LaTeX/bakk01/00_Vorlage Abschlussarbeit.toc",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/LaTeXTools/README.markdown",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/Applications/Max 6.1/packages/about packages.txt",
+		"/Users/macuserin/formerDesktop/bps.py",
+		"/Users/macuserin/Dropbox/IBER/LinkSammlung_filme/FuerVertonung",
+		"/PROJECTAS/PYTHON/test1.py",
+		"/Users/macuserin/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/Users/macuserin/Documents/Arduino/MyEthernetMuxController/MuxOSCv001.ino",
+		"/Users/macuserin/Downloads/vertigo.cpp",
+		"/Users/macuserin/Documents/TIS Bundle/Read Me.txt",
+		"/Volumes/USB/PROJECTS/PROJECT_SPECIFIC/PhongTessShader"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 132.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"itemize",
+			"impu",
+			"einfuehrung",
+			"subsection",
+			"convolu",
+			"will also",
+			"itemize",
+			"reson",
+			"This",
+			"section",
+			"subsec",
+			"times",
+			"exci",
+			"excii",
+			"subsection",
+			"autocorrelation",
+			"algo",
+			"res",
+			"applied",
+			"attachfile",
+			"farnell_designing_2010",
+			"farn",
+			"buch",
+			"schroeder_natural_1961",
+			"sch",
+			"EQ",
+			"comb",
+			"EQ",
+			"comb",
+			"EQ",
+			"comb",
+			"exciter",
+			"input",
+			"exciter",
+			"input",
+			"conv",
+			"theName",
+			"trigger",
+			"theName",
+			"input",
+			"exciter",
+			"exc",
+			"1",
+			"Analysis",
+			"fra",
+			"defin",
+			"choose",
+			"28",
+			"36",
+			"below",
+			"ignore",
+			"methods",
+			"painters",
+			"Hello",
+			"gz",
+			"VorlageErstellt",
+			"env",
+			"ev",
+			"pyth",
+			"pytho",
+			"switch",
+			"switchVal1_1",
+			"switch1_1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "05_filters.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2979,
+								2979
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2754.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MyEthernetMuxController":
+	{
+		"height": 198.0
+	},
+	"output.exec":
+	{
+		"height": 167.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "EPRO_ue.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"fil",
+				"05_filters.tex"
+			],
+			[
+				"main",
+				"main.tex"
+			],
+			[
+				"tit",
+				"01_titel.tex"
+			],
+			[
+				"res",
+				"08_results.tex"
+			],
+			[
+				"the",
+				"theory.tex"
+			],
+			[
+				"bak",
+				"BAK4_final.tex"
+			],
+			[
+				"a",
+				"06_theGeneralAlgorithm.tex"
+			],
+			[
+				"meth",
+				"05_Method.tex"
+			],
+			[
+				"qu",
+				"quick_start.tex"
+			],
+			[
+				"met",
+				"05_Method.tex"
+			],
+			[
+				"re",
+				"08_results.tex"
+			],
+			[
+				"qui",
+				"quick_start.tex"
+			],
+			[
+				"resul",
+				"08_results.tex"
+			],
+			[
+				"conc",
+				"10_conclusion.tex"
+			],
+			[
+				"ma",
+				"07_MaxImpl.tex"
+			],
+			[
+				"max",
+				"07_MaxImpl.tex"
+			],
+			[
+				"zusa",
+				"03_zusammenfassung.tex"
+			],
+			[
+				"gai",
+				"6_1_gainsDecays.tex"
+			],
+			[
+				"py",
+				"Pyext-class.tex"
+			],
+			[
+				"th",
+				"theory.tex"
+			],
+			[
+				"ba",
+				"BAK4_final.tex"
+			],
+			[
+				"lib",
+				"BAKKlibrary6.bib"
+			],
+			[
+				"alg",
+				"06_theGeneralAlgorithm.tex"
+			],
+			[
+				"",
+				"theory.tex"
+			],
+			[
+				"al",
+				"06_theGeneralAlgorithm.tex"
+			],
+			[
+				"gainde",
+				"6_1_gainsDecays.tex"
+			],
+			[
+				"gr",
+				"05_grundlagen.tex"
+			],
+			[
+				"algo",
+				"06_theGeneralAlgorithm.tex"
+			],
+			[
+				"intr",
+				"04_introduction.tex"
+			],
+			[
+				"mai",
+				"main.tex"
+			],
+			[
+				"tite",
+				"01_titel.tex"
+			],
+			[
+				"resu",
+				"08_results.tex"
+			],
+			[
+				"dis",
+				"09_diskussion.tex"
+			],
+			[
+				"bi",
+				"BAKKlibrary4.bib"
+			],
+			[
+				"gen",
+				"06_theGeneralAlgorithm.tex"
+			],
+			[
+				"maxim",
+				"07_MaxImpl.tex"
+			],
+			[
+				"maxi",
+				"07_MaxImpl.tex"
+			],
+			[
+				"ga",
+				"6_1_gainsDecays.tex"
+			],
+			[
+				"me",
+				"05_Method.tex"
+			],
+			[
+				"in",
+				"04_introduction.tex"
+			],
+			[
+				"li",
+				"BAKKlibrary3.bib"
+			],
+			[
+				"pye",
+				"Pyext-class.tex"
+			],
+			[
+				"l",
+				"BAKKlibrary3.bib"
+			],
+			[
+				"exa",
+				"ExampleDrawing.tex"
+			],
+			[
+				"grun",
+				"05_grundlagen.tex"
+			],
+			[
+				"set",
+				"~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+			],
+			[
+				"int",
+				"04_introduction.tex"
+			],
+			[
+				"librar",
+				"BAKKlibrary2.bib"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 285.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

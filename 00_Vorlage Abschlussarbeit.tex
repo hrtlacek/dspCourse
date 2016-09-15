@@ -1,0 +1,177 @@
+%Dokumentklasse
+\documentclass[a4paper,11pt]{scrreprt}
+\usepackage[left= 3.5cm,right = 3cm, bottom = 3.5 cm, top = 3 cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+% ============= Packages =============
+
+% Dokumentinformationen
+\usepackage[
+	pdftitle={EPRO_UE_SCRIPT_001},
+	pdfsubject={},
+	pdfauthor={Patrik Lechner},
+	pdfkeywords={}
+	pdftex=true, 
+	colorlinks=true,
+ 	breaklinks=true,
+	citecolor=black,
+	linkcolor=black,	
+	menucolor=black,	
+	urlcolor=black
+]{hyperref}
+
+
+
+% Standard Packages
+\usepackage[utf8]{inputenc}
+
+% deutsch
+% \usepackage[ngerman]{babel}
+% \usepackage[ngerman, num]{isodate}
+
+% english
+\usepackage[english]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphicx, subfigure}
+%setze pfad fuer Bilder
+\graphicspath{{img/}}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{transparent}
+
+
+% Citation style
+\usepackage[comma,authoryear]{natbib}
+%\usepackage{natbib}
+
+% zusätzliche Schriftzeichen der American Mathematical Society
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+% BlockDiagram Drawing Package
+% ---tikz
+% \usepackage{tikz}
+% \usepackage{pgfplots}
+% ---diagraph?
+
+
+% -- Settings für Code abbildungen
+% \usepackage{listings}
+
+% \definecolor{dkgreen}{rgb}{0,0.6,0}
+% \definecolor{gray}{rgb}{0.5,0.5,0.5}
+% \definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% \lstset{frame=tb,
+%   language=Java,
+%   aboveskip=3mm,
+%   belowskip=3mm,
+%   showstringspaces=false,
+%   columns=flexible,
+%   basicstyle={\small\ttfamily},
+%   numbers=none,
+%   numberstyle=\tiny\color{gray},
+%   keywordstyle=\color{blue},
+%   commentstyle=\color{dkgreen},
+%   stringstyle=\color{mauve},
+%   breaklines=true,
+%   breakatwhitespace=true
+%   tabsize=3
+% }
+
+
+
+
+% Setze arial font
+\renewcommand*{\familydefault}{\sfdefault}
+
+% FH-grünBlau
+\definecolor{FH}{rgb}{0.10, 0.57, 0.68}
+
+
+% nicht einrücken nach Absatz
+\setlength{\parindent}{0pt}
+
+
+% ============= Kopf- und Fußzeile =============
+\pagestyle{fancy}
+%
+\lhead{}
+\chead{}
+\rhead{\slshape \leftmark}
+%%
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
+%%
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ============= Package Einstellungen & Sonstiges ============= 
+
+%Besondere Trennungen
+\hyphenation{De-zi-mal-tren-nung St-rei-fen-licht-scan-nern}
+
+%römische Aufzählungen mit \RM{Zahl}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+
+
+% ============= Dokumentbeginn =============
+
+\begin{document}
+
+\pagestyle{empty}
+\include{01_titel}
+
+% \part im Inhaltsverzeichnis nicht nummerieren
+\makeatletter
+\let\partbackup\l@part
+\renewcommand*\l@part[2]{\partbackup{#1}{}}
+
+%Seitennummerierung neu beginnen, Zahlen [arabic], röm.Zahlen [roman,Roman], Buchstaben [alph,Alph]
+\pagenumbering{Roman}
+
+% \newpage
+
+% \include{02_Erklaerung}
+% \newpage
+% \include{03_zusammenfassung}
+
+\newpage
+\pagestyle{fancy}
+%Inhaltsverzeichnis
+\tableofcontents
+
+\newpage
+%Seitennummerierung neu beginnen, Zahlen [arabic], röm.Zahlen [roman,Roman], Buchstaben [alph,Alph]
+\pagenumbering{arabic}
+
+% pagestyle für gesamtes Dokument aktivieren
+\pagestyle{fancy}
+
+\newpage
+\include{05_Filters}
+
+% \include{05_method}
+
+% \include{06_standdertechnik}
+
+% \include{07_methoden}
+
+% \include{08_ergebnisse}
+
+% \include{09_diskussion}
+
+%Verzeichnis aller Bilder
+\newpage
+\listoffigures
+
+%Literaturverzeichnis
+\newpage
+% unsrtdin
+\bibliographystyle{apalike}
+%\bibliography{BAKK2.bib}
+\bibliography{BAKKlibrary2}
+\end{document}

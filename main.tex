@@ -1,0 +1,283 @@
+%Dokumentklasse
+\documentclass[a4paper,11pt]{scrreprt}
+\usepackage[left= 3.5cm,right = 3cm, bottom = 3.5 cm, top = 3 cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+% ============= Packages =============
+
+% \usepackage{silence}
+% \WarningFilter[pdftoc]{hyperref}{Token not allowed in a PDF string}
+
+% Dokumentinformationen
+\usepackage[
+	pdftitle={EPRO UEBUNG},
+	pdfsubject={},
+	pdfauthor={Patrik Lechner},
+	pdfkeywords={}
+	pdftex=true, 
+	colorlinks=true,
+ 	breaklinks=true,
+	citecolor=black,
+	linkcolor=black,	
+	menucolor=black,	
+	urlcolor=black
+]{hyperref}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=black,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=black           % color of external links
+}
+
+% Standard Packages
+\usepackage[utf8]{inputenc}
+
+% deutsch
+% \usepackage[ngerman]{babel}
+% \usepackage[ngerman, num]{isodate}
+
+% english
+\usepackage[english]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphicx, subfigure}
+%setze pfad fuer Bilder
+\graphicspath{{img/}}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{transparent}
+
+
+% Citation style
+\usepackage[comma,authoryear]{natbib}
+%\usepackage{natbib}
+
+% zusätzliche Schriftzeichen der American Mathematical Society
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+
+% BlockDiagram Drawing Package
+% ---tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepackage{textcomp}
+
+
+%Package for using the [H] option on graphics to force them into place
+\usepackage{float}
+
+% \usepackage{framed}
+
+%iPython packages:
+\usepackage{graphicx} % Used to insert images
+\usepackage{adjustbox} % Used to constrain images to a maximum size 
+\usepackage{color} % Allow colors to be defined
+\usepackage{enumerate} % Needed for markdown enumerations to work
+\usepackage{geometry} % Used to adjust the document margins
+\usepackage{amsmath} % Equations
+\usepackage{amssymb} % Equations
+% \usepackage{mathrsfs}
+\usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+% \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+\usepackage{fancyvrb} % verbatim replacement that allows latex
+\usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+\usepackage{hyperref}
+\usepackage{longtable} % longtable support required by pandoc >1.10
+
+
+% embedding of audio/video files etc.
+% \usepackage{attachfile}
+% \usepackage{movie15}
+% \usepackage{media9}
+% \usepackage{menukeys}
+
+
+% =============== BlockDiagram Drawing Config
+\usetikzlibrary{shapes,arrows}
+
+
+% Definition of blocks:
+\tikzset{%
+  block/.style    = {draw, thick, rectangle, minimum height = 3em,
+    minimum width = 3em},
+  sum/.style      = {draw, circle, node distance = 2cm}, % Adder
+  input/.style    = {coordinate}, % Input
+  output/.style   = {coordinate}, % Output
+  mult/.style	  = {draw, isosceles triangle, minimum height=1cm, minimum width =1cm}
+}
+%mult/.style	  = {isosceles triangle, sharp corners, anchor=center, xshift=-4mm, minimum height=1.5cm, minimum width =0.05cm}
+%isosceles triangle, fill=gray!25, minimum width=1.5cm
+
+% Defining string as labels of certain blocks.
+\newcommand{\suma}{\Large$+$}
+\newcommand{\inte}{$\displaystyle \int$}
+\newcommand{\derv}{\huge$\frac{d}{dt}$}
+\newcommand{\conv}{\huge$\ast$}
+
+% ============================================
+
+% -- Settings für Code abbildungen
+% \usepackage{listings}
+
+% \definecolor{dkgreen}{rgb}{0,0.6,0}
+% \definecolor{gray}{rgb}{0.5,0.5,0.5}
+% \definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% \lstset{frame=tb,
+%   language=Java,
+%   aboveskip=3mm,
+%   belowskip=3mm,
+%   showstringspaces=false,
+%   columns=flexible,
+%   basicstyle={\small\ttfamily},
+%   numbers=none,
+%   numberstyle=\tiny\color{gray},
+%   keywordstyle=\color{blue},
+%   commentstyle=\color{dkgreen},
+%   stringstyle=\color{mauve},
+%   breaklines=true,
+%   breakatwhitespace=true
+%   tabsize=3
+% }
+
+
+
+
+% Setze arial font
+% \renewcommand*{\familydefault}{\sfdefault}
+
+% FH-grünBlau
+\definecolor{FH}{rgb}{0.10, 0.57, 0.68}
+
+
+% nicht einrücken nach Absatz
+\setlength{\parindent}{0pt}
+
+
+% ============= Kopf- und Fußzeile =============
+\pagestyle{fancy}
+%
+\lhead{}
+\chead{}
+\rhead{\slshape \leftmark}
+%%
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
+%%
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ============= Remove first Page======
+
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+%======================================
+
+
+% ============= Package Einstellungen & Sonstiges ============= 
+
+%Besondere Trennungen
+\hyphenation{De-zi-mal-tren-nung St-rei-fen-licht-scan-nern}
+
+%römische Aufzählungen mit \RM{Zahl}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+
+
+% ============= Dokumentbeginn =============
+
+\begin{document}
+
+
+\include{01_titel}
+
+% \part im Inhaltsverzeichnis nicht nummerieren
+\makeatletter
+\let\partbackup\l@part
+\renewcommand*\l@part[2]{\partbackup{#1}{}}
+
+% Chapter number reset at new part.
+\@addtoreset{chapter}{part}
+
+%Seitennummerierung neu beginnen, Zahlen [arabic], röm.Zahlen [roman,Roman], Buchstaben [alph,Alph]
+\pagenumbering{Roman}
+
+% \newpage
+% 
+% \include{02_Erklaerung}
+% \newpage
+% \include{03_zusammenfassung}
+
+\newpage
+\include{01_titel}
+\include{introduction}
+
+\newpage
+\pagestyle{fancy}
+%Inhaltsverzeichnis
+\tableofcontents
+
+\newpage
+%Seitennummerierung neu beginnen, Zahlen [arabic], röm.Zahlen [roman,Roman], Buchstaben [alph,Alph]
+\pagenumbering{arabic}
+
+% pagestyle für gesamtes Dokument aktivieren
+\pagestyle{fancy}
+
+
+\newpage
+% ---------SEMESTER3----------
+\part{Semester 3} % (fold)
+\label{prt:semester3}
+
+\include{waveshaping}
+\include{modulation}
+\include{05_filters}
+\include{polyphony}
+\include{Karplus}
+\include{FFT}
+% ---------SEMESTER4----------
+\part{Semester 4} % (fold)
+\label{prt:semester4}
+
+\include{jit}
+
+% \begin{appendix}
+% \include{Pyext-class}
+% \include{quick_start}
+% \end{appendix}
+%Verzeichnis aller Bilder
+\newpage
+\listoffigures
+
+%Literaturverzeichnis
+\newpage
+% unsrtdin
+\bibliographystyle{apalike}
+%\bibliography{BAKK2.bib}
+\bibliography{BAKKlibrary6}
+\end{document}

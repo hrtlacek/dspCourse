@@ -1,0 +1,14 @@
+\begin{thebibliography}{}
+
+\bibitem[Cook, 2002]{cook_real_2002}
+Cook, P.~R. (2002).
+\newblock {\em Real sound synthesis for interactive applications}.
+\newblock A K Peters, Natick, Mass.
+
+\bibitem[Scholkmann et~al., 2012]{scholkmann_efficient_2012}
+Scholkmann, F., Boss, J., and Wolf, M. (2012).
+\newblock An efficient algorithm for automatic peak detection in noisy periodic
+  and quasi-periodic signals.
+\newblock {\em Algorithms}, 5(4):588--603.
+
+\end{thebibliography}
