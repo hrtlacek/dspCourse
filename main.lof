@@ -1,5 +1,5 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces caption}}{3}{figure.1.1.1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Lecture Contents}}{2}{figure.1.1.1}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Linear Transfer function}}{4}{figure.1.1.2}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces simpleSampler}}{6}{figure.1.1.3}
 \contentsline {figure}{\numberline {1.4}{\ignorespaces sound in Ram}}{6}{figure.1.1.4}
@@ -8,11 +8,12 @@
 \contentsline {figure}{\numberline {1.7}{\ignorespaces moreSamplimg.pd, a simplified version of granular sampling}}{9}{figure.1.1.7}
 \contentsline {figure}{\numberline {1.8}{\ignorespaces audioTester.pd, zu bauen als Haus\IeC {\"u}bung}}{10}{figure.1.1.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces naive Ring modulation}}{11}{figure.1.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces caption}}{12}{figure.1.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces The General Idea of FM}}{12}{figure.1.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Naive Implementation with Direct Parametrization.}}{13}{figure.1.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces FM with Index and Ratio}}{14}{figure.1.2.5}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Lecture Contents}}{11}{figure.1.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces naive Ring modulation}}{12}{figure.1.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces caption}}{12}{figure.1.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The General Idea of FM}}{13}{figure.1.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Naive Implementation with Direct Parametrization.}}{14}{figure.1.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces FM with Index and Ratio}}{15}{figure.1.2.6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Caravaggio, Narziss. ad Feedback: Echo liebt Narziss etc.}}{17}{figure.1.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Original Signal}}{19}{figure.1.3.2}
@@ -23,22 +24,18 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Der Patch 01\_combFilter.pd}}{25}{figure.1.3.7}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces movingAverage}}{26}{figure.1.3.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces metering techniques}}{30}{figure.1.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Simple Synth Voice, SynthVoice.pd}}{31}{figure.1.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Example Poly Host, patch 01\_polySynthHost.pd}}{32}{figure.1.4.3}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Visualisierung der Wellengleichung}}{30}{figure.1.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Basic setup}}{31}{figure.1.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces grunds\IeC {\"a}tzlches Waveguide/Karplus Strong Modell.}}{32}{figure.1.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces einzelne Saite, $G(z)$ ein lowpass, \glqq {}Loss Filter\grqq {}}}{32}{figure.1.4.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Visualisierung der Wellengleichung}}{34}{figure.1.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Basic setup}}{35}{figure.1.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces grunds\IeC {\"a}tzlches Waveguide/Karplus Strong Modell.}}{36}{figure.1.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces einzelne Saite, $G(z)$ ein lowpass, \glqq {}Loss Filter\grqq {}}}{36}{figure.1.5.4}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Lecture Contents}}{33}{figure.1.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces spectralFilter.pd}}{35}{figure.1.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces showspectrum}}{36}{figure.1.5.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces caption}}{38}{figure.1.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces spectralFilter.pd}}{39}{figure.1.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces showspectrum}}{40}{figure.1.6.3}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces How to look at a jitter matrix}}{43}{figure.2.1.1}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces hi Level Jitter}}{44}{figure.2.1.2}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces VizzieAudioModulated}}{45}{figure.2.1.3}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces basicGL}}{45}{figure.2.1.4}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces openGLAdvanced}}{46}{figure.2.1.5}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces specViz}}{46}{figure.2.1.6}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces How to look at a jitter matrix}}{39}{figure.2.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces hi Level Jitter}}{40}{figure.2.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces VizzieAudioModulated}}{41}{figure.2.1.3}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces basicGL}}{41}{figure.2.1.4}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces openGLAdvanced}}{42}{figure.2.1.5}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces specViz}}{42}{figure.2.1.6}

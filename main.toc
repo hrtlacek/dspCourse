@@ -1,12 +1,8 @@
-\contentsline {section}{\nonumberline Introduction/Notes}{II}{section*.1}
-\contentsline {section}{\nonumberline Form}{II}{section*.2}
-\contentsline {section}{\nonumberline Inverted Classroom}{II}{section*.3}
-\contentsline {section}{\nonumberline Sinnfrage d. Inhalts/unterrichts kl\IeC {\"a}ren}{II}{section*.4}
-\contentsline {section}{\nonumberline Unterscheidung: Tool lernen, technik/theorie lernen}{II}{section*.5}
+\contentsline {section}{\nonumberline Introduction}{II}{section*.1}
 \contentsline {part}{\numberline {I}Semester 3}{1}{part.1}
 \contentsline {chapter}{\numberline {1}Sampling, Waveshaping, und nicht Linearit\IeC {\"a}t}{2}{chapter.1.1}
 \contentsline {section}{\numberline {1.1}Notizen}{2}{section.1.1.1}
-\contentsline {section}{\numberline {1.2}Uebersicht}{2}{section.1.1.2}
+\contentsline {section}{\numberline {1.2}Uebersicht}{3}{section.1.1.2}
 \contentsline {section}{\numberline {1.3}Waveshaping}{3}{section.1.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Einfachster fall, linear transfer function.}{3}{subsection.1.1.3.1}
 \contentsline {subsection}{\numberline {1.3.2}Einfache nicht linearit\IeC {\"a}t: \(X ^2\)}{3}{subsection.1.1.3.2}
@@ -16,46 +12,34 @@
 \contentsline {subsection}{\numberline {1.5.2}Distortion}{10}{subsection.1.1.5.2}
 \contentsline {chapter}{\numberline {2}Modulation}{11}{chapter.1.2}
 \contentsline {section}{\numberline {2.1}Notizen}{11}{section.1.2.1}
-\contentsline {section}{\numberline {2.2}AM}{11}{section.1.2.2}
+\contentsline {section}{\numberline {2.2}AM}{12}{section.1.2.2}
 \contentsline {section}{\numberline {2.3}FM}{12}{section.1.2.3}
 \contentsline {section}{\numberline {2.4}Haus\IeC {\"u}bung}{15}{section.1.2.4}
 \contentsline {chapter}{\numberline {3}Filter}{16}{chapter.1.3}
 \contentsline {section}{\numberline {3.1}Notizen}{17}{section.1.3.1}
 \contentsline {section}{\numberline {3.2}einfuehrung}{18}{section.1.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Raetsel}{19}{subsection.1.3.2.1}
-\contentsline {subsubsection}{\nonumberline L\IeC {\"o}sung}{21}{section*.7}
+\contentsline {subsubsection}{\nonumberline L\IeC {\"o}sung}{21}{section*.3}
 \contentsline {section}{\numberline {3.3}kammfilter}{23}{section.1.3.3}
 \contentsline {section}{\numberline {3.4}Moving Average}{26}{section.1.3.4}
 \contentsline {section}{\numberline {3.5}convolution, Faltung}{27}{section.1.3.5}
 \contentsline {section}{\numberline {3.6}IIR/FIR}{27}{section.1.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Onepole}{28}{subsection.1.3.6.1}
 \contentsline {section}{\numberline {3.7}Haus\IeC {\"u}bung}{28}{section.1.3.7}
-\contentsline {chapter}{\numberline {4}Polyphonie/Message domain}{29}{chapter.1.4}
+\contentsline {chapter}{\numberline {4}Karplus}{29}{chapter.1.4}
 \contentsline {section}{\numberline {4.1}Notizen}{29}{section.1.4.1}
-\contentsline {section}{\numberline {4.2}Einf\IeC {\"u}hrung}{29}{section.1.4.2}
-\contentsline {section}{\numberline {4.3}HUE kontrolle}{29}{section.1.4.3}
-\contentsline {section}{\numberline {4.4}Filter wiederholen}{30}{section.1.4.4}
-\contentsline {section}{\numberline {4.5}Signale betrachten}{30}{section.1.4.5}
-\contentsline {section}{\numberline {4.6}Synth auffetten}{30}{section.1.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Polyphonie}{31}{subsection.1.4.6.1}
-\contentsline {section}{\numberline {4.7}Unison}{31}{section.1.4.7}
-\contentsline {section}{\numberline {4.8}Hall}{31}{section.1.4.8}
-\contentsline {section}{\numberline {4.9}Sequencer}{31}{section.1.4.9}
-\contentsline {section}{\numberline {4.10}drumpad/evenlope following}{31}{section.1.4.10}
-\contentsline {chapter}{\numberline {5}Karplus}{33}{chapter.1.5}
+\contentsline {section}{\numberline {4.2}Vorbereitung}{29}{section.1.4.2}
+\contentsline {section}{\numberline {4.3}Uebersicht}{29}{section.1.4.3}
+\contentsline {section}{\numberline {4.4}Theorie, Schwingungsf\IeC {\"a}hige systeme}{29}{section.1.4.4}
+\contentsline {section}{\numberline {4.5}Parktical Karplus-Strong}{30}{section.1.4.5}
+\contentsline {section}{\numberline {4.6}Schul\IeC {\"u}bung, Sounddesign challenge}{30}{section.1.4.6}
+\contentsline {section}{\numberline {4.7}Hausuebung}{31}{section.1.4.7}
+\contentsline {chapter}{\numberline {5}FFT}{33}{chapter.1.5}
 \contentsline {section}{\numberline {5.1}Notizen}{33}{section.1.5.1}
-\contentsline {section}{\numberline {5.2}Vorbereitung}{33}{section.1.5.2}
-\contentsline {section}{\numberline {5.3}Uebersicht}{33}{section.1.5.3}
-\contentsline {section}{\numberline {5.4}Theorie, Schwingungsf\IeC {\"a}hige systeme}{33}{section.1.5.4}
-\contentsline {section}{\numberline {5.5}Parktical Karplus-Strong}{34}{section.1.5.5}
-\contentsline {section}{\numberline {5.6}Schul\IeC {\"u}bung, Sounddesign challenge}{34}{section.1.5.6}
-\contentsline {section}{\numberline {5.7}Hausuebung}{35}{section.1.5.7}
-\contentsline {chapter}{\numberline {6}FFT}{37}{chapter.1.6}
-\contentsline {section}{\numberline {6.1}Notizen}{37}{section.1.6.1}
-\contentsline {section}{\numberline {6.2}Fourier Transformation}{37}{section.1.6.2}
-\contentsline {part}{\numberline {II}Semester 4}{41}{part.2}
-\contentsline {chapter}{\numberline {1}Jitter}{42}{chapter.2.1}
-\contentsline {section}{\numberline {1.1}Notizen}{42}{section.2.1.1}
-\contentsline {section}{\numberline {1.2}\IeC {\"U}berblick}{42}{section.2.1.2}
-\contentsline {section}{\numberline {1.3}Andere Software Pakete f\IeC {\"u}r visuelle Echtzeit Arbeit}{42}{section.2.1.3}
-\contentsline {section}{\numberline {1.4}Introduction}{43}{section.2.1.4}
+\contentsline {section}{\numberline {5.2}Fourier Transformation}{34}{section.1.5.2}
+\contentsline {part}{\numberline {II}Semester 4}{37}{part.2}
+\contentsline {chapter}{\numberline {1}Jitter}{38}{chapter.2.1}
+\contentsline {section}{\numberline {1.1}Notizen}{38}{section.2.1.1}
+\contentsline {section}{\numberline {1.2}\IeC {\"U}berblick}{38}{section.2.1.2}
+\contentsline {section}{\numberline {1.3}Andere Software Pakete f\IeC {\"u}r visuelle Echtzeit Arbeit}{38}{section.2.1.3}
+\contentsline {section}{\numberline {1.4}Introduction}{39}{section.2.1.4}

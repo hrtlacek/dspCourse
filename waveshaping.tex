@@ -1,5 +1,35 @@
 \chapter{Sampling, Waveshaping, und nicht Linearität}
 \label{Waveshaping}
+
+\begin{center}
+\begin{figure}[h!]
+\tikzset{concept/.append style={fill={none}}}
+\begin{tikzpicture}
+  \path[mindmap,concept color=black,text=black]
+    node[concept] {Sampling}
+    [clockwise from=0]
+    child[concept color=green!50!black] {
+      node[concept] {recording}
+      }
+    %   [clockwise from=90]
+    %   child { node[concept] {algorithms} }
+    %   child { node[concept] {data structures} }
+    %   child { node[concept] {pro\-gramming languages} }
+    %   child { node[concept] {software engineer\-ing} }
+    % }  
+    child[concept color=blue] {
+      node[concept] {in RAM vs. from Disk}
+      [clockwise from=-30]
+    }
+    child[concept color=red] { node[concept] {granular} }
+    child[concept color=orange] { node[concept] {Waveshaping and Distortion} };
+\end{tikzpicture}
+\caption{Lecture Contents}
+\end{figure}
+\end{center}
+
+
+
 \section{Notizen}
 
 Waveshaping generell.
@@ -50,17 +80,6 @@ Zunächst: Sampling, dann lineare transfer function.
 \section{Waveshaping}
 Wikipedia zitat, seite wavesahper:\\
 \glqq{}The mathematics of non-linear operations on audio signals is difficult, and not well understood.\grqq{}
-
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width = 14cm]{img/wu.png}
-		
-		\caption{caption}
-		\label{fig:name}
-	\end{center}
-\end{figure}
-
 
 
 

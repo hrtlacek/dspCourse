@@ -28,7 +28,6 @@
 				"*.atfi",
 				"*.xml"
 			],
-			"follow_symlinks": true,
 			"path": "."
 		}
 	]

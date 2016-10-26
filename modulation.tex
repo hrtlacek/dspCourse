@@ -1,6 +1,43 @@
 \chapter{Modulation}
 \label{Modulation}
 
+
+\begin{center}
+\begin{figure}[h!]
+\tikzset{concept/.append style={fill={none}}}
+\begin{tikzpicture}
+  \path[mindmap,concept color=black,text=black]
+    node[concept] {Modulation}
+    [clockwise from=0]
+    child[concept color=green!50!black] {
+      node[concept] {AM}
+      % }
+      [clockwise from=90]
+      child { node[concept] {AM} }
+      child { node[concept] {Ring Modulation} }
+      % child { node[concept] {pro\-gramming languages} }
+      % child { node[concept] {software engineer\-ing} }
+    }  
+    child[concept color=blue] {
+      node[concept] (fm) {FM} 
+      [clockwise from=-30]
+    }
+    child[concept color=red] { node[concept] (pm){Phase Modulation} }
+    child[concept color=orange] { node[concept] (sd) {Sound design Challenge} };
+
+
+\begin{pgfonlayer}{background}
+    \draw [circle connection bar]
+      (fm) edge (sd)
+      (fm) edge (pm);
+  \end{pgfonlayer}
+
+\end{tikzpicture}
+\caption{Lecture Contents}
+\end{figure}
+\end{center}
+
+
 \section{Notizen}
 
 kürzer. Modulation als sub einheit einplanen.
@@ -25,6 +62,8 @@ FM, vibrato
 sounddesign chall.
 
 Hü
+
+
 
 
 \section{AM} % (fold)
