@@ -16,10 +16,10 @@ A level-1 auxiliary file: Karplus.aux
 A level-1 auxiliary file: FFT.aux
 A level-1 auxiliary file: jit.aux
 The style file: apalike.bst
-Database file #1: BAKKlibrary6.bib
+Database file #1: eproLib.bib
 You've used 1 entry,
             1935 wiz_defined-function locations,
-            486 strings with 3861 characters,
+            486 strings with 3856 characters,
 and the built_in function-call counts, 296 in all, are:
 = -- 26
 > -- 7
