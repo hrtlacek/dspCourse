@@ -8,21 +8,31 @@
   \path[mindmap,concept color=black,text=black]
     node[concept] {Sampling}
     [clockwise from=0]
-    child[concept color=green!50!black] {
-      node[concept] {recording}
-      }
+    child[concept color=red!50!black] {node[concept] (rec) {recording} }
+    child[concept color=green!80!black] {node[concept] (pla) {playback} }
     %   [clockwise from=90]
     %   child { node[concept] {algorithms} }
     %   child { node[concept] {data structures} }
     %   child { node[concept] {pro\-gramming languages} }
     %   child { node[concept] {software engineer\-ing} }
     % }  
-    child[concept color=blue] {
-      node[concept] {in RAM vs. from Disk}
-      [clockwise from=-30]
-    }
-    child[concept color=red] { node[concept] {granular} }
+    child[concept color=blue] { node[concept] (ram) {in RAM vs. from Disk}[clockwise from=-30]}
+    child[concept color=red] { node[concept] (gra) {granular} }
     child[concept color=orange] { node[concept] {Waveshaping and Distortion} };
+
+
+
+\begin{pgfonlayer}{background}
+	% \draw [draw=green,fill=black, decorate,decoration=circle connection bar]
+    \draw [circle connection bar]
+    % \path (rec) to[circle connection bar] (pla)
+      (rec) edge (pla)
+      (gra) edge (pla)
+      (ram) edge (pla)
+      ;
+  \end{pgfonlayer}
+
+
 \end{tikzpicture}
 \caption{Lecture Contents}
 \end{figure}

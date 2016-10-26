@@ -496,6 +496,10 @@ INPUT /root/Projects/FH/eproPublic/img/audioTester.png
 OUTPUT /root/Projects/FH/eproPublic/modulation.aux
 INPUT /root/Projects/FH/eproPublic/modulation.tex
 INPUT /root/Projects/FH/eproPublic/modulation.tex
+INPUT /root/Projects/FH/eproPublic/img/surface-modulation_3.jpg
+INPUT /root/Projects/FH/eproPublic/img/surface-modulation_3.jpg
+INPUT /root/Projects/FH/eproPublic/img/surface-modulation_3.jpg
+INPUT /root/Projects/FH/eproPublic/img/surface-modulation_3.jpg
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr9.tfm
 INPUT /root/Projects/FH/eproPublic/img/ringNaive.png
 INPUT /root/Projects/FH/eproPublic/img/ringNaive.png
@@ -556,6 +560,10 @@ OUTPUT /root/Projects/FH/eproPublic/polyphony.aux
 OUTPUT /root/Projects/FH/eproPublic/Karplus.aux
 INPUT /root/Projects/FH/eproPublic/Karplus.tex
 INPUT /root/Projects/FH/eproPublic/Karplus.tex
+INPUT /root/Projects/FH/eproPublic/img/strohgeige.jpg
+INPUT /root/Projects/FH/eproPublic/img/strohgeige.jpg
+INPUT /root/Projects/FH/eproPublic/img/strohgeige.jpg
+INPUT /root/Projects/FH/eproPublic/img/strohgeige.jpg
 INPUT /root/Projects/FH/eproPublic/img/wellengleichung.png
 INPUT /root/Projects/FH/eproPublic/img/wellengleichung.png
 INPUT /root/Projects/FH/eproPublic/img/wellengleichung.png

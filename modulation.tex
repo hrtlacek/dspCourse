@@ -2,6 +2,15 @@
 \label{Modulation}
 
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{img/surface-modulation_3.jpg}
+		\caption{``Surface Modulation'' by Richard Sweeney}
+		\label{fig:Surface Modulation}
+	\end{center}
+\end{figure}
+
+
 \begin{center}
 \begin{figure}[h!]
 \tikzset{concept/.append style={fill={none}}}
@@ -9,10 +18,11 @@
   \path[mindmap,concept color=black,text=black]
     node[concept] {Modulation}
     [clockwise from=0]
-    child[concept color=green!50!black] {
+    child[concept color=red!50!black] {
       node[concept] {AM}
       % }
       [clockwise from=90]
+      child { node[concept] {Envelopes} }
       child { node[concept] {AM} }
       child { node[concept] {Ring Modulation} }
       % child { node[concept] {pro\-gramming languages} }

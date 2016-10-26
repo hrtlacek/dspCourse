@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.9.10)  27 OCT 2016 00:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.9.10)  27 OCT 2016 01:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1833,76 +1833,76 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1.1}
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.65 	\item Ã
-             ¼bersicht: fragen wies geht, wie ist es mit Max/MSP?]
-<img/waveShapingVisual.png, id=273, 378.41376pt x 337.26pt>
+l.58 m
+      iddle term! ( (a+b)**2 = a**2 +2ab +b**2 )]
+<img/waveShapingVisual.png, id=275, 378.41376pt x 337.26pt>
 File: img/waveShapingVisual.png Graphic file (type png)
 
 <use img/waveShapingVisual.png>
-Package pdftex.def Info: img/waveShapingVisual.png used on input line 95.
+Package pdftex.def Info: img/waveShapingVisual.png used on input line 105.
 (pdftex.def)             Requested size: 378.41283pt x 337.25917pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 101.
+(Font)              <12> on input line 111.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 101.
+(hyperref)                removing `math shift' on input line 111.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 101.
+(hyperref)                removing `superscript' on input line 111.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
 
-
-Overfull \hbox (14.09998pt too wide) in paragraph at lines 116--117
+[3]
+Overfull \hbox (14.09998pt too wide) in paragraph at lines 126--127
 [][] 
  []
 
-[3] [4pdfTeX warning (ext4): destination with the same identifier (name{figure.
-1.1.2}) has been already used, duplicate ignored
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1.
+2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.132 \begin{equation}
+l.134 \begin{equation}
                        </root/Projects/FH/eproPublic/img/waveShapingVisual.png>
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 168.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 178.
 
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<img/sampler.png, id=305, 157.58875pt x 185.69376pt>
+<img/sampler.png, id=303, 157.58875pt x 185.69376pt>
 File: img/sampler.png Graphic file (type png)
  <use img/sampler.png>
-Package pdftex.def Info: img/sampler.png used on input line 173.
+Package pdftex.def Info: img/sampler.png used on input line 183.
 (pdftex.def)             Requested size: 157.58835pt x 185.6933pt.
 
-[5] <img/soundFileToRam.png, id=319, 417.56pt x 201.75375pt>
+[5] <img/soundFileToRam.png, id=321, 417.56pt x 201.75375pt>
 File: img/soundFileToRam.png Graphic file (type png)
 
 <use img/soundFileToRam.png>
-Package pdftex.def Info: img/soundFileToRam.png used on input line 181.
+Package pdftex.def Info: img/soundFileToRam.png used on input line 191.
 (pdftex.def)             Requested size: 417.55896pt x 201.75325pt.
 
-Overfull \hbox (4.99399pt too wide) in paragraph at lines 181--182
+Overfull \hbox (4.99399pt too wide) in paragraph at lines 191--192
  [] 
  []
 
-<img/RamFilePlayback.png, id=320, 425.59pt x 461.725pt>
+<img/RamFilePlayback.png, id=322, 425.59pt x 461.725pt>
 File: img/RamFilePlayback.png Graphic file (type png)
 
 <use img/RamFilePlayback.png>
-Package pdftex.def Info: img/RamFilePlayback.png used on input line 190.
+Package pdftex.def Info: img/RamFilePlayback.png used on input line 200.
 (pdftex.def)             Requested size: 425.58894pt x 461.72388pt.
 
-Overfull \hbox (13.02397pt too wide) in paragraph at lines 190--191
+Overfull \hbox (13.02397pt too wide) in paragraph at lines 200--201
  [] 
  []
 
@@ -1911,35 +1911,35 @@ Overfull \hbox (13.02397pt too wide) in paragraph at lines 190--191
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.195 
+l.205 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 1.1.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.195 
+l.205 
        </root/Projects/FH/eproPublic/img/sampler.png> </root/Projects/FH/eproPu
 blic/img/soundFileToRam.png>]
-<img/writingAudio.png, id=327, 250.9375pt x 184.69pt>
+<img/writingAudio.png, id=329, 250.9375pt x 184.69pt>
 File: img/writingAudio.png Graphic file (type png)
 
 <use img/writingAudio.png>
-Package pdftex.def Info: img/writingAudio.png used on input line 200.
+Package pdftex.def Info: img/writingAudio.png used on input line 210.
 (pdftex.def)             Requested size: 398.33858pt x 293.2104pt.
  [7pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1
 .5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.205 
+l.215 
        </root/Projects/FH/eproPublic/img/RamFilePlayback.png>]
-<img/grain.png, id=333, 718.685pt x 869.2475pt>
+<img/grain.png, id=335, 718.685pt x 869.2475pt>
 File: img/grain.png Graphic file (type png)
  <use img/grain.png>
-Package pdftex.def Info: img/grain.png used on input line 209.
+Package pdftex.def Info: img/grain.png used on input line 219.
 (pdftex.def)             Requested size: 431.21432pt x 521.55252pt.
 
-Overfull \hbox (18.64935pt too wide) in paragraph at lines 209--210
+Overfull \hbox (18.64935pt too wide) in paragraph at lines 219--220
  [] 
  []
 
@@ -1948,9 +1948,9 @@ Overfull \hbox (18.64935pt too wide) in paragraph at lines 209--210
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.214 
+l.224 
        </root/Projects/FH/eproPublic/img/writingAudio.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
@@ -1959,19 +1959,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.222 	\item E
+l.232 	\item E
               in audio output </root/Projects/FH/eproPublic/img/grain.png>]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 222.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 232.
 
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<img/audioTester.png, id=345, 319.1925pt x 117.43875pt>
+<img/audioTester.png, id=347, 319.1925pt x 117.43875pt>
 File: img/audioTester.png Graphic file (type png)
 
 <use img/audioTester.png>
-Package pdftex.def Info: img/audioTester.png used on input line 237.
+Package pdftex.def Info: img/audioTester.png used on input line 247.
 (pdftex.def)             Requested size: 319.19171pt x 117.43845pt.
 ) [10pdfTeX warning (ext4): destination with the same identifier (name{figure.1
 .1.8}) has been already used, duplicate ignored
@@ -1984,22 +1984,25 @@ l.257 \include{waveshaping}
 
 (/root/Projects/FH/eproPublic/modulation.tex
 chapter 2.
+<img/surface-modulation_3.jpg, id=357, 642.4pt x 642.4pt>
+File: img/surface-modulation_3.jpg Graphic file (type jpg)
 
-Overfull \hbox (5.58751pt too wide) in paragraph at lines 35--36
+<use img/surface-modulation_3.jpg>
+Package pdftex.def Info: img/surface-modulation_3.jpg used on input line 7.
+(pdftex.def)             Requested size: 398.33858pt x 398.35251pt.
+
+Overfull \hbox (5.58751pt too wide) in paragraph at lines 45--46
 [][]
  []
 
 
-Overfull \hbox (35.16794pt too wide) in paragraph at lines 46--48
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (35.16794pt too wide) in paragraph at lines 56--58
 []\T1/lmr/m/n/10.95 Passt gar-nicht: (weil eher ad-di-tive synth) https://www.y
 outube.com/watch?v=oKv9S6mxnXE 
  []
-
-<img/ringNaive.png, id=356, 61.22874pt x 100.375pt>
-File: img/ringNaive.png Graphic file (type png)
- <use img/ringNaive.png>
-Package pdftex.def Info: img/ringNaive.png used on input line 77.
-(pdftex.def)             Requested size: 113.81102pt x 186.58067pt.
 
 [11
 
@@ -2010,59 +2013,72 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2.1}
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.81 \end{figure}
-                 ] <img/simpleEnv.png, id=363, 241.90375pt x 86.3225pt>
-File: img/simpleEnv.png Graphic file (type png)
+l.60 N
+      otation durchgehen. </root/Projects/FH/eproPublic/img/surface-modulation_
+3.jpg>] <img/ringNaive.png, id=364, 61.22874pt x 100.375pt>
+File: img/ringNaive.png Graphic file (type png)
 
-<use img/simpleEnv.png>
-Package pdftex.def Info: img/simpleEnv.png used on input line 86.
-(pdftex.def)             Requested size: 398.33858pt x 142.16118pt.
- <img/FMgeneral.png, id=364, 139.52126pt x 193.72375pt>
-File: img/FMgeneral.png Graphic file (type png)
-
-<use img/FMgeneral.png>
-Package pdftex.def Info: img/FMgeneral.png used on input line 106.
-(pdftex.def)             Requested size: 199.16928pt x 276.55284pt.
+<use img/ringNaive.png>
+Package pdftex.def Info: img/ringNaive.png used on input line 87.
+(pdftex.def)             Requested size: 113.81102pt x 186.58067pt.
  [12pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
 2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.111 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-1.2.3}) has been already used, duplicate ignored
+l.92 
+     ] <img/simpleEnv.png, id=371, 241.90375pt x 86.3225pt>
+File: img/simpleEnv.png Graphic file (type png)
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.111 
-       </root/Projects/FH/eproPublic/img/ringNaive.png> </root/Projects/FH/epro
-Public/img/simpleEnv.png>] <img/FMnaive.png, id=371, 229.85875pt x 291.0875pt>
-File: img/FMnaive.png Graphic file (type png)
+<use img/simpleEnv.png>
+Package pdftex.def Info: img/simpleEnv.png used on input line 96.
+(pdftex.def)             Requested size: 398.33858pt x 142.16118pt.
+ <img/FMgeneral.png, id=372, 139.52126pt x 193.72375pt>
+File: img/FMgeneral.png Graphic file (type png)
 
-<use img/FMnaive.png>
-Package pdftex.def Info: img/FMnaive.png used on input line 116.
-(pdftex.def)             Requested size: 284.52756pt x 360.3407pt.
+<use img/FMgeneral.png>
+Package pdftex.def Info: img/FMgeneral.png used on input line 116.
+(pdftex.def)             Requested size: 199.16928pt x 276.55284pt.
  [13pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
-2.4}) has been already used, duplicate ignored
+2.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.121 
-       </root/Projects/FH/eproPublic/img/FMgeneral.png>]
-<img/FMcorrect.png, id=378, 311.1625pt x 414.54875pt>
-File: img/FMcorrect.png Graphic file (type png)
- <use img/FMcorrect.png>
-Package pdftex.def Info: img/FMcorrect.png used on input line 144.
-(pdftex.def)             Requested size: 398.33858pt x 530.69649pt.
-
-[14pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2
-.5}) has been already used, duplicate ignored
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+1.2.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.149 
-       </root/Projects/FH/eproPublic/img/FMnaive.png>]) [15pdfTeX warning (ext4
-): destination with the same identifier (name{figure.1.2.6}) has been already u
+l.121 
+       </root/Projects/FH/eproPublic/img/ringNaive.png> </root/Projects/FH/epro
+Public/img/simpleEnv.png>] <img/FMnaive.png, id=379, 229.85875pt x 291.0875pt>
+File: img/FMnaive.png Graphic file (type png)
+
+<use img/FMnaive.png>
+Package pdftex.def Info: img/FMnaive.png used on input line 126.
+(pdftex.def)             Requested size: 284.52756pt x 360.3407pt.
+ [14pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
+2.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.131 
+       </root/Projects/FH/eproPublic/img/FMgeneral.png>]
+<img/FMcorrect.png, id=386, 311.1625pt x 414.54875pt>
+File: img/FMcorrect.png Graphic file (type png)
+ <use img/FMcorrect.png>
+Package pdftex.def Info: img/FMcorrect.png used on input line 154.
+(pdftex.def)             Requested size: 398.33858pt x 530.69649pt.
+
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2
+.6}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.159 
+       </root/Projects/FH/eproPublic/img/FMnaive.png>]) [16pdfTeX warning (ext4
+): destination with the same identifier (name{figure.1.2.7}) has been already u
 sed, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2074,17 +2090,17 @@ l.258 \include{modulation}
 
 (/root/Projects/FH/eproPublic/05_filters.tex
 chapter 3.
-<img/Narciss_Caravaggio.jpg, id=395, 1523.6925pt x 1847.40187pt>
+<img/Narciss_Caravaggio.jpg, id=403, 1523.6925pt x 1847.40187pt>
 File: img/Narciss_Caravaggio.jpg Graphic file (type jpg)
 
 <use img/Narciss_Caravaggio.jpg>
 Package pdftex.def Info: img/Narciss_Caravaggio.jpg used on input line 8.
 (pdftex.def)             Requested size: 398.33858pt x 482.96294pt.
- [16
+ [17
 
 
 
-] [17pdfTeX warning (ext4): destination with the same identifier (name{figure.1
+] [18pdfTeX warning (ext4): destination with the same identifier (name{figure.1
 .3.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2116,7 +2132,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--84
 
  []
 
-[18]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 90--92
 
  []
@@ -2126,33 +2142,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
-<raetsel_original.png, id=416, 512.91624pt x 235.88126pt>
+<raetsel_original.png, id=424, 512.91624pt x 235.88126pt>
 File: raetsel_original.png Graphic file (type png)
 
 <use raetsel_original.png>
 Package pdftex.def Info: raetsel_original.png used on input line 108.
 (pdftex.def)             Requested size: 398.33858pt x 183.1912pt.
 
-<raetsel_highpass.png, id=419, 517.935pt x 225.84375pt>
+<raetsel_highpass.png, id=427, 517.935pt x 225.84375pt>
 File: raetsel_highpass.png Graphic file (type png)
 
 <use raetsel_highpass.png>
 Package pdftex.def Info: raetsel_highpass.png used on input line 118.
 (pdftex.def)             Requested size: 398.33858pt x 173.70033pt.
- [19pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
+ [20pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
 3.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.123 
        </root/Projects/FH/eproPublic/raetsel_original.png>]
-<raetsel_lowpass.png, id=432, 518.93875pt x 227.85126pt>
+<raetsel_lowpass.png, id=440, 518.93875pt x 227.85126pt>
 File: raetsel_lowpass.png Graphic file (type png)
 
 <use raetsel_lowpass.png>
 Package pdftex.def Info: raetsel_lowpass.png used on input line 129.
 (pdftex.def)             Requested size: 398.33858pt x 174.9071pt.
- [20pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
+ [21pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
 3.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2165,7 +2181,7 @@ l.135 \newpage
                                                   \fi \fi 
 l.135 \newpage
                </root/Projects/FH/eproPublic/raetsel_highpass.png> </root/Proje
-cts/FH/eproPublic/raetsel_lowpass.png>] [21]
+cts/FH/eproPublic/raetsel_lowpass.png>] [22]
 Underfull \hbox (badness 10000) in paragraph at lines 150--154
 
  []
@@ -2181,7 +2197,7 @@ Overfull \hbox (41.52356pt too wide) in paragraph at lines 163--167
 mis-ch-pult ausmessen, db-max ausmessen(fragwürdige
  []
 
-[22]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
@@ -2206,7 +2222,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--208
 
  []
 
-<simpleDelay.png, id=454, 512.91624pt x 215.80624pt>
+<simpleDelay.png, id=462, 512.91624pt x 215.80624pt>
 File: simpleDelay.png Graphic file (type png)
  <use simpleDelay.png>
 Package pdftex.def Info: simpleDelay.png used on input line 216.
@@ -2221,7 +2237,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--227
 
  []
 
-<generalizedEffect.png, id=455, 893.3375pt x 570.13pt>
+<generalizedEffect.png, id=463, 893.3375pt x 570.13pt>
 File: generalizedEffect.png Graphic file (type png)
 
 <use generalizedEffect.png>
@@ -2236,14 +2252,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--241
 
  []
 
-[23pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
+[24pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
 .5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.241 
        </root/Projects/FH/eproPublic/simpleDelay.png>]
-<img/combFIR_patch.png, id=461, 1017.8025pt x 588.1975pt>
+<img/combFIR_patch.png, id=469, 1017.8025pt x 588.1975pt>
 File: img/combFIR_patch.png Graphic file (type png)
 
 <use img/combFIR_patch.png>
@@ -2264,7 +2280,7 @@ Overfull \hbox (10.9777pt too wide) in paragraph at lines 264--265
 r events nachvol-lziehbar. Nachteil:
  []
 
-[24pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
+[25pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
 .6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2277,7 +2293,7 @@ Overfull \hbox (14.21208pt too wide) in paragraph at lines 268--269
 n, fre-quency re-sponse(magnitude
  []
 
-[25pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
+[26pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
 .7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2288,13 +2304,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 290--291
 
  []
 
-<movingAverage.png, id=472, 994.71625pt x 560.0925pt>
+<movingAverage.png, id=480, 994.71625pt x 560.0925pt>
 File: movingAverage.png Graphic file (type png)
  <use movingAverage.png>
 Package pdftex.def Info: movingAverage.png used on input line 297.
 (pdftex.def)             Requested size: 398.33858pt x 224.28941pt.
 
-[26pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
+[27pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3
 .8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2320,7 +2336,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 352--353
 
  []
 
-[27]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 367--368
 
  []
@@ -2335,7 +2351,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 373--375
 
  []
 
-) [28]
+) [29]
 \openout2 = `polyphony.aux'.
 
 
@@ -2344,58 +2360,70 @@ No file polyphony.tex.
 
 (/root/Projects/FH/eproPublic/Karplus.tex
 chapter 4.
-<img/wellengleichung.png, id=494, 562.1pt x 422.57875pt>
+<img/strohgeige.jpg, id=502, 2055.68pt x 1541.76pt>
+File: img/strohgeige.jpg Graphic file (type jpg)
+ <use img/strohgeige.jpg>
+Package pdftex.def Info: img/strohgeige.jpg used on input line 8.
+(pdftex.def)             Requested size: 398.33858pt x 298.7482pt.
+
+[30
+
+
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4.1}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.35 \section
+             {Vorbereitung} </root/Projects/FH/eproPublic/img/strohgeige.jpg>]
+<img/wellengleichung.png, id=508, 562.1pt x 422.57875pt>
 File: img/wellengleichung.png Graphic file (type png)
 
 <use img/wellengleichung.png>
-Package pdftex.def Info: img/wellengleichung.png used on input line 58.
+Package pdftex.def Info: img/wellengleichung.png used on input line 70.
 (pdftex.def)             Requested size: 398.33858pt x 299.46558pt.
- [29
-
-
-
-
-
-]
-<img/karplusSimple.png, id=504, 210.7875pt x 293.095pt>
+ [31]
+<img/karplusSimple.png, id=518, 210.7875pt x 293.095pt>
 File: img/karplusSimple.png Graphic file (type png)
 
 <use img/karplusSimple.png>
-Package pdftex.def Info: img/karplusSimple.png used on input line 83.
+Package pdftex.def Info: img/karplusSimple.png used on input line 95.
 (pdftex.def)             Requested size: 210.78699pt x 293.09427pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 97.
+(Font)              <14.4> on input line 109.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 97.
+(Font)              <10> on input line 109.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 97.
-[30pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4
-.1}) has been already used, duplicate ignored
+(Font)              <7> on input line 109.
+[32pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4
+.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.143 	\item b
-              eliebiges Physikalisches object </root/Projects/FH/eproPublic/img
-/wellengleichung.png (PNG copy)>]) [31pdfTeX warning (ext4): destination with t
-he same identifier (name{figure.1.4.2}) has been already used, duplicate ignore
-d
+l.157 \end{itemize}
+                    </root/Projects/FH/eproPublic/img/wellengleichung.png (PNG 
+copy)>]) [33pdfTeX warning (ext4): destination with the same identifier (name{f
+igure.1.4.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.261 \include{Karplus}
                         </root/Projects/FH/eproPublic/img/karplusSimple.png>]
-[32pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4
-.3}) has been already used, duplicate ignored
+[34pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4
+.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.261 \include{Karplus}
                        pdfTeX warning (ext4): destination with the same identif
-ier (name{figure.1.4.4}) has been already used, duplicate ignored
+ier (name{figure.1.4.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -2425,7 +2453,7 @@ Overfull \hbox (4.41644pt too wide) in paragraph at lines 32--32
  [][][][]\T1/lmr/m/n/6 random 
  []
 
-[33
+[35
 
 
 
@@ -2436,7 +2464,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5.1}
                                                   \fi \fi 
 l.60 	\item s
              end / receive, send / receive bei gui objekten.]
-<img/spectralFilter.png, id=541, 682.55pt x 479.7925pt>
+<img/spectralFilter.png, id=557, 682.55pt x 479.7925pt>
 File: img/spectralFilter.png Graphic file (type png)
 
 <use img/spectralFilter.png>
@@ -2446,7 +2474,7 @@ Package pdftex.def Info: img/spectralFilter.png used on input line 112.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/showspectrum.png, id=542, 629.35126pt x 487.8225pt>
+<img/showspectrum.png, id=558, 629.35126pt x 487.8225pt>
 File: img/showspectrum.png Graphic file (type png)
 
 <use img/showspectrum.png>
@@ -2456,14 +2484,14 @@ Package pdftex.def Info: img/showspectrum.png used on input line 120.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [34] [35pdfTeX warning (ext4): destination with the same identifier (name{fig
+) [36] [37pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.1.5.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.262 \include{FFT}
                     </root/Projects/FH/eproPublic/img/spectralFilter.png>]
-[36pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5
+[38pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5
 .3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2474,7 +2502,7 @@ part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
 (scrkbase)              on input line 264.
-[37
+[39
 
 
 ]
@@ -2482,17 +2510,17 @@ Package scrkbase Info: You've told me to use the font selection of the element
 
  (/root/Projects/FH/eproPublic/jit.tex
 chapter 1.
-[38
+[40
 
 
-] <img/lookAtMatrix.png, id=569, 992.70876pt x 510.90875pt>
+] <img/lookAtMatrix.png, id=586, 992.70876pt x 510.90875pt>
 File: img/lookAtMatrix.png Graphic file (type png)
 
 <use img/lookAtMatrix.png>
 Package pdftex.def Info: img/lookAtMatrix.png used on input line 47.
 (pdftex.def)             Requested size: 398.33858pt x 205.00693pt.
 
-<img/hiLevelJitter.png, id=570, 662.475pt x 550.055pt>
+<img/hiLevelJitter.png, id=587, 662.475pt x 550.055pt>
 File: img/hiLevelJitter.png Graphic file (type png)
 
 <use img/hiLevelJitter.png>
@@ -2502,7 +2530,7 @@ Package pdftex.def Info: img/hiLevelJitter.png used on input line 55.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/VizzieAudioModulated.png, id=571, 602.25pt x 434.62375pt>
+<img/VizzieAudioModulated.png, id=588, 602.25pt x 434.62375pt>
 File: img/VizzieAudioModulated.png Graphic file (type png)
 
 <use img/VizzieAudioModulated.png>
@@ -2512,7 +2540,7 @@ Package pdftex.def Info: img/VizzieAudioModulated.png used on input line 63.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/basicGL.png, id=572, 481.8pt x 284.06125pt>
+<img/basicGL.png, id=589, 481.8pt x 284.06125pt>
 File: img/basicGL.png Graphic file (type png)
  <use img/basicGL.png>
 Package pdftex.def Info: img/basicGL.png used on input line 71.
@@ -2521,7 +2549,7 @@ Package pdftex.def Info: img/basicGL.png used on input line 71.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/openGLAdvanced.png, id=573, 973.6375pt x 513.92pt>
+<img/openGLAdvanced.png, id=590, 973.6375pt x 513.92pt>
 File: img/openGLAdvanced.png Graphic file (type png)
 
 <use img/openGLAdvanced.png>
@@ -2531,7 +2559,7 @@ Package pdftex.def Info: img/openGLAdvanced.png used on input line 80.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/specViz.png, id=574, 909.3975pt x 683.55376pt>
+<img/specViz.png, id=591, 909.3975pt x 683.55376pt>
 File: img/specViz.png Graphic file (type png)
  <use img/specViz.png>
 Package pdftex.def Info: img/specViz.png used on input line 89.
@@ -2540,21 +2568,21 @@ Package pdftex.def Info: img/specViz.png used on input line 89.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [39pdfTeX warning (ext4): destination with the same identifier (name{figure.2
+) [41pdfTeX warning (ext4): destination with the same identifier (name{figure.2
 .1.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.267 \include{jit}
                     </root/Projects/FH/eproPublic/img/lookAtMatrix.png>]
-[40pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
+[42pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 .2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.267 \include{jit}
                     </root/Projects/FH/eproPublic/img/hiLevelJitter.png>]
-[41pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
+[43pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 .3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2567,7 +2595,7 @@ l.267 \include{jit}
                                                   \fi \fi 
 l.267 \include{jit}
                     </root/Projects/FH/eproPublic/img/VizzieAudioModulated.png>
- </root/Projects/FH/eproPublic/img/basicGL.png>] [42pdfTeX warning (ext4): dest
+ </root/Projects/FH/eproPublic/img/basicGL.png>] [44pdfTeX warning (ext4): dest
 ination with the same identifier (name{figure.2.1.5}) has been already used, du
 plicate ignored
 
@@ -2582,15 +2610,15 @@ l.267 \include{jit}
 l.267 \include{jit}
                     </root/Projects/FH/eproPublic/img/openGLAdvanced.png> </roo
 t/Projects/FH/eproPublic/img/specViz.png>]
-(/root/Projects/FH/eproPublic/main.lof [43
+(/root/Projects/FH/eproPublic/main.lof [45
 
 
 ])
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [44]
-(/root/Projects/FH/eproPublic/main.bbl) [45
+ [46]
+(/root/Projects/FH/eproPublic/main.bbl) [47
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 283.
@@ -2617,10 +2645,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 283.
  ) 
 Here is how much of TeX's memory you used:
- 35995 strings out of 494945
- 834008 string characters out of 6181032
- 1117594 words of memory out of 5000000
- 38367 multiletter control sequences out of 15000+600000
+ 36027 strings out of 494945
+ 834565 string characters out of 6181032
+ 1118084 words of memory out of 5000000
+ 38395 multiletter control sequences out of 15000+600000
  84601 words of font info for 71 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  64i,16n,100p,8890b,1900s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2639,11 +2667,11 @@ ts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pf
 b></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on /root/Projects/FH/eproPublic/main.pdf (49 pages, 1496713 byte
+Output written on /root/Projects/FH/eproPublic/main.pdf (51 pages, 1861281 byte
 s).
 PDF statistics:
- 757 PDF objects out of 1000 (max. 8388607)
- 643 compressed objects within 7 object streams
- 194 named destinations out of 1000 (max. 500000)
- 568 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 775 PDF objects out of 1000 (max. 8388607)
+ 655 compressed objects within 7 object streams
+ 198 named destinations out of 1000 (max. 500000)
+ 590 words of extra memory for PDF output out of 10000 (max. 10000000)
 
