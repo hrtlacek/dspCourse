@@ -34,7 +34,7 @@
 \contentsline {section}{\numberline {4.5}Parktical Karplus-Strong}{30}{section.1.4.5}
 \contentsline {section}{\numberline {4.6}Schul\IeC {\"u}bung, Sounddesign challenge}{30}{section.1.4.6}
 \contentsline {section}{\numberline {4.7}Hausuebung}{31}{section.1.4.7}
-\contentsline {chapter}{\numberline {5}FFT}{33}{chapter.1.5}
+\contentsline {chapter}{\numberline {5}Fourier Transformation}{33}{chapter.1.5}
 \contentsline {section}{\numberline {5.1}Notizen}{33}{section.1.5.1}
 \contentsline {section}{\numberline {5.2}Fourier Transformation}{34}{section.1.5.2}
 \contentsline {part}{\numberline {II}Semester 4}{37}{part.2}

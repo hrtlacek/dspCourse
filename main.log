@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.9.10)  26 OCT 2016 23:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.9.10)  27 OCT 2016 00:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2609,7 +2609,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 283.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 283.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 283.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D2431D7A6FD5B382FA5B1D3AC0D9C115;2807.
+(rerunfilecheck)             Checksum: D4A28211D39919A1652E9CC399E16C8B;2826.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2618,8 +2618,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 283.
  ) 
 Here is how much of TeX's memory you used:
  35995 strings out of 494945
- 833989 string characters out of 6181032
- 1117255 words of memory out of 5000000
+ 834008 string characters out of 6181032
+ 1117594 words of memory out of 5000000
  38367 multiletter control sequences out of 15000+600000
  84601 words of font info for 71 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2639,7 +2639,7 @@ ts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pf
 b></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on /root/Projects/FH/eproPublic/main.pdf (49 pages, 1496415 byte
+Output written on /root/Projects/FH/eproPublic/main.pdf (49 pages, 1496713 byte
 s).
 PDF statistics:
  757 PDF objects out of 1000 (max. 8388607)
