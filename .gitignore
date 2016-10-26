@@ -2,3 +2,5 @@
 *.log
 *.fdb_latexmk
 *.fls
+*.sublime-workspace
+*.sublime-project
