@@ -1,9 +1,0 @@
-PWD /Users/macuserin/Dropbox/latex/epro script/ue_05
-INPUT /usr/local/texlive/2013basic/texmf.cnf
-INPUT /usr/local/texlive/2013basic/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2013basic/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT waveshaping.tex
-OUTPUT waveshaping.log
-INPUT /usr/local/texlive/2013basic/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2013basic/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT /usr/local/texlive/2013basic/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
