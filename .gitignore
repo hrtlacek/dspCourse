@@ -4,3 +4,13 @@
 *.fls
 *.sublime-workspace
 *.sublime-project
+*.toc
+*.xml
+*.ipynb
+*.out
+*.blg
+*.bbl
+*.atfi
+*.lof
+*.gz
+
