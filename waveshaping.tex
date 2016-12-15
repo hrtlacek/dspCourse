@@ -85,7 +85,16 @@ Zunächst: Sampling, dann lineare transfer function.
 \section{Waveshaping}
 Wikipedia quote, page ``wavesahper'':\\
 \glqq{}The mathematics of non-linear operations on audio signals is difficult, and not well understood.\grqq{}
-Waveshaping means distortion. It add overtones.
+Waveshaping means distortion. It add overtones, take a look at figure ~\ref{fig:waveshapedSIne}.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=11cm]{waveShapedSine.png}
+	\caption[Wave shaped sine oscillator]
+	{A sine wave has been generated and waveshaping was applied to add overtones.}
+	\label{fig:waveshapedSIne}
+\end{figure}
 
 
 \subsection{The simples case: a linear Transfer function. } % (fold)
@@ -206,23 +215,71 @@ And finally:
 
 \subsection{How is Waveshaping related to other techniques?}
 \subsubsection{Sampling}
-If we take a look at figure \ref{fig:RamFilePlayback}, we see that we play a sound file by accessing a buffer (wavetable) using an index, an oscillator. This is effectively the same setup as we would build for distorting an input sound.
+If we take a look at figure \ref{fig:RamFilePlayback}, we see that we play a sound file by accessing a buffer (wavetable) using an index, an oscillator. This is effectively the same setup as we would build for distorting an input sound. Also take a look at figure \ref{fig:identity}, which showing us that waveshaping and wavetable synthesis are identical.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{identityWaveshaping.png}
+	\caption[farnell waveshaping identity]
+	{Picture taken from \cite{farnell_designing_2010}, showing the identity of waveshaping and wavetable synthesis}
+	\label{fig:identity}
+\end{figure}
+
+
+
+\subsubsection{Modulation}
+While we will talk about modulation in a separate chapter, let's loosely define amplitude modulation (AM) as the multiplication od two oscillators and frequency modulation (FM) as the varying the frequency of an oscilator using another oscillator.\
+So, as we have also seen above, AM looks like this:
+\begin{equation}
+	y = sin(a)\cdot sin(b)
+\end{equation}
+
+and FM looks like this:
+
+\begin{equation}
+	y = sin(sin(a))
+\end{equation}
+
+in practice, the a and b terms are a bit more complicated, but we will look at this later. That certain cases of AM are identical to waveshaping has been shown above, think about the square function again. 
+This of course does not mean that waveshaping can do everything AM can do and it does not mean that AM can achieve everything that waveshaping can. This should just show that we can understand the techniques from the perspective of another.\
+What about FM? Well if our lookup function we use for waveshaping is a sine wave, we arrive at the exact same equation as how we defined FM above. Again, practically speaking, the results we get with these two techniques are very different, but we can see the connections.
 
 
 \subsection{Why is Waveshaping useful?}
 The output spectrum is dependent on the input amplitude. This makes it easy to create complex evolving spectra.
 
-Wieso ist waveshaping praktisch? Amplitudenabhängigkeit d. spectrums.
-Wieso ist waveshaping verwandt mit modulation, sowohl FM, PM als auch AM? Am: siehe \(x^2\). FM: siehe \(f(x)=cos(x)\). Auch kann letztendlich eine transferkuntion in cos/sin bestandteile zerlegt werden um zu einer menge an frequenzmodulationen anzukommen, bzw kann der wavetable als polynom angenähert(o. Taylor entwicklung) werden um bei AM anzukommen.
+\subsection{What are the problems with waveshaping?}
+
+Waveshaping adds overtones. When we build a waveshaper, we have to be aware of aliasing. Take a look at figures ~\ref{fig:clipped1} and ~\ref{fig:clipped2}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=11cm]{clippedSine.png}
+	\caption[clipped sine wave]
+	{A sine wave was generated and clipped. Clipping is a form of waveshaping which adds many overtones. Note how high frequencies fold back into the lower parts of the spectrum because they exceed the Nyquist-rate.}
+	\label{fig:clipped1}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=11cm]{clippedSine2.png}
+	\caption[clipped sine wave 2]
+	{Again, a sine wave, this time with a higher frequency to begin with. Extreme clipping has been applied by boosting the input amplitude. The aliased overtones are all over the place, even below the input frequency.}
+	\label{fig:clipped2}
+\end{figure}
+
+The problem of aliasing is usually treated by over-sampling. This does not solve the problem but lessens it significantly resulting in cleaner, arguably better sound. Oversampling means that, if we work at a sample-rate of 44.1kHz, the input is up-sampled, essentially interpolated, to be at a sample-rate of 88.2kHz. Then the waveshaping is applied, leaving room for high frequencies up to 44.1kHz. Using a lowpass filter, high frequencies over 22.1kHz are then attenuated as much as possible, in order to be able to down-sample again to reach our initial sample-rate of 44.1kHz. \\
+To state it more simple: Waveshaping is usually encapsulated in a process that runs at higher sampling rates in order to lessen aliasing. 
+
+
+% Wieso ist waveshaping praktisch? Amplitudenabhängigkeit d. spectrums.
+% Wieso ist waveshaping verwandt mit modulation, sowohl FM, PM als auch AM? Am: siehe \(x^2\). FM: siehe \(f(x)=cos(x)\). Auch kann letztendlich eine transferkuntion in cos/sin bestandteile zerlegt werden um zu einer menge an frequenzmodulationen anzukommen, bzw kann der wavetable als polynom angenähert(o. Taylor entwicklung) werden um bei AM anzukommen.
 
 
 
 \section{Sampler}
 
-Sampling von d. Festplatte vs. vom RAM.\\
-Zusammen bauen. Geschwindigkeit modulieren etc.\\
-Evtl. \texttt{moresampling.pd}, granular sampling kurz erklären.
-
+\textit{Work in progress.}
 
 \begin{figure}[H]
 	\begin{center}
@@ -295,7 +352,4 @@ baue ein audio Testmodul mit folgener spezifikation:\\
 		\label{fig:audiotester}
 	\end{center}
 \end{figure}
-
-\subsection{Distortion}
-Baue eine besonders wohlklingende Distortion, inkl. User interface.
 
