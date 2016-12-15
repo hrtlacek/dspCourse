@@ -85,7 +85,7 @@
 \section{Waveshaping}
 Wikipedia quote, page ``wavesahper'':\\
 \glqq{}The mathematics of non-linear operations on audio signals is difficult, and not well understood.\grqq{}
-Waveshaping means distortion. It add overtones, take a look at figure ~\ref{fig:waveshapedSIne}.
+Waveshaping means distortion. It adds overtones, take a look at figure ~\ref{fig:waveshapedSIne}.
 
 
 \begin{figure}[h!]
@@ -109,9 +109,19 @@ See \ref{fig:linfunct}. A linear transfer function is used as a lookup table for
 	\end{center}
 \end{figure}
 A transfer function in the sense of a waveshaper (a ``transfer function'' might also mean frequency response in other contexts) is a simple look-up function. \
-Waveshaping means to use an input wave \textit{look up} values in a table or function. A linear transfer function, let's call it $l$, results in no change, since, by definition, it returns $l(x)=x$. \
+Waveshaping means to use an input wave to \textit{look up} values in a table or function. A linear transfer function, let's call it $l$, results in no change, since, by definition, it returns $l(x)=x$. \
 This means, that whatever value we pass in, we get the same value out.\
-Non-liner transfer functions behave differently. They map they input to other values, such as $f(x) = x^2$. It may seem trivial, but if we put 2 into $f$ we get 4 as an output. If we now plot this function we get:
+Non-liner transfer functions behave differently. They map their input to other values, such as $f(x) = x^2$. It may seem trivial, but if we put 2 into $f$ we get 4 as an output. You can also look at figure \ref{fig:farnellWaveShaping} in order to understand what's happening. We again see a linear transfer function but also a non linear one. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=13cm]{waveshapingVizFarnell.png}
+	\caption[farnell wave shaping visualization]
+	{A waveshaping visualization taken from \cite{farnell_designing_2010}}
+	\label{fig:farnellWaveShaping}
+\end{figure}
+
+But let's get back to our square function, since it's simpler and we will find some surprising results when analyzing it. Let's first simply plot it too. 
+
 
 \begin{figure}[H]
 	\begin{center}
@@ -129,12 +139,12 @@ Non-liner transfer functions behave differently. They map they input to other va
 \subsection{Simple non-linearity: \(X ^2\)} % (fold)
 \label{sub:nonLinearTrans}
 
-A 2nd order polynomial shall be analyzed. The function
+So let's analyze what happens if we use this function for waveshaping. Here it is again:
 
 \begin{equation}
 f(x) = x ^ 2
 \end{equation}
- is used and also plotted in figure \ref{fig:square}.\\
+
 
 
 % \fbox{
@@ -143,7 +153,7 @@ f(x) = x ^ 2
 % Ein polynom ungeradzahliger ordnung \(n\) als Transferfunktion produziert immer alle ungeradzahligen obertöne von \(n\) bis 1, also der grundfrequenz.
 %   }
 % }
-We can simply plot what happened is we apply the function before trying to understand analytically:
+We can simply plot what happened if we apply the function before trying to understand analytically:
 
 
 \begin{figure}[H]
@@ -194,7 +204,7 @@ y = \frac{cos(2 \cdot \omega) + cos(0)}{2} = \frac{cos(2 \cdot \omega )}{2}+\fra
 \end{equation}
 
 We arrive at the same result!
-\textbf{But is this true for every input? That would mean we just built a frequency shofter, did we? No.} Waveshaping is much more complicated, which is immediately obvious when we try to do the same t two oscillators:
+\textbf{But is this true for every input? That would mean we just built a frequency shifter, did we? No.} Waveshaping is much more complicated, which is immediately obvious when we try to do the same t two oscillators:
 \begin{equation}
 x = cos(\omega_1)+cos(\omega_2)
 \end{equation}
@@ -228,7 +238,7 @@ If we take a look at figure \ref{fig:RamFilePlayback}, we see that we play a sou
 
 
 \subsubsection{Modulation}
-While we will talk about modulation in a separate chapter, let's loosely define amplitude modulation (AM) as the multiplication od two oscillators and frequency modulation (FM) as the varying the frequency of an oscilator using another oscillator.\
+While we will talk about modulation in a separate chapter, let's loosely define amplitude modulation (AM) as the multiplication of two oscillators and frequency modulation (FM) as the varying the frequency of an oscilator using another oscillator.\
 So, as we have also seen above, AM looks like this:
 \begin{equation}
 	y = sin(a)\cdot sin(b)
