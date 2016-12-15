@@ -291,7 +291,7 @@ The output spectrum is dependent on the input amplitude. This makes it easy to c
 
 \subsection{What are the problems with waveshaping?}
 
-Waveshaping adds overtones. When we build a waveshaper, we have to be aware of aliasing. Take a look at figures ~\ref{fig:clipped1} and ~\ref{fig:clipped2}.
+Waveshaping adds overtones. When we build a waveshaper, we have to be aware of aliasing. Take a look at figures ~\ref{fig:clipped1} and ~\ref{fig:clipped2}. Sinewaves have been amplified and clipped here. 
 
 \begin{figure}[h!]
 	\centering
@@ -309,7 +309,30 @@ Waveshaping adds overtones. When we build a waveshaper, we have to be aware of a
 	\label{fig:clipped2}
 \end{figure}
 
-The problem of aliasing is usually treated by over-sampling. This does not solve the problem but lessens it significantly resulting in cleaner, arguably better sound. Oversampling means that, if we work at a sample-rate of 44.1kHz, the input is up-sampled, essentially interpolated, to be at a sample-rate of 88.2kHz. Then the waveshaping is applied, leaving room for high frequencies up to 44.1kHz. Using a lowpass filter, high frequencies over 22.1kHz are then attenuated as much as possible, in order to be able to down-sample again to reach our initial sample-rate of 44.1kHz. \\
+In pd we could achieve this like in figure \ref{fig:pdClipping}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{img/pdSineClipping.png}
+		\caption{Clipping an amplified sine wave in pd}
+		\label{fig:pdClipping}
+	\end{center}
+\end{figure}
+
+What does the output look like? Let's not only look at the spectra but also at the time signal:
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{sineClipTime.png}
+		\caption{An amplified and clipped sine wave in the time domain.}
+		\label{fig:timeClip}
+	\end{center}
+\end{figure}
+
+We see that we can arrive at a square-wave like result, but this square-wave is not anit-aliased.\\
+
+The problem of aliasing in waveshaping is usually treated by over-sampling. This does not solve the problem but lessens it significantly resulting in cleaner, arguably better sound. Oversampling means that, if we work at a sample-rate of 44.1kHz, the input is up-sampled, essentially interpolated, to be at a sample-rate of 88.2kHz. Then the waveshaping is applied, leaving room for high frequencies up to 44.1kHz. Using a lowpass filter, high frequencies over 22.1kHz are then attenuated as much as possible, in order to be able to down-sample again to reach our initial sample-rate of 44.1kHz. \\
 To state it more simple: Waveshaping is usually encapsulated in a process that runs at higher sampling rates in order to lessen aliasing. 
 
 
