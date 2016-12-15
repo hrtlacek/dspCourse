@@ -204,8 +204,13 @@ And finally:
 
 
 
+\subsection{How is Waveshaping related to other techniques?}
+\subsubsection{Sampling}
+If we take a look at figure \ref{fig:RamFilePlayback}, we see that we play a sound file by accessing a buffer (wavetable) using an index, an oscillator. This is effectively the same setup as we would build for distorting an input sound.
+
+
 \subsection{Why is Waveshaping useful?}
-The output spectrum is dependent on the input amplitude. This makes it easy to create complex involving spectra.
+The output spectrum is dependent on the input amplitude. This makes it easy to create complex evolving spectra.
 
 Wieso ist waveshaping praktisch? Amplitudenabhängigkeit d. spectrums.
 Wieso ist waveshaping verwandt mit modulation, sowohl FM, PM als auch AM? Am: siehe \(x^2\). FM: siehe \(f(x)=cos(x)\). Auch kann letztendlich eine transferkuntion in cos/sin bestandteile zerlegt werden um zu einer menge an frequenzmodulationen anzukommen, bzw kann der wavetable als polynom angenähert(o. Taylor entwicklung) werden um bei AM anzukommen.
