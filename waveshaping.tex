@@ -153,7 +153,19 @@ f(x) = x ^ 2
 % Ein polynom ungeradzahliger ordnung \(n\) als Transferfunktion produziert immer alle ungeradzahligen obertöne von \(n\) bis 1, also der grundfrequenz.
 %   }
 % }
-We can simply plot what happened if we apply the function before trying to understand analytically:
+Let's simply listen to what's happening, building it in pd:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 7cm]{img/pd_square.png}
+		\caption{The square function in pure data, using a 100Hz sine as a test signal. What do you hear?}
+		\label{fig:squarePd}
+	\end{center}
+\end{figure}
+
+
+
+And we can simply plot what happened if we apply the function before also trying to understand analytically:
 
 
 \begin{figure}[H]
@@ -220,6 +232,23 @@ And finally:
 \begin{equation}
 	y = \frac{cos(2 \cdot \omega_1)}{2} + \frac{1}{2} + \frac{cos(2 \cdot \omega_2)}{2} +\frac{1}{2} + 2 \cdot (\frac{cos(\omega_1+\omega_2) + cos(\omega_1-\omega_2)}{2})
 \end{equation}
+
+\subsection{How can waveshaping be implemented?} % (fold)
+\label{sub:how_can_waveshaping_be_implemented_}
+
+
+% subsection how_can_waveshaping_be_implemented_ (end)
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{tableVsCPU.png}
+		\caption{Left: using a mathematical function to calculate the output. Right: using a table to look up the output.}
+		\label{fig:tableVsCPU}
+	\end{center}
+\end{figure}
+
+
 
 
 
