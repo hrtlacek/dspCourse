@@ -117,8 +117,19 @@ See \ref{fig:linfunct}. A linear transfer function is used as a lookup table for
 	\end{center}
 \end{figure}
 A transfer function in the sense of a waveshaper (a ``transfer function'' might also mean frequency response in other contexts) is a simple look-up function. \
-Waveshaping means to use an input wave to \textit{look up} values in a table or function. A linear transfer function, let's call it $l$, results in no change, since, by definition, it returns $l(x)=x$. \
+Waveshaping means to use an input wave to \textit{look up} values in a table or function. A linear transfer function, let's call it $l$, can result in no change, for example, it might return $l(x)=x$. \
 This means, that whatever value we pass in, we get the same value out.\
+Other linear transfer functions might \textit{only} change the amplitude. For example $f(x)=x \cdot \frac{1}{2}$. That doesn't seem very interesting. But it might explain the term ``linear''. A transfer function is linear if it looks like a line if we plot it. Look at figure \ref{fig:linears}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=15cm]{linearFunctions.png}
+	\caption[shortCaption]
+	{A couple of linear transfer functions and their corresponding effects demonstrated using a sine wave. From left to right: multiplication by 0.5, so attenuation by about 6dB, inversion, and the ``do-nothing''-function.}
+	\label{fig:linears}
+\end{figure}
+
+
 Non-liner transfer functions behave differently. They map their input to other values, such as $f(x) = x^2$. It may seem trivial, but if we put 2 into $f$ we get 4 as an output. You can also look at figure \ref{fig:farnellWaveShaping} in order to understand what's happening. We again see a linear transfer function but also a non linear one. 
 \begin{figure}[H]
 	\centering
