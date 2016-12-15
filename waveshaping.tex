@@ -15,7 +15,7 @@
     %   child { node[concept] {data structures} }
     %   child { node[concept] {pro\-gramming languages} }
     %   child { node[concept] {software engineer\-ing} }
-    % }  
+    % }
     child[concept color=blue] { node[concept] (ram) {in RAM vs. from Disk}[clockwise from=-30]}
     child[concept color=red] { node[concept] (gra) {granular} }
     child[concept color=orange] { node[concept] {Waveshaping and Distortion} };
@@ -55,7 +55,7 @@ chebyshev
 \glqq{}intermod. distortion \grqq{} , vgl. miller puckette, \\
 http://msp.ucsd.edu/techniques/latest/book-html/node78.html
 
-middle term! ( (a+b)**2 = a**2 +2ab +b**2 ) 
+middle term! ( (a+b)**2 = a**2 +2ab +b**2 )
 
 
 
@@ -74,7 +74,7 @@ Zunächst: Sampling, dann lineare transfer function.
 \begin{enumerate}
 	\item übersicht: fragen wies geht, wie ist es mit Max/MSP?
 	\item HÜ ankündigen
-	\item neue abstraction: z-1 
+	\item neue abstraction: z-1
 	\item Raetsel
 	\item Wo letztes mal stehngeblieben? Poly syth fertig?
 	\item linearität erklären. Nun Nichtlinearität.
@@ -88,85 +88,131 @@ Zunächst: Sampling, dann lineare transfer function.
 \end{enumerate}
 
 \section{Waveshaping}
-Wikipedia zitat, seite wavesahper:\\
+Wikipedia quote, page ``wavesahper'':\\
 \glqq{}The mathematics of non-linear operations on audio signals is difficult, and not well understood.\grqq{}
+Waveshaping means distortion. It add overtones.
 
 
-
-\subsection{Einfachster fall, linear transfer function.} % (fold)
+\subsection{The simples case: a linear Transfer function. } % (fold)
 \label{sub:linearTrans}
+See \ref{fig:linfunct}. A linear transfer function is used as a lookup table for a sinosoidal input.
 
-% subsection subsection_name (end)
-
-
-
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale = 1]{img/waveShapingVisual.png}
 		\caption{Linear Transfer function}
 		\label{fig:linfunct}
 	\end{center}
 \end{figure}
+A transfer function in the sense of a waveshaper (a ``transfer function'' might also mean frequency response in other contexts) is a simple look-up function. \
+Waveshaping means to use an input wave \textit{look up} values in a table or function. A linear transfer function, let's call it $l$, results in no change, since, by definition, it returns $l(x)=x$. \
+This means, that whatever value we pass in, we get the same value out.\
+Non-liner transfer functions behave differently. They map they input to other values, such as $f(x) = x^2$. It may seem trivial, but if we put 2 into $f$ we get 4 as an output. If we now plot this function we get:
 
-\subsection{Einfache nicht linearität: \(X ^2\)} % (fold)
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{img/squareFunction.png}
+		\caption{The function $f(x)=x^2$}
+		\label{fig:square}
+	\end{center}
+\end{figure}
+
+% subsection subsection_name (end)
+
+
+
+
+\subsection{Simple non-linearity: \(X ^2\)} % (fold)
 \label{sub:nonLinearTrans}
 
-Eine einfacher Fall: ein polynom 2. ordnung soll nun analysiert werden. Die funktion
+A 2nd order polynomial shall be analyzed. The function
 
 \begin{equation}
 f(x) = x ^ 2
 \end{equation}
- wird benutzt.\\
+ is used and also plotted in figure \ref{fig:square}.\\
 
-\fbox{
-  \parbox{\textwidth}{
-    Ein polynom geradzahliger ordnung \(n\) als Transferfunktion produziert immer alle geradzahligen obertöne von \(n\) bis 0, exklusive der grundfrequenz (da ja auch ungerade, 1 ist eine ungerade zahl).\\
-Ein polynom ungeradzahliger ordnung \(n\) als Transferfunktion produziert immer alle ungeradzahligen obertöne von \(n\) bis 1, also der grundfrequenz.
-  }
-}
 
-Wir errechnen was mit einem cosinus signal passiert wenn es durch diese funktion geschickt wird. Also:
+% \fbox{
+%   \parbox{\textwidth}{
+%     Ein polynom geradzahliger ordnung \(n\) als Transferfunktion produziert immer alle geradzahligen obertöne von \(n\) bis 0, exklusive der grundfrequenz (da ja auch ungerade, 1 ist eine ungerade zahl).\\
+% Ein polynom ungeradzahliger ordnung \(n\) als Transferfunktion produziert immer alle ungeradzahligen obertöne von \(n\) bis 1, also der grundfrequenz.
+%   }
+% }
+We can simply plot what happened is we apply the function before trying to understand analytically:
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{img/sinSquared.png}
+		\caption{Applying the square function to an input sine wave.}
+		\label{fig:sinSquared}
+	\end{center}
+\end{figure}
+
+
+Weird, the input seems to double in frequency. Let's try to understand what's happening.\
+
+So we calculate what happens if we send a cosine through this function, so let's take:
+
 \begin{equation}
 x = cos(\omega)
 \end{equation}
- mit beliebigen omega. (die laufzeit-/index-variable \(t\) bzw. \(n\) wird hier ausgepart, sie ist hier irrelevant).\\
-Demnach ist
+wit arbitrary $\omega$. We can just ignore $\omega$ here for a while. Usually, there should be some indexing variable in the cosine function if we want to describe an oscillator that moves over time, but let's also skip that.\\
+So applying our square function we of course get:
 \begin{equation}
 y = cos(\omega)^2
 \end{equation}
-Das wiederum ergibt
+This again results in:
 \begin{equation}
 y = cos(\omega) \cdot cos(\omega)
 \end{equation}
-eine simple amplituden modulation eigentlich  \textit{Ringmodulation}. Über Ringmodulation  wiederum wissen wir dass summe und differenz der eingangsfrequenzen ausgegeben werden. Also:
+So far so trivial. Note that a multiplication of two oscillators is called \textit{Amplitude Modulation} (actually, in this case we encounter ``Ring Modulation'', but let's ignore that also), and we know things about Amplitude modulation, namely:\
+
+\fbox{
+  \parbox{\textwidth}{
+  When multiplying two oscillators, we get sum and difference of the two input frequencies. (And the whole output is attenuated by 6dB)
+  }}
+The above statement in equation form:
+\begin{equation}
+	cos(a)\cdot cos(b) = \frac{cos(a+b) + cos(a-b)}{2}
+\end{equation}
+
+We could also have looked up this \textit{trigonometric identity}.
+This means for our experiment with our cosine squared:
+
 \begin{equation}
 y = \frac{cos(\omega+\omega) + cos(\omega-\omega)}{2}
 \end{equation}
-Also:
+So:
 \begin{equation}
 y = \frac{cos(2 \cdot \omega) + cos(0)}{2} = \frac{cos(2 \cdot \omega )}{2}+\frac{1}{2}
 \end{equation}
 
-\textbf{Aber gilt die auch für jeden Input? das würde Bedeuten wir haben einen freq. shifter gebaut? Nein.} Waveshaping ist weit komplexer, was sofort ersichtlich ist wenn man zwei oszillatoren in die funktion schickt:
+We arrive at the same result!
+\textbf{But is this true for every input? That would mean we just built a frequency shofter, did we? No.} Waveshaping is much more complicated, which is immediately obvious when we try to do the same t two oscillators:
 \begin{equation}
-x = cos(\omega_1)+cos(\omega_2) 
+x = cos(\omega_1)+cos(\omega_2)
 \end{equation}
-dann
+then
 \begin{equation}
 y = (cos(\omega_1)+cos(\omega_2) ) ^2
 \end{equation}
 \begin{equation}
 y = cos(\omega_1)^2+cos(\omega_2)^2+2\cdot cos(\omega_1) \cdot cos(\omega_2)
 \end{equation}
- 
-letztendlich kommt man zu:
+
+And finally:
 \begin{equation}
 	y = \frac{cos(2 \cdot \omega_1)}{2} + \frac{1}{2} + \frac{cos(2 \cdot \omega_2)}{2} +\frac{1}{2} + 2 \cdot (\frac{cos(\omega_1+\omega_2) + cos(\omega_1-\omega_2)}{2})
 \end{equation}
 
 
 
-Wieso ist waveshaping praktisch? Amplitudenabhängigkeit d. spectrums. 
+\subsection{Why is Waveshaping useful?}
+The output spectrum is dependent on the input amplitude. This makes it easy to create complex involving spectra.
+
+Wieso ist waveshaping praktisch? Amplitudenabhängigkeit d. spectrums.
 Wieso ist waveshaping verwandt mit modulation, sowohl FM, PM als auch AM? Am: siehe \(x^2\). FM: siehe \(f(x)=cos(x)\). Auch kann letztendlich eine transferkuntion in cos/sin bestandteile zerlegt werden um zu einer menge an frequenzmodulationen anzukommen, bzw kann der wavetable als polynom angenähert(o. Taylor entwicklung) werden um bei AM anzukommen.
 
 
