@@ -1,8 +1,30 @@
-% \chapter{Introduction}
-% \label{introduction}
-
-\addsec{Introduction}
+\chapter{Introduction}
 \label{introduction}
+
+\section{Message Domain/Signal Domain}
+
+\section{What is aliasing?}
+Aliasing in audio means problems caused by signals that exceed the nyquist rate.\\
+The nyquist rate,let's call it $f_n$ for now, is defined by the half of the sample rate ($f_s$). So, 
+\begin{equation}
+	f_n=\frac{f_s}{2}
+\end{equation}
+A digital system can only describe signals up to his nyquist rate. If we try to make signals higher than this frequency, we will fail and encounter strange effects.\\
+Visually speaking, frequencies higher than nyquist fold back. So, let's assume we have a sampling rate of 100Hz. Nyquist would be at 50Hz. If we try to synthesize a sine wave with 51Hz, what we will get is a 49Hz one. If we try to make a 52Hz one, we will get 48Hz. So you see, it simply folds back.
+
+
+
+\section{Scaling and Mapping Signals}
+It is an important skill to be able to scale signals from one range to another. We need it a lot and we will be able to think about signals more easily f we mastered this task. It's actually quite simple, we just have to imagine the signals visually.\\
+So what exactly do we have to do here? If we 
+
+
+\section{What's DC-Offset?}
+
+\section{What's an Impulse?}
+
+\section{How to describe audio mathematically}
+
 
 % \addsec{Was passiert in Epro und wofuer brauche ich es?}
 
