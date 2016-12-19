@@ -1,3 +1,5 @@
+%!TEX root = main.tex
+
 \chapter{Sampling, waveshaping, and non-linearity}
 \label{Waveshaping}
 
@@ -152,8 +154,28 @@ But let's get back to our square function, since it's simpler and we will find s
 
 % subsection subsection_name (end)
 
+\begin{framed}
+\textbf{Video analogies}\\
+What does applying a curve to every pixel of a video or image do? Is this even something people do? Of course! Think of contrast curves, below is an example from photoshop. Beware that video is working with unipolar input values and audio with bipolar inputs.
+\begin{center}
+  \includegraphics[width=\textwidth]{photoshop.png}
+  \captionof{figure}{Contrast curve in photoshop}
+  \label{fig:photoshop}
+\end{center}
+\end{framed}
 
+% \begin{framed}
 
+%   BLABLABAL
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[width=11cm]{photoshop.png}
+% 	\caption[shortCaption]
+% 	{realCaption}
+% 	\label{fig:label}
+% \end{figure}
+
+% \end{framed}
 
 \subsection{Simple non-linearity: \(X ^2\)} % (fold)
 \label{sub:nonLinearTrans}
@@ -349,7 +371,7 @@ What does the output look like? Let's not only look at the spectra but also at t
 	\end{center}
 \end{figure}
 
-We see that we can arrive at a square-wave like result, but this square-wave is not anit-aliased.\\
+We see that we can arrive at a square-wave like result, but this square-wave is not anti-aliased.\\
 
 The problem of aliasing in waveshaping is usually treated by over-sampling. This does not solve the problem but lessens it significantly resulting in cleaner, arguably better sound. Oversampling means that, if we work at a sample-rate of 44.1kHz, the input is up-sampled, essentially interpolated, to be at a sample-rate of 88.2kHz. Then the waveshaping is applied, leaving room for high frequencies up to 44.1kHz. Using a lowpass filter, high frequencies over 22.1kHz are then attenuated as much as possible, in order to be able to down-sample again to reach our initial sample-rate of 44.1kHz. \\
 To state it more simple: Waveshaping is usually encapsulated in a process that runs at higher sampling rates in order to lessen aliasing. 
