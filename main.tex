@@ -107,6 +107,7 @@
 \usepackage{hyperref}
 \usepackage{longtable} % longtable support required by pandoc >1.10
 
+\usepackage{framed}
 
 % embedding of audio/video files etc.
 % \usepackage{attachfile}
@@ -173,6 +174,7 @@
 \definecolor{FH}{rgb}{0.10, 0.57, 0.68}
 
 
+
 % nicht einrücken nach Absatz
 \setlength{\parindent}{0pt}
 
@@ -199,7 +201,43 @@
 %======================================
 
 
+\usepackage[framemethod=tikz]{mdframed}
+\newtheorem{question}{Question}
+\mdfdefinestyle{que}{
+  linecolor=cyan,
+  backgroundcolor=cyan!20,
+}
+\surroundwithmdframed[style=que]{question}
+
+\newtheorem{answer}{Answer}
+\mdfdefinestyle{ans}{
+  linecolor=cyan,
+  backgroundcolor=yellow!20
+  % , rotatebox
+}
+\surroundwithmdframed[style=ans]{answer}
+
+\usepackage{environ}
+\NewEnviron{Answer}
+{%
+\noindent
+\rotatebox[origin=c]{180}{%
+\noindent
+\begin{minipage}[t]{\linewidth}
+\begin{answer}
+\BODY
+\end{answer}%
+\end{minipage}%
+}%
+}%
+
+
+
 % ============= Package Einstellungen & Sonstiges ============= 
+
+%COMMENT
+\newcommand{\comm}[1]{\Large{\color{red}{#1}}\normalsize{}}
+
 
 %Besondere Trennungen
 \hyphenation{De-zi-mal-tren-nung St-rei-fen-licht-scan-nern}
@@ -255,7 +293,7 @@
 \label{prt:semester3}
 
 \include{waveshaping}
-% \include{modulation}
+\include{modulation}
 % \include{05_filters}
 % \include{polyphony}
 % \include{Karplus}
