@@ -15,9 +15,25 @@
 \clearpage
 
 This section tries to make sure we are all on the same page. It goes through some mathematics notation and principles of digital audio.\\
-If you rather want a video format revision of digital audio (I mean, it's 2017, of course you want), I can recommend \href{https://www.youtube.com/watch?v=cIQ9IXSUzuM}{D/A and A/D | Digital Show and Tell (Monty Montgomery @ xiph.org) }\footnote{https://www.youtube.com/watch?v=cIQ9IXSUzuM}. Some of the points in the video go beyond what we are doing here and vice versa, so don't purely rely on the video though. \\
+If you rather want a video format revision of digital audio (I mean, it's \the\year, of course you want), I can recommend \href{https://www.youtube.com/watch?v=cIQ9IXSUzuM}{D/A and A/D | Digital Show and Tell (Monty Montgomery @ xiph.org) }\footnote{https://www.youtube.com/watch?v=cIQ9IXSUzuM}. Some of the points in the video go beyond what we are doing here and vice versa, so don't purely rely on the video though. \\
 Ideally, if you throughly understood the introduction section, you should be able to go through the remaining chapters with tempo.\\
-Text and equations with a gray background are background information that is not to be learned by heart.
+
+\section{About this document}
+
+Some information in this document is relevant for understanding it's contents but not relevant for the exam. For example in chapter \ref{Modulation} we will find a really complicated result of an equation. The point there is just that it's complicated. And it is shown how complicated, but this is nothing to be learned by heart.\\
+Please report any mistakes, errors etc to \href{mailto:ptrk.lechner@gmail.com}{ptrk.lechner@gmail.com}.
+
+\begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
+\textbf{Text and equations with a gray background like this are background information that is not to be learned by heart.}
+\end{mdframed}
+
+\begin{framed}
+
+	\textbf{Video analogies}\\
+	This document tries to explain digital signals. It does this by use of audio signal mainly. Sometimes video analogies are given. These are also not relevant for the exam.
+
+\end{framed}
+
 
 \section{About plotting signals}
 
@@ -74,14 +90,14 @@ Visually speaking, frequencies higher than nyquist fold back. So, let's assume w
 
 \begin{framed}
 	\textbf{Video analogies}\\
-	Aliasing in graphics usually means \textit{spacial} aliasing, so aliasing in the space domain. This is what we see in figure \ref{fig:spAlias}. But there is also time domain aliasing in film. It is actually more natural to think about the sampling rate in audio as the same as the frame rate in video. For some really weir effects that arise in video due to time domain aliasing see \href{https://www.youtube.com/watch?v=LVwmtwZLG88}{air plane}\footnotemark , \href{https://www.youtube.com/watch?v=GBtHeR-hY9Y}{Water experiment}\footnotemark or \href{https://www.youtube.com/watch?v=jcOKTTnOIV8}{Guitar strings}\footnotemark .
+	Aliasing in graphics usually means \textit{spacial} aliasing, so aliasing in the space domain. This is what we see in figure \ref{fig:spAlias}. But there is also time domain aliasing in film. It is actually more natural to think about the sampling rate in audio as the same as the frame rate in video. For some really weird effects that arise in video due to time domain aliasing see \href{https://www.youtube.com/watch?v=LVwmtwZLG88}{airplane}\footnotemark , \href{https://www.youtube.com/watch?v=GBtHeR-hY9Y}{Water experiment}\footnotemark or \href{https://www.youtube.com/watch?v=jcOKTTnOIV8}{Guitar strings}\footnotemark .
 	\begin{center}
 		% \centering
 		\includegraphics[width=7cm]{spacialAliasing1.png}
 		\captionof{figure}{Spacial aliasing in graphics. The ``frequency'' of the intended pixels is to high for the actual pixels.}
 		\label{fig:spAlias}
 	\end{center}
-
+	The particularly strange effects in the airplane example above are caused by the rolling shutter of a CMOS sensor. Since it is not sampling the incoming light uniformly (at the same time) the image is distorted.
 \end{framed}
 \footnotetext[2]{https://www.youtube.com/watch?v=LVwmtwZLG88}
 \footnotetext[3]{https://www.youtube.com/watch?v=GBtHeR-hY9Y}
