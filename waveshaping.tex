@@ -257,7 +257,11 @@ y = \frac{cos(2 \cdot \omega) + cos(0)}{2} = \frac{cos(2 \cdot \omega )}{2}+\fra
 \end{equation}
 
 We arrive at the same result!
-\textbf{But is this true for every input? That would mean we just built a frequency shifter, did we? No.} Waveshaping is much more complicated, which is immediately obvious when we try to do the same t two oscillators:
+\textbf{But is this true for every input? That would mean we just built a frequency shifter, did we? No.} Waveshaping is much more complicated.\\
+
+\begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
+
+This is immediately obvious when we try to do the same with two oscillators:
 \begin{equation}
 x = cos(\omega_1)+cos(\omega_2)
 \end{equation}
@@ -274,7 +278,9 @@ And finally:
 	y = \frac{cos(2 \cdot \omega_1)}{2} + \frac{1}{2} + \frac{cos(2 \cdot \omega_2)}{2} +\frac{1}{2} + 2 \cdot (\frac{cos(\omega_1+\omega_2) + cos(\omega_1-\omega_2)}{2})
 \end{equation}
 
-\textbf{The point here is not to know this result by heart}, the point merely is that it's getting pretty complex.
+% \textbf{The point here is not to know this result by heart}, the point merely is that it's getting pretty complex.
+
+\end{mdframed}
 
 \subsection{How can waveshaping be implemented?} % (fold)
 \label{sub:how_can_waveshaping_be_implemented_}
