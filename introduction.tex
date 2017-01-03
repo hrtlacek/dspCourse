@@ -3,9 +3,65 @@
 \chapter{Introduction}
 \label{introduction}
 
-\section{Message Domain/Signal Domain}
+% bla
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{intro}
+	\caption[shortCaption]
+	{Weird effects of digital signals in video}
+	\label{fig:label}
+\end{figure}
 
-\comm{work in progress.}
+\clearpage
+
+This section tries to make sure we are all on the same page. It goes through some mathematics notation and principles of digital audio.\\
+If you rather want a video format revision of digital audio (I mean, it's 2017, of course you want), I can recommend \href{https://www.youtube.com/watch?v=cIQ9IXSUzuM}{D/A and A/D | Digital Show and Tell (Monty Montgomery @ xiph.org) }\footnote{https://www.youtube.com/watch?v=cIQ9IXSUzuM}. Some of the points in the video go beyond what we are doing here and vice versa, so don't purely rely on the video though. \\
+Ideally, if you throughly understood the introduction section, you should be able to go through the remaining chapters with tempo.
+
+
+\section{About plotting signals}
+
+We will need to plot a lot of signals in order to understand them better. Most of the time, such a plot will look like figure \ref{fig:simpeSine}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=11cm]{simpleSine}
+	\caption[simple sine plot]
+	{Sine wave, 1Hz, sampled at 30Hz sample rate}
+	\label{fig:simpeSine}
+\end{figure}
+
+This plot looks nice but it has a problem. The sine wave is sampled at a sampling rate of 30 Hz, but we see a continuous line. This ``connection of the dots'' is created by plotting. It is kind of similar to what our \textit{digital-to-analog-converter} does. It somehow\footnote{linear interpolation in case of the plot} interpolates the values we have. \\
+This can be misleading, so we should actually plot something more like figure \ref{fig:scatter}. Often we can see plots that look like figure \ref{fig:stem} as well when a signal is analyzed.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{sineScatter}
+	\caption[shortCaption]
+	{Sine wave, 1Hz, sample rate 30Hz, scatter-plot}
+	\label{fig:scatter}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{sineStem}
+	\caption[shortCaption]
+	{Sine wave, 1Hz, sample rate 30Hz, stem-plot}
+	\label{fig:stem}
+\end{figure}
+
+
+So why don't we always do a stem- or scatter-plot? Simply because it gets too crowded with our usual sampling rates in audio. It just works with very low sampling rates or very short signals.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{stem44100}
+	\caption[shortCaption]
+	{Sine wave, 1Hz, sample rate 44100Hz, stem-plot}
+	\label{fig:label}
+\end{figure}
+\textbf{But we should never forget that we don't actually have the values in between the dots. Digital signals are not defined between their sampled points.}
 
 \section{What is aliasing?}
 Aliasing in audio means problems caused by signals that exceed the nyquist rate.\\
@@ -18,32 +74,33 @@ Visually speaking, frequencies higher than nyquist fold back. So, let's assume w
 
 \begin{framed}
 	\textbf{Video analogies}\\
-	Aliasing in graphics usually means \textit{spacial} aliasing. So what we see in figure \ref{fig:spAlias}. But there is also time domain aliasing in film. See \href{https://www.youtube.com/watch?v=GBtHeR-hY9Y}{Water experiment}.
-(youtube \glqq{}The Secret to Levitation\grqq{})
+	Aliasing in graphics usually means \textit{spacial} aliasing, so aliasing in the space domain. This is what we see in figure \ref{fig:spAlias}. But there is also time domain aliasing in film. It is actually more natural to think about the sampling rate in audio as the same as the frame rate in video. For some really weir effects that arise in video due to time domain aliasing see \href{https://www.youtube.com/watch?v=LVwmtwZLG88}{air plane}\footnotemark , \href{https://www.youtube.com/watch?v=GBtHeR-hY9Y}{Water experiment}\footnotemark or \href{https://www.youtube.com/watch?v=jcOKTTnOIV8}{Guitar strings}\footnotemark .
 	\begin{center}
 		% \centering
 		\includegraphics[width=7cm]{spacialAliasing1.png}
-		\captionof{figure}{Spacial aliasintg in graphics. The ``frequency'' of the intended pixels is to high for the actual pixels.}
+		\captionof{figure}{Spacial aliasing in graphics. The ``frequency'' of the intended pixels is to high for the actual pixels.}
 		\label{fig:spAlias}
 	\end{center}
 
 \end{framed}
+\footnotetext[2]{https://www.youtube.com/watch?v=LVwmtwZLG88}
+\footnotetext[3]{https://www.youtube.com/watch?v=GBtHeR-hY9Y}
+\footnotetext[4]{https://www.youtube.com/watch?v=jcOKTTnOIV8}
 
+In fugure \ref{fig:cosAlias} you can see a visualization of aliasing in the time domain.  
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{aliasingSine}
+	\caption[shortCaption]
+	{Aliasing visualized in the time domain. A sampling rate of 4 Hz is used. Therefore frequencies will fold above 2 Hz, which is the nyquist frequency. The input cosine has a frequency of 3 Hz, labeled ``Orginal Signal''. What we would get is the sampled points. If these are digital-to-analog converted, we would get what is labeled ``Aliased signal '' in this plot, so a 1 Hz cosine.}
+	\label{fig:cosAlias}
+\end{figure}
 
-% \begin{framed}
-% \textbf{Video analogies}\\
-% What does applying a curve to every pixel of a video or image do? Is this even something people do? Of course! Think of contrast curves, below is an example from photoshop. Beware that video is working with unipolar input values and audio with bipolar inputs.
-% \begin{center}
-%   \includegraphics[width=\textwidth]{photoshop.png}
-%   \captionof{figure}{Contrast curve in photoshop}
-%   \label{fig:photoshop}
-% \end{center}
-% \end{framed}
 
 
 \section{Scaling and Mapping Signals}
-It is an important skill to be able to scale signals from one range to another. We need it a lot and we will be able to think about signals more easily f we mastered this task. It's actually quite simple, we just have to imagine the signals visually.\\
+It is an important skill to be able to scale signals from one range to another. We need it a lot and we will be able to think about signals more easily if we mastered this task. It's actually quite simple, we just have to imagine the signals visually.\\
 So what exactly do we have to do here? We are confronted with the following problem: Given some signal, say, a sine wave with its maximum at the value 1 and its minimum at the value -1. How to bring it to a different range, say, 0-10?\\
 It helps me a lot to solve this problem in two parts: first get the input in the range 0-1, then from there go to the desired range. What can we do to the signal? Let's take a sine wave:
 
@@ -104,7 +161,7 @@ If we want to talk about signals, or if we want to analyze them, it is often use
 
 \subsection{signals}
 
-Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fith smaple of $x$ is 1, we could write:
+Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fith sample of $x$ is 1, we could write:
 \begin{equation}
 	x_5=1
 \end{equation}
@@ -117,9 +174,9 @@ Oftentimes we like to talk about a signal more generally and we use $n$ as a pla
 \subsubsection{sine waves}
 We use sine waves a lot. The syntax can get a bit overwhelming at first, so let's quickly explain what's going on in a standard sine wave oscillator.
 \begin{equation}
-	x(t) = sin(2\pi f t)
+	x(t) = A \cdot sin(2\pi f t + \phi)
 \end{equation}
-Where $f$ is the frequency in Hertz and $t$ is the time in seconds.
+Where $f$ is the frequency in Hertz and $t$ is the time in seconds. $\phi$ Is a (possibly constant) phase offset and $A$ can be used to scale the whole thing. Since cosine and sine have their peaks at -1 and 1, $A$ will be the amplitude. If $A$ is set to 0.5, the resulting signal will have it's peaks at -0.5 and 0.5.  
 \comm{work in progress.}
 
 
@@ -130,4 +187,9 @@ Where $f$ is the frequency in Hertz and $t$ is the time in seconds.
 \subsection{systems}
 
 % \addsec{Was passiert in Epro und wofuer brauche ich es?}
+
+
+\section{Message Domain/Signal Domain}
+
+\comm{work in progress.}
 
