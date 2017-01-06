@@ -154,28 +154,14 @@ But let's get back to our square function, since it's simpler and we will find s
 
 % subsection subsection_name (end)
 
-\begin{framed}
-\textbf{Video analogies}\\
+\video{
 What does applying a curve to every pixel of a video or image do? Is this even something people do? Of course! Think of contrast curves, below is an example from photoshop. Beware that video is working with unipolar input values and audio with bipolar inputs.
 \begin{center}
   \includegraphics[width=8cm]{photoshop.png}
   \captionof{figure}{Contrast curve in photoshop}
   \label{fig:photoshop}
 \end{center}
-\end{framed}
-
-% \begin{framed}
-
-%   BLABLABAL
-% \begin{figure}
-% 	\centering
-% 	\includegraphics[width=11cm]{photoshop.png}
-% 	\caption[shortCaption]
-% 	{realCaption}
-% 	\label{fig:label}
-% \end{figure}
-
-% \end{framed}
+}
 
 \subsection{Simple non-linearity: \(X ^2\)} % (fold)
 \label{sub:nonLinearTrans}
@@ -391,7 +377,10 @@ To state it more simple: Waveshaping is usually encapsulated in a process that r
 
 
 \section{Sampler}
+In pure data (but also in general) we can choose to play a sound from RAM or more or less\footnote{the data played from disk needs to be cached also} directly from the hard disk. Both Approaches have their different use-cases.\\
 
+
+\video{In video, we need to make the same decision essentially. We can choose to buffer as much as we can on the VRAM of the graphics card or rather play from disk. Also different codecs specialize on balancing the load differently. The HAP codec for example tries to only push as much of the load to the hard disk and as little as possible to the CPU (which is decoding the video for playback). In times of SSDs this is a very good (and scalable) method to push a lot of data to playback in realtime.}
 \textit{Work in progress.}
 
 \begin{figure}[H]
@@ -429,15 +418,29 @@ To state it more simple: Waveshaping is usually encapsulated in a process that r
 	\end{center}
 \end{figure}
 
+\bgInfo{
+\subsection{Granular Sampling}
+In figure \ref{fig:granular} you see the basic structure of granular sampling. Granular sampling allows us for example to playback a file slower without lowering the pitch. It is one of the methods to make speed and ppitch independent from each other during playback. Other methods also include FFT based approaches.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale = 0.6]{img/grain.png}
+		\includegraphics[width=\textwidth]{img/grain.png}
 		\caption{moreSamplimg.pd, a simplified version of granular sampling}
-		\label{fig:name}
+		\label{fig:granular}
 	\end{center}
 \end{figure}
+}
 
+
+\section{Key Points}
+
+\begin{itemize}
+	\item When do we sampling from RAM when from disk?
+	\item what are the problems with waveshaping?
+	\item Make sure you understand that waveshaping can produce overtones.
+	\item Make sure if you see a (simple) mathematical expression you can decide if it is non-linear or not.
+	\item Make sure you recognize waveshaping in pd if you see it (e.g. figure \ref{fig:squarePd} )
+\end{itemize}
 
 
 \section{Hausübung}

@@ -23,16 +23,16 @@ Ideally, if you throughly understood the introduction section, you should be abl
 Some information in this document is relevant for understanding it's contents but not relevant for the exam. For example in chapter \ref{Modulation} we will find a really complicated result of an equation. The point there is just that it's complicated. And it is shown how complicated, but this is nothing to be learned by heart.\\
 Please report any mistakes, errors etc to \href{mailto:ptrk.lechner@gmail.com}{ptrk.lechner@gmail.com}.
 
-\begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
-\textbf{Text and equations with a gray background like this are background information that is not to be learned by heart.}
-\end{mdframed}
+\bgInfo{
+Text, figures, and equations with a gray background like this are background information that is not to be learned by heart.}
 
-\begin{framed}
+\video{
+This document tries to explain digital signals. It does this by use of audio signals mainly. Sometimes video analogies are given. These are also not relevant for the exam.
+}
 
-	\textbf{Video analogies}\\
-	This document tries to explain digital signals. It does this by use of audio signal mainly. Sometimes video analogies are given. These are also not relevant for the exam.
+pd objects will always be in courier new and square brackets. Like this: \pd{metro}
 
-\end{framed}
+\important{Important things are framed.}
 
 
 \section{About plotting signals}
@@ -161,9 +161,14 @@ We could subtract 1.5 to center the wave around zero first. Afterwards we take c
 \section{What's DC-Offset?}
 
 What we did above by adding a constant value to a signal can be called adding DC-offset (``Gleichspannungsversatz''), DC-Bias or a DC component. These are different words for the same thing.\\
-DC-offset can also be encountered in signals we recorded (caused by old or broken equipment mainly). But we have seen that we can also generate DC-offset.
+DC-offset can also be encountered in signals we recorded (caused by old or broken equipment mainly). But we have seen that we can also generate DC-offset.\\
+To state it again clearly: 
+\begin{framed}
+DC-Offset is a constant value over time, or a constant offset from the zero value in Y. So for example in figure \ref{fig:sine01} we see a DC-offset of 0.5 since subtracting this value would center the wave around 0.
+\end{framed}
+If we try to think how this kind of signal looks in the frequency domain we find that it is energy at 0Hz.
 
-\comm{work in progress.}
+\comm{explanations and visualizations missing}
 
 
 \section{What's an Impulse?}
@@ -192,8 +197,26 @@ We use sine waves a lot. The syntax can get a bit overwhelming at first, so let'
 \begin{equation}
 	x(t) = A \cdot sin(2\pi f t + \phi)
 \end{equation}
-Where $f$ is the frequency in Hertz and $t$ is the time in seconds. $\phi$ Is a (possibly constant) phase offset and $A$ can be used to scale the whole thing. Since cosine and sine have their peaks at -1 and 1, $A$ will be the amplitude. If $A$ is set to 0.5, the resulting signal will have it's peaks at -0.5 and 0.5.  
-\comm{work in progress.}
+Where $f$ is the frequency in Hertz and $t$ is the time in seconds. $\phi$ Is a (possibly constant) phase offset and $A$ can be used to scale the whole thing. Since cosine and sine have their peaks at -1 and 1, $A$ will be the amplitude. If $A$ is set to 0.5, the resulting signal will have it's peaks at -0.5 and 0.5. \\
+The upper equation is rather complete. Most of the time, we will just ignor the phase and the amplitude and just write:
+\begin{equation}
+	x(t) = sin(2\pi f t )
+\end{equation}
+
+Sometimes, we will simplify even more and just write $sin(a)$ or $sin(b)$ or similar.\\
+\begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
+In literature, we sometimes encounter $x(t) = sin(t \cdot \omega)$. $\omega$ stands for a ``frequency''(actually for the rotational speed) in \textit{radians per second}. $2\pi$ radians per second are 1 Hz and we can therefore convert radians per second to frequency, $v$, with:
+\begin{equation}
+  	v = \omega / 2\pi
+  \end{equation}  
+This notation is only covered since it is very common, but it will not be used here, since it is considered more intuitive to work with frequency in Hz.
+\vspace{0.5cm}
+
+\textbf{What is actually the significance of using either $sin$ or $cos$?}\\
+In most cases for us, this does not matter at all. The difference between sine and cosine is just in phase. Since we are most of the time describing a sine (or cosine) wave oscillator as a function of time, the only difference between the two would be their phase if given some moment in time. This is nothing one could hear also.
+
+\end{mdframed}
+% \comm{work in progress.}
 
 
 
@@ -202,10 +225,83 @@ Where $f$ is the frequency in Hertz and $t$ is the time in seconds. $\phi$ Is a 
 
 \subsection{systems}
 
-% \addsec{Was passiert in Epro und wofuer brauche ich es?}
+There are multiple ways in which we can describe linear time invariant (LTI) systems. We will talk more about this in chapter \ref{chap:filters}. Here, we will just look at how \textit{difference equations} work. These are one possibility to describe a digital LTI system. They are the discrete equivalent of difference equations. It's really not that complicated:
+\begin{equation}
+	y(n) = x(n)
+\end{equation}
+Would be an equation that describes a system that does nothing. it takes the input sample, $x(n)$ does nothing and defines the output sample $y(n)$ with it.
+Another really simple system would multiply its input by two:
+\begin{equation}
+	y(n) = x(n)\cdot 2
+\end{equation}
+It's getting interesting if we start playing with the index:
+\begin{equation}
+	y(n) = x(n-1)
+\end{equation}
+Is a delay by one sample.
+\begin{equation}
+	y(n) = x(n)+x(n-1)
+\end{equation}
+Takes it's input sample and the previous input sample, adds them together and spits it out. Can you imagine what this does? We'll get to it in chapter \ref{chap:filters}...
+
+This is just a preview, but it really gets interesting if we start working with feedback:
+\begin{equation}
+ 	y(n) = x(n)+y(n-1)
+ \end{equation} 
 
 
 \section{Message Domain/Signal Domain}
+This is very pure data specific although it might sound like it.
+In pure data we can have audio signals. Audio signals are processed in buffers. They are just numbers, but these numbers are calculated at a rate of 44100 Hz \textit{all the time} if we choose to have our sample rate at 44100 Hz.\\
+Messages on the other hand are not calculated that often and not all the time. Messages are processed \textit{on demand}. They are event based. This means that, for example, if we hit a note on our midi keyboard or enter a number in a \pd{Numberbox} this \textit{event} will pass through it's following objects \textit{once}. Have a look at figure ~\ref{fig:mesSig} or at the patcher. Also note that pd helps us in understanding if we deal with message or signal domain by indicating the signal domain with thicker patch cords and black inlets/outlets on the objects (look closely).
 
-\comm{work in progress.}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{messageDomainSignalDomain}
+	\caption[message domain vs. signal domain]
+	{The patcher \texttt{messageDomainSignalDomain.pd} should demonstrate the differences between message domain and signal domain in pure data.}
+	\label{fig:mesSig}
+\end{figure}
 
+\paragraph{How is this not specific to pure data?} The key points here are not specific to this programming language. If we, for example adjust the volume of a track in pro tools or ableton live or similar, then the information of our fader movement will also be in some kind of message domain.\\
+One key aspect here is: some kind of conversion between the two is necessary if we want to switch between them. If we want to control the volume of an audio signal from the message domain we have a problem: we will get noisy output since the message domain is not running at sample rate. Look at a naive attempt to controlling the amplitude of a sine wave:
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=5cm]{ampWrong}
+	\caption[shortCaption]
+	{The patcher \texttt{amplitudeWrongRight.pd} }
+	\label{fig:label}
+\end{figure}
+
+
+And let's look at what kind of waveform it will produce:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{ampWrongViz}
+	\caption[shortCaption]
+	{This is a cosine wave at 20 Hz and the message domain running at 100 millisecond interval to make the effect more extreme and visible}
+	\label{fig:label}
+\end{figure}
+
+This is a problem, since the sudden jumps produce clicks, crackling or zipper noise (reproduce or open the patcher and hear it for yourself!). These clicks are caused by the fact that the message domain just doesn't produce
+the numbers at the rate of the sampling rate. It's to slow, so to speak.\\
+In pure data (but also in general) this problem can be solve by interpolation. pure data offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127} object within 20 milliseconds. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4cm]{ampRight}
+	\caption[shortCaption]
+	{Controlling the amplitude of an oscillator. The interpolation done with \texttt{line\textasciitilde} suppresses clicks. }
+	\label{fig:ampRight}
+\end{figure}
+
+
+\section{Key Points}
+\begin{itemize}
+	\item Make sure you understand and know the mathematical notation. It will be how we talk in the remaining chapters.
+	\item Make sure you understand what aliasing means in audio.
+	\item Make sure you are comfortable with basic mathematical operations on signals, such as adding constants and multiplying with constants
+	\item Make sure you understand the difference between message and signal domain and the problem with using a message domain ``signal'' controlling an audio stream. 
+\end{itemize}
