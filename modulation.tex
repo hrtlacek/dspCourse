@@ -1,6 +1,6 @@
 %!TEX root = main.tex
 
-\chapter{Modulation and Convolution}
+\chapter{Modulation}
 \label{Modulation}
 
 
@@ -112,7 +112,6 @@ And some more vocabulary to put what we are doing in a musical context:
 
 Enough words, let's look at what AM looks like, look at figure \ref{fig:AMViz}.
 
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{AMviz.png}
@@ -121,15 +120,12 @@ Enough words, let's look at what AM looks like, look at figure \ref{fig:AMViz}.
 	\label{fig:AMViz}
 \end{figure}
 
-
 \begin{question}
 	If we would listen to the signal depicted in the bottom plot of figure \ref{fig:AMViz}, what do you think we would hear? Try to imagine! If you can't, use pure data to test it! That's why we are using pd.
 \end{question}
 \begin{Answer}
 	We would hear a 30Hz sine wave repeatedly rising and falling in amplitude.
 \end{Answer}
-
-
 
 \begin{question}
 	Next question, same plot, same signal. So hopefully you found out that we hear a 30 Hz sine with rising and falling amplitude. At what frequency does the amplitude rise and fall? Remember we are modulating with a 1 Hz sine.
@@ -138,11 +134,15 @@ Enough words, let's look at what AM looks like, look at figure \ref{fig:AMViz}.
 	Two Hertz. 
 \end{Answer}
 
-Maybe you remember from the waveshaping chapter that we actually calculated what frequencies should come out of AM. Also maybe you remember that sum and difference frequencies should come out, but here we still hear the 30 Hz, just getting louder and softer, so what's wrong? Let's look at the formulas again, just for reference:
+Maybe you remember from the waveshaping chapter that we actually calculated what frequencies should come out of AM. Also maybe you remember that:
+
+\important{
+Amplitude Modulation produces sum and difference frequencies of the input frequencies.
 \begin{equation}
 	cos(a)\cdot cos(b) = \frac{cos(a+b) + cos(a-b)}{2}
 \end{equation}
-
+}
+But here we still hear the 30 Hz, just getting louder and softer, so what's wrong?\\
 So, let's calculate this. We have two oscillators, $x_1(t) = cos(30t2\pi)$ and $x_2(t)=cos(t2\pi)$. We multiply them, ending up with:
 
 \begin{equation}
@@ -159,7 +159,7 @@ We can now simplify to:
 
 Hm, so we get out a 31Hz and 29Hz oscillator. What about that rising and falling in amplitude that we hear \textit{and} observe in the plot, surely there must be something wrong! Do you have a solution to this?\\
 
-Let's use pure data to help us understand. Make two oscillators, one with 29Hz and one with 30Hz, what do you hear?
+Let's use pure data to help us understand. Make two oscillators, one with 29Hz and one with 31Hz, what do you hear?
 
 \begin{figure}[h!]
 	\centering
@@ -185,14 +185,15 @@ So the difference of the two frequencies.
 	\end{center}
 \end{figure}
 
-\textbf{Multiplying two signals in the time domain is equvalent to convolution in the frequency domain and vice versa.
+\bgInfo{
+\paragraph{Convolution}
+We will look at convolution in a later chapter. If you  are eager to know what convolution exactly does you can have a look at 
+\href{https://youtu.be/_vyke3vF4Nk?t=25m14s}{this}\footnote{https://youtu.be/\_vyke3vF4Nk?t=25m14s}
+. But why mention convolution if it is not explained at this point? Amplitude modulation and convolution just have a very close relationship, an that is:
+\textbf{Multiplying two signals in the time domain is equivalent to convolution in the frequency domain and convolution in the time domain is equivalent to multiplication in the frequency domain.
+}
 }
 
-
-Amplitude Modulation. \glqq{}tremolo\grqq{}
-
-Ringmodulation = Bipolar,
-AM = Unipolar
 
 \section{FM} % (fold)
 \label{sub:FM}
@@ -228,10 +229,20 @@ Naive parameters are ${f_c}$ (Carrier Frequency), ${f_m}$ (Modulator Frequency),
 	\end{center}
 \end{figure}
 
+\important{
+
 The output frequencies will be
 \begin{equation}
 	f_c \pm n \cdot f_m
 \end{equation}
+
+for $n$ being all integers. So the carrier frequency plus and minus integer multiples of the modulation frequency. We get many (theoretically infinitely) many overtones with different amplitudes this way. 
+}
+\bgInfo{
+	The amplitudes of the different frequencies are determined by Bessel functions which makes it so seemingly random.
+		\centering
+		\includegraphics[width=11cm]{bessel}
+}
 
 Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental Frequency. The Index, ${I}$ is given by Modulation Depth and Modulator Frequency.
 
@@ -269,7 +280,7 @@ A more controllable Implementation will generate the naive parameters from a Rat
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{FMfast}
 	\caption[shortCaption]
@@ -277,6 +288,16 @@ A more controllable Implementation will generate the naive parameters from a Rat
 	\label{fig:fmFast}
 \end{figure}
 
+
+\section{Key Points}
+\begin{itemize}
+	\item Make sure you understand the differences between AM and FM
+	\item Make sure you recognize what form of modulation is present if you see a patcher or a simplfied formula (like: $sin(a) \cdot sin(b)$ what form of modulation is this?) 
+	\item make sure you could make such a simplified formula if you see a patch and vice versa.
+	\item make sure you know what frequencies result from an amplitude modulation
+	\item make sure you know what frequencies result from a frequency modulation
+\end{itemize}
+    
 
 % \section{Hausübung}
 % \label{sub:Hausuebung}
