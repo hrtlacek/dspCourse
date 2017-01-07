@@ -19,9 +19,9 @@ If you rather want a video format revision of digital audio (I mean, it's \the\y
 Ideally, if you throughly understood the introduction section, you should be able to go through the remaining chapters with tempo.\\
 
 \section{About this document}
+Please report any mistakes, errors etc to \href{mailto:ptrk.lechner@gmail.com}{ptrk.lechner@gmail.com}.\\
 
-Some information in this document is relevant for understanding it's contents but not relevant for the exam. For example in chapter \ref{Modulation} we will find a really complicated result of an equation. The point there is just that it's complicated. And it is shown how complicated, but this is nothing to be learned by heart.\\
-Please report any mistakes, errors etc to \href{mailto:ptrk.lechner@gmail.com}{ptrk.lechner@gmail.com}.
+Some information in this document is relevant for understanding its contents but not relevant for the exam. For example in chapter \ref{Modulation} we will find a really complicated result of an equation. The point there is just that it's complicated. And it is shown how complicated, but this is nothing to be learned by heart. Importance is tried to be made clear using the following formats:\\
 
 \bgInfo{
 Text, figures, and equations with a gray background like this are background information that is not to be learned by heart.}
@@ -30,9 +30,10 @@ Text, figures, and equations with a gray background like this are background inf
 This document tries to explain digital signals. It does this by use of audio signals mainly. Sometimes video analogies are given. These are also not relevant for the exam.
 }
 
+\important{Very important things are framed.}
+
 pd objects will always be in courier new and square brackets. Like this: \pd{metro}
 
-\important{Important things are framed.}
 
 
 \section{About plotting signals}
@@ -251,7 +252,7 @@ This is just a preview, but it really gets interesting if we start working with 
 
 
 \section{Message Domain/Signal Domain}
-This is very pure data specific although it might sound like it.
+This is not pure data specific although it might sound like it.
 In pure data we can have audio signals. Audio signals are processed in buffers. They are just numbers, but these numbers are calculated at a rate of 44100 Hz \textit{all the time} if we choose to have our sample rate at 44100 Hz.\\
 Messages on the other hand are not calculated that often and not all the time. Messages are processed \textit{on demand}. They are event based. This means that, for example, if we hit a note on our midi keyboard or enter a number in a \pd{Numberbox} this \textit{event} will pass through it's following objects \textit{once}. Have a look at figure ~\ref{fig:mesSig} or at the patcher. Also note that pd helps us in understanding if we deal with message or signal domain by indicating the signal domain with thicker patch cords and black inlets/outlets on the objects (look closely).
 
@@ -287,13 +288,13 @@ And let's look at what kind of waveform it will produce:
 
 This is a problem, since the sudden jumps produce clicks, crackling or zipper noise (reproduce or open the patcher and hear it for yourself!). These clicks are caused by the fact that the message domain just doesn't produce
 the numbers at the rate of the sampling rate. It's to slow, so to speak.\\
-In pure data (but also in general) this problem can be solve by interpolation. pure data offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127} object within 20 milliseconds. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
+In pure data (but also in general) this problem can be solved by interpolation. pure data offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127} object within 20 milliseconds\footnote{20ms is just an example. It is a reasonable time for this kind of interpolation but really, it is just an example. It could just as well be 50 ms.}. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=4cm]{ampRight}
 	\caption[shortCaption]
-	{Controlling the amplitude of an oscillator. The interpolation done with \texttt{line\textasciitilde} suppresses clicks. }
+	{Controlling the amplitude of an oscillator. The interpolation done with \pd{line\textasciitilde} suppresses clicks. }
 	\label{fig:ampRight}
 \end{figure}
 
