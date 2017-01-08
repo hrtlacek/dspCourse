@@ -167,9 +167,17 @@ To state it again clearly:
 \begin{framed}
 DC-Offset is a constant value over time, or a constant offset from the zero value in Y. So for example in figure \ref{fig:sine01} we see a DC-offset of 0.5 since subtracting this value would center the wave around 0.
 \end{framed}
-If we try to think how this kind of signal looks in the frequency domain we find that it is energy at 0Hz.
+If we try to think how this kind of signal looks in the frequency domain we find that it is energy at 0Hz. In figure \ref{fig:dcViz} you can see a couple of cosine waves plotted. This should hep imagine that a constant signal, a signal that does not move a all, can be described by a cosine with 0 Hz and a certain amplitude.
 
-\comm{explanations and visualizations missing}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=11cm]{dcOffsetViz}
+	\caption[shortCaption]
+	{Cosines with different very low frequencies approaching 0Hz, so DC offset.}
+	\label{fig:dcViz}
+\end{figure}
+
+% \comm{explanations and visualizations missing}
 
 
 \section{What's an Impulse?}
@@ -254,7 +262,14 @@ This is just a preview, but it really gets interesting if we start working with 
 \section{Message Domain/Signal Domain}
 This is not pure data specific although it might sound like it.
 In pure data we can have audio signals. Audio signals are processed in buffers. They are just numbers, but these numbers are calculated at a rate of 44100 Hz \textit{all the time} if we choose to have our sample rate at 44100 Hz.\\
-Messages on the other hand are not calculated that often and not all the time. Messages are processed \textit{on demand}. They are event based. This means that, for example, if we hit a note on our midi keyboard or enter a number in a \pd{Numberbox} this \textit{event} will pass through it's following objects \textit{once}. Have a look at figure ~\ref{fig:mesSig} or at the patcher. Also note that pd helps us in understanding if we deal with message or signal domain by indicating the signal domain with thicker patch cords and black inlets/outlets on the objects (look closely).
+Messages on the other hand are not calculated that often and not all the time. Messages are processed \textit{on demand}. They are event based. This means that, for example, if we hit a note on our midi keyboard or enter a number in a \pd{Numberbox} this \textit{event} will pass through its following objects \textit{once}. Have a look at figure ~\ref{fig:mesSig} or at the patcher. Also note that pd helps us in understanding if we deal with message or signal domain:
+
+\begin{itemize}
+	\item pd is indicating the signal domain with thicker patch cords
+	\item signal domain inlets/outlets are back (look closely)
+	\item objects that deal with the signal domain have a tilde (\textasciitilde ) at the end of their name.
+\end{itemize}
+ % by indicating the signal domain with thicker patch cords and black inlets/outlets on the objects (look closely).
 
 \begin{figure}[h!]
 	\centering
@@ -286,8 +301,9 @@ And let's look at what kind of waveform it will produce:
 	\label{fig:label}
 \end{figure}
 
+
 This is a problem, since the sudden jumps produce clicks, crackling or zipper noise (reproduce or open the patcher and hear it for yourself!). These clicks are caused by the fact that the message domain just doesn't produce
-the numbers at the rate of the sampling rate. It's to slow, so to speak.\\
+the numbers at the rate of the sampling rate. It's too slow, so to speak.\\
 In pure data (but also in general) this problem can be solved by interpolation. pure data offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127} object within 20 milliseconds\footnote{20ms is just an example. It is a reasonable time for this kind of interpolation but really, it is just an example. It could just as well be 50 ms.}. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
 
 \begin{figure}[H]
