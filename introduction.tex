@@ -3,6 +3,8 @@
 \chapter{Introduction}
 \label{introduction}
 
+% \section{Was passiert in Epro und wofuer brauche ich es?}
+
 \section{Message Domain/Signal Domain}
 
 \comm{work in progress.}
@@ -23,24 +25,11 @@ Visually speaking, frequencies higher than nyquist fold back. So, let's assume w
 	\begin{center}
 		% \centering
 		\includegraphics[width=7cm]{spacialAliasing1.png}
-		\captionof{figure}{Spacial aliasintg in graphics. The ``frequency'' of the intended pixels is to high for the actual pixels.}
+		\captionof{figure}{Spacial aliasing in graphics. The ``frequency'' of the intended pixels is to high for the actual pixels.}
 		\label{fig:spAlias}
 	\end{center}
 
 \end{framed}
-
-
-
-% \begin{framed}
-% \textbf{Video analogies}\\
-% What does applying a curve to every pixel of a video or image do? Is this even something people do? Of course! Think of contrast curves, below is an example from photoshop. Beware that video is working with unipolar input values and audio with bipolar inputs.
-% \begin{center}
-%   \includegraphics[width=\textwidth]{photoshop.png}
-%   \captionof{figure}{Contrast curve in photoshop}
-%   \label{fig:photoshop}
-% \end{center}
-% \end{framed}
-
 
 \section{Scaling and Mapping Signals}
 It is an important skill to be able to scale signals from one range to another. We need it a lot and we will be able to think about signals more easily f we mastered this task. It's actually quite simple, we just have to imagine the signals visually.\\
@@ -92,11 +81,9 @@ DC-offset can also be encountered in signals we recorded (caused by old or broke
 
 \comm{work in progress.}
 
-
 \section{What's an Impulse?}
 
 \comm{work in progress.}
-
 
 \section{How to describe audio mathematically}
 
@@ -104,7 +91,7 @@ If we want to talk about signals, or if we want to analyze them, it is often use
 
 \subsection{signals}
 
-Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fith smaple of $x$ is 1, we could write:
+Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fifth sample of $x$ is 1, we could write:
 \begin{equation}
 	x_5=1
 \end{equation}
@@ -122,12 +109,17 @@ We use sine waves a lot. The syntax can get a bit overwhelming at first, so let'
 Where $f$ is the frequency in Hertz and $t$ is the time in seconds.
 \comm{work in progress.}
 
-
-
-
-
-
 \subsection{systems}
+There are many ways to describe systems. Digital LTI systems (Linear, time invariant Systems) can be described using 
+\begin{itemize}
+	\item difference equations
+	\item Block diagrams
+	\item Transfer Functions
+	\item and other things.
+\end{itemize}
 
-% \addsec{Was passiert in Epro und wofuer brauche ich es?}
+For us, the most important ways to describe a system are vlock diagrams and difference equations.
+
+
+
 
