@@ -245,6 +245,19 @@
 %römische Aufzählungen mit \RM{Zahl}
 \newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
 
+\newcommand{\pd}[1]{\texttt{[{#1}]}}
+
+\usepackage{mdframed}
+
+\newcommand{\bgInfo}[1]{\begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false] #1 \end{mdframed}}
+
+\newcommand{\video}[1]{
+\begin{framed}
+\textbf{Video Analogies}\\
+ #1 \end{framed}}
+
+
+\newcommand{\important}[1]{\begin{framed} #1 \end{framed}}
 
 % ============= Dokumentbeginn =============
 
@@ -294,8 +307,8 @@
 
 \include{waveshaping}
 \include{modulation}
-% \include{05_filters}
-% \include{polyphony}
+\include{05_filters}
+% \include{polyPhony}
 % \include{Karplus}
 % \include{FFT}
 % ---------SEMESTER4----------
