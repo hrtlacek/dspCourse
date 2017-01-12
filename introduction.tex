@@ -3,7 +3,6 @@
 \chapter{Introduction}
 \label{introduction}
 
-% bla
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{intro}
@@ -11,7 +10,6 @@
 	{Weird effects of digital signals in video}
 	\label{fig:label}
 \end{figure}
-
 \clearpage
 
 This section tries to make sure we are all on the same page. It goes through some mathematics notation and principles of digital audio.\\
@@ -104,7 +102,8 @@ Visually speaking, frequencies higher than nyquist fold back. So, let's assume w
 \footnotetext[3]{https://www.youtube.com/watch?v=GBtHeR-hY9Y}
 \footnotetext[4]{https://www.youtube.com/watch?v=jcOKTTnOIV8}
 
-In fugure \ref{fig:cosAlias} you can see a visualization of aliasing in the time domain.  
+
+In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time domain.  
 
 \begin{figure}[H]
 	\centering
@@ -113,7 +112,6 @@ In fugure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 	{Aliasing visualized in the time domain. A sampling rate of 4 Hz is used. Therefore frequencies will fold above 2 Hz, which is the nyquist frequency. The input cosine has a frequency of 3 Hz, labeled ``Orginal Signal''. What we would get is the sampled points. If these are digital-to-analog converted, we would get what is labeled ``Aliased signal '' in this plot, so a 1 Hz cosine.}
 	\label{fig:cosAlias}
 \end{figure}
-
 
 
 \section{Scaling and Mapping Signals}
@@ -179,11 +177,9 @@ If we try to think how this kind of signal looks in the frequency domain we find
 
 % \comm{explanations and visualizations missing}
 
-
 \section{What's an Impulse?}
 
 \comm{work in progress.}
-
 
 \section{How to describe audio mathematically}
 
@@ -191,7 +187,8 @@ If we want to talk about signals, or if we want to analyze them, it is often use
 
 \subsection{signals}
 
-Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fith sample of $x$ is 1, we could write:
+Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fifth sample of $x$ is 1, we could write:
+
 \begin{equation}
 	x_5=1
 \end{equation}
@@ -227,10 +224,16 @@ In most cases for us, this does not matter at all. The difference between sine a
 \end{mdframed}
 % \comm{work in progress.}
 
+\subsection{systems}
+There are many ways to describe systems. Digital LTI systems (Linear, time invariant Systems) can be described using 
+\begin{itemize}
+	\item difference equations
+	\item Block diagrams
+	\item Transfer Functions
+	\item and other things.
+\end{itemize}
 
-
-
-
+For us, the most important ways to describe a system are vlock diagrams and difference equations.
 
 \subsection{systems}
 
