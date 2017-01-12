@@ -1,5 +1,5 @@
 %!TEX root = main.tex
-\chapter{Filter}
+\chapter{Filters}
 \label{chap:filters}
 
 
@@ -16,10 +16,17 @@
 \comm{lecture mind map missing}
 
 
-What is a filter? We use filters a lot. We often need to shape the spectrum of a signal. Be it for technical reasons (DC-Offset removal, Anti-aliasing filters, crossovers, interpolation, ...) or for aesthetical ones (EQ-ing, subtractive synthesis)\\
+What is a filter? We use filters a lot. We often need to shape the spectrum of a signal. Be it for technical reasons (DC-Offset removal, Anti-aliasing filters, crossovers, interpolation, ...) or for aesthetic ones (EQ-ing, subtractive synthesis)\\
 Please take a moment and seriously ask yourself, knowing what you know about signals, knowing what we can do with a computer: How do we actually do this? What is a digital Filter? This is what this chapter will try to explain.\\
 
-\section{Riddle and Getting a Feel for Filtering}
+\section{Seeing Frequency Content in the Time Domain}
+
+Let's first try to get a fell for how signals \textit{look}. It's a lot easier to understand how a filter works afterwards. This might be obvious but let's state clearly:
+
+\begin{framed}
+	High frequency signals have a short \textit{period}. That means the signal ``moves'' fast, or a lot in short time. Therefore: The more movement is in a signal or the more fluctuation or the faster the signal changes the more high frequency content it has.
+\end{framed}
+
 
 Three Questions in order to make you think about signals:
 
@@ -59,10 +66,8 @@ You should be able to see that there is a sinusoidal component in the signal. Th
 
 
 \begin{question}
-	
+	Again, the signal in figure \ref{fig:originalSignal} (so the original signal again) was filtered. As a result we obtained the signal in figure \ref{fig:raetsel_2} . What kind of filter could have been used?
 \begin{figure}[H]
-Again, the signal in figure \ref{fig:originalSignal} (so the original signal again) was filtered. As a result we obtained the signal in figure \ref{fig:raetsel_2} . What kind of filter could have been used?
-
 	\begin{center}
 		\includegraphics[width = 14cm]{raetsel_lowpass.png}
 		\caption{Filtered Signal 2}
@@ -73,9 +78,32 @@ Again, the signal in figure \ref{fig:originalSignal} (so the original signal aga
 \end{question}
 
 
+\begin{Answer}
+	It could have been a bandpass at 100Hz, or a lowpass. In fact, it was a lowpass. We see that the signal got a lot smoother.
+\end{Answer}
 
-Woraus könnte das signal in Bild ~\ref{fig:originalSignal} bestehen?
-\textbf{Kann jemand das spektrum aufmalen?}
+\section{Two Ways of getting an Intuitive Understanding}
+
+\subsection{Combfilter to Lowpass}
+    \comm{missing}
+
+\subsection{Prolonging an Impulse}
+	\comm{missing}
+
+\section{Ways of Describing a Filter}
+There are a couple of ways to \textit{fully} describe a linear time invariant system (LTI), filters typically\footnote{filters can be augmented with non-linear or time-varying elements, for example distortion or modulation. In sound design, this is actually very common. But describing such a system mathematically is out of the scope of this work.} are such systems.\\
+The following Methods are equivalent since they all are able to describe a filter. But they offer very different possibilities in understanding and manipulating a filter.
+\begin{itemize}
+	\item Difference Equation
+	\item Magnitude and Phase Response
+	\item Impulse Response
+	\item Code
+	\item Block Diagram
+	\item Transfer Function (Rational Function)
+\end{itemize}
+
+\
+\subsection{Difference Equations}
 % subsection raetsel (end)
 % \begin{figure}[H]
 % 	\begin{center}
@@ -175,38 +203,6 @@ Woraus könnte das signal in Bild ~\ref{fig:originalSignal} bestehen?
 
 % Nachdenken über filter allgemein. Was ist ein filter im gespür d. studenten. \\
 % Bekannt was ein LTI system ist?\\
-
-% \subsection{Raetsel} % (fold)
-% \label{sub:raetsel}
-
-% 		\caption{raetsel 1}
-% 		\label{fig:raetsel_1}
-% 	\end{center}
-% \end{figure}
-
-% Das Signal in Bild ~\ref{fig:originalSignal} wurde gefiltert und das Signal in Bild ~\ref{fig:raetsel_2} ist entstanden. Was für ein Filter wurde möglicherweise verwendet?
-
-
-% \begin{figure}[H]
-% 	\begin{center}
-% 		\includegraphics[width = 14cm]{raetsel_lowpass.png}
-% 		\caption{raetsel 2}
-% 		\label{fig:raetsel_2}
-% 	\end{center}
-% \end{figure}
-
-% \newpage
-% \subsubsection{Lösung} % (fold)
-% \label{sub:l_sung}
-
-% % subsection l_sung (end)
-% Original signal = White noise + cosinus bei 100 Hz.\\
-% Raetsel 1 : ein Highpass.\\
-% Raetsel 1 : ein Lowpass.\\
-% (many FIR filters in series.)
-
-
-
 
 
 % \newpage
