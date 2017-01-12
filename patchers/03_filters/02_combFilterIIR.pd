@@ -1,0 +1,64 @@
+#N canvas 669 173 979 826 10;
+#X declare -lib iemgui;
+#X obj 29 97 noise~;
+#X obj 28 45 import iemgui;
+#X obj 28 25 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 27 378 output~;
+#X obj 39 189 linspectrumdraw;
+#X floatatom 130 113 5 0 0 0 - - -;
+#X floatatom 222 115 5 0 0 0 - - -;
+#X text 126 92 Time in ms;
+#X text 219 92 Gain;
+#N canvas 131 22 1074 640 IIRcomb 0;
+#X obj 11 8 block~ 1;
+#X obj 364 28 cnv 15 700 300 empty empty Block-Diagram-Representation
+20 12 0 14 -233017 -66577 0;
+#X obj 372 95 iem_image IIRcomb.gif 0 0 empty empty;
+#X obj 373 53 loadbang;
+#X obj 10 28 cnv 15 350 300 empty empty Patch-Representation 20 12
+0 14 -233017 -66577 0;
+#X obj 53 80 inlet~;
+#X obj 53 296 outlet~;
+#X obj 94 219 *~ 0;
+#X obj 94 167 delread~ comb1 0;
+#X obj 53 247 +~;
+#X text 96 79 Audio In (X);
+#X obj 94 141 inlet;
+#X text 135 140 Delay Time in ms. (1000*M/sr);
+#X obj 115 192 inlet;
+#X text 156 191 g \, gain of the delayed signal.;
+#X obj 69 273 delwrite~ comb1 100;
+#X obj 53 132 *~ 1;
+#X text 103 296 Audio Out (Y);
+#X text 109 105 Gain \, c;
+#X obj 74 106 inlet;
+#X obj 363 332 cnv 15 700 300 empty empty Impulse-Response-Representation
+20 12 0 14 -233017 -66577 0;
+#X obj 378 400 iem_image IIRcombIR.gif 0 0 empty empty;
+#X obj 379 358 loadbang;
+#X obj 10 332 cnv 15 350 300 empty empty Difference-Equation-Representation
+20 12 0 14 -233017 -66577 0;
+#X text 80 370 y[n] = x[n]*c + y[n-m]*g;
+#X msg 373 73 open IIRcomb.gif;
+#X msg 378 378 open IIRcombIR.gif;
+#X connect 3 0 25 0;
+#X connect 5 0 16 0;
+#X connect 7 0 9 1;
+#X connect 8 0 7 0;
+#X connect 9 0 6 0;
+#X connect 9 0 15 0;
+#X connect 11 0 8 0;
+#X connect 13 0 7 1;
+#X connect 16 0 9 0;
+#X connect 19 0 16 1;
+#X connect 22 0 26 0;
+#X connect 25 0 2 0;
+#X connect 26 0 21 0;
+#X restore 28 163 pd IIRcomb;
+#X connect 0 0 9 0;
+#X connect 2 0 1 0;
+#X connect 5 0 9 2;
+#X connect 6 0 9 3;
+#X connect 9 0 4 0;
+#X connect 9 0 3 0;
