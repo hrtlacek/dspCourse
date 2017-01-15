@@ -82,17 +82,9 @@ You should be able to see that there is a sinusoidal component in the signal. Th
 	It could have been a bandpass at 100Hz, or a lowpass. In fact, it was a lowpass. We see that the signal got a lot smoother.
 \end{Answer}
 
-\section{Two Ways of getting an Intuitive Understanding}
-
-\subsection{Combfilter to Lowpass}
-    \comm{missing}
-
-\subsection{Prolonging an Impulse}
-	\comm{missing}
-
 \section{Ways of Describing a Filter}
 There are a couple of ways to \textit{fully} describe a linear time invariant system (LTI), filters typically\footnote{filters can be augmented with non-linear or time-varying elements, for example distortion or modulation. In sound design, this is actually very common. But describing such a system mathematically is out of the scope of this work.} are such systems.\\
-The following Methods are equivalent since they all are able to describe a filter. But they offer very different possibilities in understanding and manipulating a filter.
+Below is an (incomplete) list of methods that are all able to describe a filter. They offer very different possibilities of understanding and manipulating a filter.
 \begin{itemize}
 	\item Difference Equation
 	\item Magnitude and Phase Response
@@ -100,25 +92,76 @@ The following Methods are equivalent since they all are able to describe a filte
 	\item Code
 	\item Block Diagram
 	\item Transfer Function (Rational Function)
+	\item Unit Step Response
 \end{itemize}
 
-\
+While in practice, the transfer function is very important, we will mostly work with block diagrams, pd programs and difference equations.
+
 \subsection{Difference Equations}
-% subsection raetsel (end)
-% \begin{figure}[H]
-% 	\begin{center}
-% 		\includegraphics[width = 14cm]{raetsel_original.png}
-% 		\caption{Original Signal}
-% 		\label{fig:originalSignal}
-% 	\end{center}
-% \end{figure}
+\label{sub:diff}
 
-% Das Signal in Bild ~\ref{fig:originalSignal} wurde gefiltert und das Signal in Bild ~\ref{fig:raetsel_1} ist entstanden. Was für ein Filter wurde möglicherweise verwendet?
+A difference equation is of the form mentioned in the introduction. So for example 
+\begin{equation}
+	y(n) = x(n)+x(n-1)
+\end{equation}
+Here, $y$ is the output $x$ is the input and $n$ denotes indexing those two signals.\\
+$y(n)=x(n)$ means: take the incoming sample and make it the output. $x(n-1)$ denotes a delay by one sample. Please note that the above equation describes a \textit{system}, a filter in this case. But it can be seen as using an input array (the input signal), indexed by $n$ and creating an output array.\\
+Let's visualize this idea. Given the input signal in figure \ref{fig:diffImpResp}, we can create the output using the equation. Also it becomes obvious that the $n-1$ expression is a delay, since it makes us look up the 3rd index for creating the 4th sample at the output in this case, or $y(4) = x(4)+x(4-1)$.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{diffEqViz1}
+	\caption[shortCaption]
+	{The input and corresponding output of the equation given above.}
+	\label{fig:diffImpResp}
+\end{figure}
 
-% \begin{figure}[H]
-% 	\begin{center}
-% 		\includegraphics[width = 14cm]{raetsel_highpass.png}
-% \end{figure}
+
+\subsection{Block Diagrams} % (fold)
+\label{sub:block}
+
+% subsection subsection_name (end)
+
+
+
+\section{Two Ways of Getting an Intuitive Understanding}
+
+\subsection{Combfilter to Lowpass}
+Let's quickly review what a combfilter is:
+The combfilter effect can come up if we record something with a microphone and we get the direct signal and a delayed (e.g. via a reflection) signal also. These two signals mix together and this is what we get in our recording.\\
+The result is that some frequencies cancel out.\\
+We can simply simulate this situation in pd using a delay and an addition. 
+
+\comm{pd patch image comb filter missing.}
+
+This canceling out of frequencies \footnote{also called destructive interference} can be imagined if we look at figure \ref{fig:destIntereference}. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{destInterference}
+	\caption[Destructive Interference]
+	{Destructive Interference. The two waves would cancel out completely if mixed together(=added).}
+	\label{fig:destIntereference}
+\end{figure}
+
+Please note that the signal is a sine wave with a frequency of 100 Hz, so a period of 10 milliseconds. The delay is set to be 5 ms, so half of the period of the input signal in this case. It it was set to be equals the period, the two waves would \textit{interfere constructively}, so we would get out a higher amplitude. \\
+
+\important{In a combfilter, the first frequency that cancels out is the one whose period is double the delay time.}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{FromCombfilterToLowpass}
+	\caption[shortCaption]
+	{realCaption}
+	\label{fig:label}
+\end{figure}
+
+\subsection{Prolonging an Impulse}
+	\comm{missing}
+
+
+
+
+
 % Notizen aus erster UE:\\
 % Viellt. mit IR anfangen?
 % Vielleicht davor noch: das beispiel mit noise + sinus.
