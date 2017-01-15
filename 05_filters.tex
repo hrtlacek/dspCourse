@@ -268,8 +268,16 @@ In figure \ref{fig:combToLowpass} we can see the \textit{frequency response}\foo
 	\label{fig:combToLowpass}
 \end{figure}
 
+\bgInfo{
+	We can also calculate what's happening with our equation from above:
+	The delay is $1/f_s$, so 1 over samplerate. This is called the sampling intervall, let's call it $I_s$, just to get rid of the fraction. The frequency that cancels out is then $1/2I$. By inspection we find that this means the frequency that has double the wavelength of the sampling frequency, so half the sampling frequency, so \textit{Nyquist}. 
+}
+
+
 \subsection{Prolonging an Impulse}
-	\comm{missing}
+We can also take a different route to understand why this is a lowpass. Let's recall what the spectrum of an impulse looks and what the spectrum of DC offset looks like.
+\comm{missing figure}
+
 
 
 
