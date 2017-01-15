@@ -89,13 +89,15 @@ Below is an (incomplete) list of methods that are all able to describe a filter.
 	\item Difference Equation
 	\item Magnitude and Phase Response
 	\item Impulse Response
-	\item Code
+	\item Code (graphical, such as pd)
+	\item Code (text, such as C++)
 	\item Block Diagram
 	\item Transfer Function (Rational Function)
 	\item Unit Step Response
 \end{itemize}
 
-While in practice, the transfer function is very important, we will mostly work with block diagrams, pd programs and difference equations.
+While in practice, the transfer function is very important, we will mostly work with block diagrams, pd programs and difference equations.\\
+It is an important skill to be able to switch between these representations, for example to calculate the impulse response from a difference equation or block diagram.
 
 \subsection{Difference Equations}
 \label{sub:diff}
@@ -103,6 +105,7 @@ While in practice, the transfer function is very important, we will mostly work 
 A difference equation is of the form mentioned in the introduction. So for example 
 \begin{equation}
 	y(n) = x(n)+x(n-1)
+	\label{eq:simple}
 \end{equation}
 Here, $y$ is the output $x$ is the input and $n$ denotes indexing those two signals.\\
 $y(n)=x(n)$ means: take the incoming sample and make it the output. $x(n-1)$ denotes a delay by one sample. Please note that the above equation describes a \textit{system}, a filter in this case. But it can be seen as using an input array (the input signal), indexed by $n$ and creating an output array.\\
@@ -119,19 +122,122 @@ Let's visualize this idea. Given the input signal in figure \ref{fig:diffImpResp
 \subsection{Block Diagrams} % (fold)
 \label{sub:block}
 
+Block diagrams are nice because they are very visual and sometimes easier to understand. Also, if we work in pure data, or a different graphical programming language (such as Max/MSP or MAYTLAB Simulink) it's very straight forward to implement a block diagram. Translating from a block diagram to text code or difference equations or vice versa can be hard sometimes.\\
+In figure \ref{fig:diffImpResp}, we can see a block diagram representation of equation \ref{eq:simple}. This \textit{is} the same thing. 
+
 % subsection subsection_name (end)
 
+\begin{figure}[H]
+  \centering  
+  \label{fig:string}
+  \begin{tikzpicture}[auto, thick, node distance=2.5cm, >=triangle 45]
+  \draw node at (0,0) [input] (inp) {};
+  \draw node at (2.5,-0.001) (junct) {\textbullet};
+  \draw node at (4,2) [block] (delay) {\Large$z^{-1}$};
+  \draw node [sum, right of=inp, node distance = 5.cm] (sum1) {\Large$+$};
+  
+  \draw node [output, right of=sum1,node distance = 3cm] (out) {};
+  \draw[->] (inp) -- node {}(sum1);
+  % \draw[->] (junct) |- node {}(delay);
+  \draw[->] (delay.east) -| node {}(sum1.north);
+
+  \draw[->] (2.5, -0.001) |- node {}(delay.west);
+
+
+  \draw[->] (sum1) -- node {\Large$y[n]$}(out);
+    
+  \node[text width=3cm] at (1.7,0.4) 
+    {\Large$x[n]$};
+
+  \end{tikzpicture}
+  \caption{A very simple lowpass filter.}
+  \label{fig:blockDiagr}
+\end{figure}
+
+Don't be irritated by the $z^{-1}$ block. This notation stands for a delay by one sample. A block $z^{-m}$ would stand for a delay by $m$ samples. This is a convention we need to remember. This way of notating a delay might seem unnecessarily complex, but it has its reasons.
+
+\bgInfo{This notation, $z^{-1}$, comes from the fact that analyzing the frequency response of a system is very easy when working with complex numbers (so compounds of real and imaginary numbers). Complex numbers are often denoted by $Z$, which is another convention. Not only do we work with complex numbers, but with complex sinusoids when analyzing such systems. We imagine complex sinusoids coming into our system. A multiplication by another complex sinusoid can cause a phase shift (a delay). And this multiplication}
+
+
+\subsection{pd Code} % (fold)
+\label{sub:pd_code}
+If we program the filter in pd (or any other programming language) we obviously also fully defined the filter. Try to build the filter from above in pd! Start from the difference equation or the block diagram, what ever is harder to understand for you.\\
+In figure \ref{fig:pdSimpleFir} you can see the translation to pd.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5cm]{simpleFir}
+	\caption[FIR filter in pd]
+	{A simple filter in pure data.}
+	\label{fig:pdSimpleFir}
+\end{figure}
+
+% subsection pd_code (end)
+
+\subsection{Impulse Response}
+
+In impulse has the advantage that it contains all frequencies. It has a flat spectrum.  So recording how a filter reacts to the impulse gives us the magnitude of the spectrum at all frequencies.\\
+We can see the impulse response of the filter we are describing in this section in  multiple ways in figure \ref{fig:diffImpResp}.
+
+\bgInfo{
+\subsection{Text Oriented Code} % (fold)
+\label{sub:tcode}
+Below, we can see a code implementation in the language MATLAB.
+
+\lstinputlisting[label=code,
+captionpos=b,
+caption=A script that creates an impulse implements a vectorized filter and plots the result.]{code/FIRvectorized.m}
+
+}
+% FIRvectorized.m
+
+
+% subsection code (end)
+
+% \begin{figure}[htb]
+%   \centering  
+%   \label{fig:string}
+
+%   \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
+
+%   \draw node at (0,0) [input] (excitation) {};
+%   \draw node [sum, right of=excitation, node distance = 2.cm] (sum1) {\Large$+$};
+%   \draw node [block, right of=sum1, node distance = 2cm] (delay) {\Large$z^{-m}$};
+%   \draw node [block, below of=delay, node distance = 2cm] (loss) {\Large$G(z)$};
+%   \draw node at (6.,-0.001) {\textbullet};
+
+%   \draw node [output, right of=delay,node distance = 3cm] (out) {};
+%   \draw[->] (excitation) -- node {\Large$x[n]$}(sum1);
+%   \draw[->] (sum1) -- node {}(delay);
+%   \draw[->] (loss.west) -| node {}(sum1.south);
+
+%   \draw[->] (6., -0.001) |- node {}(loss.east);
+
+
+%   \draw[->] (delay) -- node {\Large$y[n]$}(out);
+    
+%   \end{tikzpicture}
+%   \caption{einzelne Saite, $G(z)$ ein lowpass, \glqq{}Loss Filter\grqq{}}
+% \end{figure}
 
 
 \section{Two Ways of Getting an Intuitive Understanding}
 
+So now we learned some ways to define a filter, to talk about a filter. But what is this filter actually doing? It is a very simple lowpass filter. It cuts away high frequencies. But why is adding a signal to itself but one sample delayed making a lowpass? This certainly is a bit surprising, so let's try to understand what's happening.
+
 \subsection{Combfilter to Lowpass}
-Let's quickly review what a combfilter is:
+First let's view the problem from another angle. We know what this structure from above is: It's a combfilter, right? It's taking a signal and adding a delayed version of it. Let's quickly review what a combfilter is:
 The combfilter effect can come up if we record something with a microphone and we get the direct signal and a delayed (e.g. via a reflection) signal also. These two signals mix together and this is what we get in our recording.\\
 The result is that some frequencies cancel out.\\
 We can simply simulate this situation in pd using a delay and an addition. 
 
-\comm{pd patch image comb filter missing.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{simpleComb}
+	\caption[shortCaption]
+	{realCaption}
+	\label{fig:label}
+\end{figure}
 
 This canceling out of frequencies \footnote{also called destructive interference} can be imagined if we look at figure \ref{fig:destIntereference}. 
 \begin{figure}[H]
@@ -144,15 +250,22 @@ This canceling out of frequencies \footnote{also called destructive interference
 
 Please note that the signal is a sine wave with a frequency of 100 Hz, so a period of 10 milliseconds. The delay is set to be 5 ms, so half of the period of the input signal in this case. It it was set to be equals the period, the two waves would \textit{interfere constructively}, so we would get out a higher amplitude. \\
 
-\important{In a combfilter, the first frequency that cancels out is the one whose period is double the delay time.}
+\important{In a combfilter, the first frequency that cancels out is the one whose period is double the delay time. Or, to put it differently
+\begin{equation}
+	f_c = \frac{1}{2d}
+\end{equation}
+If $f_c$ is the first frequency that cancels out and d is the delay time in seconds.
 
+}
+
+In figure \ref{fig:combToLowpass} we can see the \textit{frequency response}\footnote{The impulse response is recorded a couple of times and the output's spectrum has been analyzed} of our combfilter. We see a couple of plots, it's always the same filter but the delay is different. We see that for delay times >1 sample, we observe our typical comb pattern. But at Delay = 1 sample, there is just a ramp left, leaving us with a lowpass.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{FromCombfilterToLowpass}
 	\caption[shortCaption]
 	{realCaption}
-	\label{fig:label}
+	\label{fig:combToLowpass}
 \end{figure}
 
 \subsection{Prolonging an Impulse}
