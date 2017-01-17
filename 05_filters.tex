@@ -176,7 +176,7 @@ In figure \ref{fig:pdSimpleFir} you can see the translation to pd.
 
 \subsection{Impulse Response}
 
-In impulse has the advantage that it contains all frequencies. It has a flat spectrum.  So recording how a filter reacts to the impulse gives us the magnitude of the spectrum at all frequencies.\\
+An impulse has the advantage that it contains all frequencies. It has a flat spectrum.  So recording how a filter reacts to the impulse gives us the magnitude of the spectrum at all frequencies.\\
 We can see the impulse response of the filter we are describing in this section in  multiple ways in figure \ref{fig:diffImpResp}.
 
 \bgInfo{
@@ -221,7 +221,7 @@ caption=A script that creates an impulse implements a vectorized filter and plot
 % \end{figure}
 
 
-\section{Two Ways of Getting an Intuitive Understanding}
+\section{Four Ways of Getting an Intuitive Understanding}
 
 So now we learned some ways to define a filter, to talk about a filter. But what is this filter actually doing? It is a very simple lowpass filter. It cuts away high frequencies. But why is adding a signal to itself but one sample delayed making a lowpass? This certainly is a bit surprising, so let's try to understand what's happening.
 
@@ -275,11 +275,98 @@ In figure \ref{fig:combToLowpass} we can see the \textit{frequency response}\foo
 
 
 \subsection{Prolonging an Impulse}
-We can also take a different route to understand why this is a lowpass. Let's recall what the spectrum of an impulse looks and what the spectrum of DC offset looks like.
-\comm{missing figure}
+We can also take a different route to understand why this is a lowpass. Let's recall what the spectrum of an impulse looks like and what the spectrum of DC offset looks like. Taking a look at figure \ref{fig:impToDc}, we see an impulse, the impulse response of our filter and a DC-Offset signal. Recalling from the introduction, and looking at the figure, we know that the DC-offset signal contains only energy at 0Hz. Now look at the time domain signals: Isn't making our impulse signal last for one sample longer a small step towards generating a DC-offset signal?
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{impulseToDC}
+	\caption[Spectrum Impulse, Lowpass, DC]
+	{Impulse, impulse response and DC offset signal and their spectra. Note that there are very few samples here and the DC-Offset signal's spectrum seems to ramp down from 0Hz. In fact, there is a single high value at 0Hz.}
+	\label{fig:impToDc}
+\end{figure}
+
+\subsection{A moving Average}
+How is \textit{average} defined? There are a lot of different ways to compute an average, but typically we mean the \textit{arithmetic mean}, so adding all numbers and dividing by the count of items:
+\begin{equation}
+	A = \frac{1}{N} \sum_{n=1}^N x(n)
+\end{equation}
+
+Looking back at our filter, we will notice that we are adding up the current sample and the last sample. If we were to divide that sum by two (so the number of elements, since it's two samples we are adding up), we would arrive at the definition above. So we could say, that our lowpass is always outputting the average of the current and the last sample. It is therefore called a moving average filter. \\
+Taking the average of something always reduces information and we get something that is fluctuating less than its input. If we would make a website or something that would always show the average temperature in Vienna of the last two weeks, this display wouldn't start jumping around if there was a single hot day in winter. It would remove high frequency data (jumps). It would be some kind of lowpass filter.
+
+\subsection{Video Filters}
+
+\video{
+	Filters in video work the same way and are as common as in audio. But in video we have another question to answer before we start filtering: Does our operation (adding two neighboring samples) apply to time, or to space? In other words: Doe we want to add neighboring pixels to produce an output pixel or do we want to add whole frames over time to produce an output frame?
+
+}
 
 
 
+\section{Types of Digital Filters}
+
+It is important to understand that there are two types of filters\footnote{We are going to ignore that one can also filter by using FFT approaches}. 
+\begin{itemize}
+	\item Finite Impulse Response (FIR) Filters
+	\item Infinite Impulse Response (IIR) Filters
+\end{itemize}
+
+We have been dealing with a FIR filter so far. An infinite impulse response filter does not have an infinite impulse response in practice, but it \textit{can} have one. How is this achieved? By using feedback. A FIR filter does not have feedback, an IIR filter does.
+
+
+\begin{figure}[htb]
+  \centering  
+  \label{fig:IIRlowpass}
+
+  \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
+
+  \draw node at (0,0) [input] (excitation) {};
+  \draw node [sum, right of=excitation, node distance = 2.cm] (sum1) {\Large$+$};
+  \draw node at (5,-2) [block ] (delay) {\Large$z^{-1}$};
+  \draw node [mult,shape border rotate=180, left of=delay, node distance = 2cm] (loss) {$\cdot 0.5$};
+  \draw node at (6.,-0.001) {\textbullet};
+
+  \draw node [output, right of=sum1,node distance = 5cm] (out) {};
+  \draw[->] (excitation) -- node {\Large$x[n]$}(sum1);
+  % \draw[->] (sum1) -- node {}(6., -0.001);
+  \draw[->] (loss.west) -| node {}(sum1.south);
+
+  \draw[->] (6., -0.001) |- node {}(delay.east);
+  \draw[->] (delay) -- node {}(loss);
+
+
+  \draw[->] (sum1) -- node {\Large$y[n]$}(out);
+    
+  \end{tikzpicture}
+  \caption{A simple IIR filter. Note that the arrows are circling, there is feedback involved.}
+\end{figure}
+
+
+If we look at the impulse Response, we can see that it is  ``longer'' than what we had before. If you look closely, we can see that the output sample at which the impulse arrives(n=3), just has the value of the input(1). After that, we can see that the next value is always the sample before times 0.5, so the impulse respopnse is a \textit{geometric series}: ${1,0.5,0.25,0.125,..}$ or ${1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, ...}$. This is the case since the coefficient in the feedback path is 0.5, so $\frac{1}{2}$. 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{IIR1}
+	\caption[shortCaption]
+	{CAPTION MISSING}
+	\label{fig:label}
+\end{figure}
+
+Let's translate the above diagram to a difference equation, so we see another representation of the same system.
+\begin{equation}
+ 	y(n) = x(n)+y(n-1) \cdot 0.5
+ \end{equation} 
+
+
+
+\section{Key Points}
+\begin{itemize}
+	\item Make sure you understood the differences between a FIR and an IIR filter.
+	\item Make sure you can make an educated guess what kind of a filter we see if you encounter a block diagram.
+	\item Make sure you can do simple translations between pd, blockdiagrams and difference equations.
+	\item Make sure you know when a combfilter turns into a lowpass.
+\end{itemize}
 
 
 
