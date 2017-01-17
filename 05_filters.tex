@@ -342,7 +342,7 @@ We have been dealing with a FIR filter so far. An infinite impulse response filt
 \end{figure}
 
 
-If we look at the impulse Response, we can see that it is  ``longer'' than what we had before. If you look closely, we can see that the output sample at which the impulse arrives(n=3), just has the value of the input(1). After that, we can see that the next value is always the sample before times 0.5, so the impulse respopnse is a \textit{geometric series}: ${1,0.5,0.25,0.125,..}$ or ${1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, ...}$. This is the case since the coefficient in the feedback path is 0.5, so $\frac{1}{2}$. 
+If we look at the impulse Response, we can see that it is  ``longer'' than what we had before. If you look closely, we can see that the output sample at which the impulse arrives(n=3), just has the value of the input(1). After that, we can see that the next value is always the sample before times 0.5, so the impulse respopnse is a \textit{geometric series}: $\{1,0.5,0.25,0.125,..\}$ or $\{1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, ...\}$. This is the case since the coefficient in the feedback path is 0.5, so $\frac{1}{2}$. 
 
 
 \begin{figure}[H]
@@ -357,6 +357,24 @@ Let's translate the above diagram to a difference equation, so we see another re
 \begin{equation}
  	y(n) = x(n)+y(n-1) \cdot 0.5
  \end{equation} 
+
+Finally, let's quickly summarize some of the differences between the two filter types:
+\begin{center}
+	
+\begin{tabular}{l|l|l}
+
+& \textbf{IIR} & \textbf{FIR} \\
+\hline
+stability & possibly unstable & always stable \\
+Real time Efficiency & Very efficient & inefficient \\
+topology & Feedback & no feedback \\
+
+\end{tabular}
+\end{center}
+
+% \section{Convolution}
+% Convolution is a very important concept in DSP. We already encountered it in chapter \ref{Modulation}. We know that convolution reverbs use impulse responses of rooms to simulate these rooms. But how is this done? It \textit{can} be done using a FIR filter. 
+
 
 
 
