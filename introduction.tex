@@ -114,6 +114,20 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 \end{figure}
 
 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = \textwidth]{aliasingFreqDomain.png}
+		\caption[Aliasing in the Frequency Domain]
+		{Here we can see the phenomenon of aliasing in the frequency domain. We try to synthesize a sine wave at about 26kHz. At a sampling rate of 44100 Hz, this is not possible, nyquist is at 22050 Hz. What we actually get is a sine wave at about 17kHz. In this plot, the nyquist frequency is marked with the red line. Please note that the distance between the red line to both peaks is identical. This is why the phenomeno is also called \textit{fold-back}}
+		\label{fig:name}
+	\end{center}
+\end{figure}
+
+
+
+
+
 \section{Scaling and Mapping Signals}
 It is an important skill to be able to scale signals from one range to another. We need it a lot and we will be able to think about signals more easily if we mastered this task. It's actually quite simple, we just have to imagine the signals visually.\\
 So what exactly do we have to do here? We are confronted with the following problem: Given some signal, say, a sine wave with its maximum at the value 1 and its minimum at the value -1. How to bring it to a different range, say, 0-10?\\
@@ -175,11 +189,60 @@ If we try to think how this kind of signal looks in the frequency domain we find
 	\label{fig:dcViz}
 \end{figure}
 
+Let's quickly state this differently, so we can appreciate the surprising connections between DC-offset and an impulse. A DC-offset signal is a signal consisting of constant values, so for example $\{...,1,1,1,1,1,1,...\}$. Its spectrum is a single peak at 0Hz, so the spectrum's values look like $\{..., 0,0,0,1,0,0,0,...\}$\footnote{Why is the $1$, so the 0 Hz component not at the beginning of the list? Or is it not 0 Hz? The 1 is supposed to be at 0Hz, and it is centered in this list because doing an FFT actually always gets us a two-sided spectrum. You can ignore this fact until the FFT chapter, and pretend that the list starts with 1 (which wouldn't be wrong also). }
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 5cm]{dcPd.png}
+		\caption[Dc-offset in pd]
+		{One of the ways to generate a DC signal in pd.}
+		\label{fig:name}
+	\end{center}
+\end{figure}
+
+
+
+
 % \comm{explanations and visualizations missing}
 
 \section{What's an Impulse?}
 
-\comm{work in progress.}
+Impulses are very useful signals. We can produce an impulse using the \pd{dirac\textasciitilde} object.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 3cm]{dirac.png}
+		\caption[The dirac object]
+		{The \pd{dirac\textasciitilde} object produces an impulse if we send it a \texttt{bang}.}
+		\label{fig:name}
+	\end{center}
+\end{figure}
+\bgInfo{
+Different people will define what's an impulse in different ways:
+\begin{itemize}
+	\item A sound engineer might tell you, that clapping your hands or shooting with a gun creates an impulse
+	\item a mathematician will maybe give you the definition of the \textit{dirac delta function} (that's where the name for pd's impulse object comes from)
+	\item Somebody working with discrete (so digital) signals will give you rather the definition of the Kroneker delta function.
+\end{itemize}
+
+
+}
+
+For us, strictly speaking, an impulse will be a signal that contains only zeros, but one sample with the value one. We can see such an impulse in figure \ref{fig:unitImpulse}. On the x-axis, we have the time in samples\footnote{Don't be irritated by the fact that the sample numbers on the x-axis are ranging from $-5$ to $5$. You can just as well imagine them going from 0 to 10 or 1 to 11. It doesn't really matter. However, this way of displaying an impulse is very common since if the impulse is filtered, it's symmetry is an important factor.}. 
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = \textwidth]{unitImpulse.png}
+		\caption{caption}
+		\label{fig:unitImpulse}
+	\end{center}
+\end{figure}
+
+So in the time domain, an impulse's samples have the values $\{...,0,0,0,1,0,0,0,...\}$. If we look at it's spectrum, we will find that it contains all frequencies, there is just a flat line in the spectrum (you can see an impulse's spectrum in figure \ref{fig:impToDc} also.). The spectrum has a \textit{constant value}, something like $\{..,1,1,1,1,1,1,...\}$. Do these two lists look familiar? Right, it is exactly the opposite of the DC-offset signal.
+
+
 
 \section{How to describe audio mathematically}
 
@@ -233,7 +296,7 @@ There are many ways to describe systems. Digital LTI systems (Linear, time invar
 	\item and other things.
 \end{itemize}
 
-For us, the most important ways to describe a system are vlock diagrams and difference equations.
+For us, the most important ways to describe a system are block diagrams and difference equations.
 
 \subsection{systems}
 
@@ -285,7 +348,7 @@ Messages on the other hand are not calculated that often and not all the time. M
 \paragraph{How is this not specific to pure data?} The key points here are not specific to this programming language. If we, for example adjust the volume of a track in pro tools or ableton live or similar, then the information of our fader movement will also be in some kind of message domain.\\
 One key aspect here is: some kind of conversion between the two is necessary if we want to switch between them. If we want to control the volume of an audio signal from the message domain we have a problem: we will get noisy output since the message domain is not running at sample rate. Look at a naive attempt to controlling the amplitude of a sine wave:
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm]{ampWrong}
 	\caption[shortCaption]

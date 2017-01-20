@@ -122,7 +122,7 @@ Let's visualize this idea. Given the input signal in figure \ref{fig:diffImpResp
 \subsection{Block Diagrams} % (fold)
 \label{sub:block}
 
-Block diagrams are nice because they are very visual and sometimes easier to understand. Also, if we work in pure data, or a different graphical programming language (such as Max/MSP or MAYTLAB Simulink) it's very straight forward to implement a block diagram. Translating from a block diagram to text code or difference equations or vice versa can be hard sometimes.\\
+Block diagrams are nice because they are very visual and sometimes easier to understand. Also, if we work in pure data, or a different graphical programming language (such as Max/MSP or MATLAB Simulink) it's very straight forward to implement a block diagram. Translating from a block diagram to text code or difference equations or vice versa can be hard sometimes.\\
 In figure \ref{fig:diffImpResp}, we can see a block diagram representation of equation \ref{eq:simple}. This \textit{is} the same thing. 
 
 % subsection subsection_name (end)
@@ -221,7 +221,7 @@ caption=A script that creates an impulse implements a vectorized filter and plot
 % \end{figure}
 
 
-\section{Four Ways of Getting an Intuitive Understanding}
+\section{Ways of Getting an Intuitive Understanding}
 
 So now we learned some ways to define a filter, to talk about a filter. But what is this filter actually doing? It is a very simple lowpass filter. It cuts away high frequencies. But why is adding a signal to itself but one sample delayed making a lowpass? This certainly is a bit surprising, so let's try to understand what's happening.
 
@@ -254,7 +254,9 @@ Please note that the signal is a sine wave with a frequency of 100 Hz, so a peri
 \begin{equation}
 	f_c = \frac{1}{2d}
 \end{equation}
-If $f_c$ is the first frequency that cancels out and d is the delay time in seconds.
+If $f_c$ is the first frequency that cancels out and d is the delay time in seconds. \\
+How to calculate this fast, if you are given the delay time:
+just calculate the frequency for the given delay, and then use half of that. For example, if given delay 1ms, the corresponding frequency would be 1000 Hz. Half of that (=double the period) is 500 Hz, and that's where the first trough in the spectrum would be.
 
 }
 
@@ -294,12 +296,124 @@ How is \textit{average} defined? There are a lot of different ways to compute an
 Looking back at our filter, we will notice that we are adding up the current sample and the last sample. If we were to divide that sum by two (so the number of elements, since it's two samples we are adding up), we would arrive at the definition above. So we could say, that our lowpass is always outputting the average of the current and the last sample. It is therefore called a moving average filter. \\
 Taking the average of something always reduces information and we get something that is fluctuating less than its input. If we would make a website or something that would always show the average temperature in Vienna of the last two weeks, this display wouldn't start jumping around if there was a single hot day in winter. It would remove high frequency data (jumps). It would be some kind of lowpass filter.
 
+\subsection{Highpass} % (fold)
+\label{sub:Highpass}
+
+You should already be familiar with the basic types of filters, so lowpass, highpass, bandpass etc. We now saw how we can build a lowpass filter, but what about a highpass, what about notching, peak, shelving filters? This is getting pretty involved quickly, but let's have a look at a highpass. Highpass filtering is the opposite of lowpass filtering. It emphasizes movement in the signal, since everything that moves fast must contain high frequencies. One simple form of a highpass is taking the difference between the current and the last sample, so:
+
+
+\begin{figure}[H]
+  \centering  
+  \label{fig:string}
+  \begin{tikzpicture}[auto, thick, node distance=2.5cm, >=triangle 45]
+  \draw node at (0,0) [input] (inp) {};
+  \draw node at (2.5,-0.001) (junct) {\textbullet};
+  \draw node at (4,2) [block] (delay) {\Large$z^{-1}$};
+  \draw node [sum, right of=inp, node distance = 5.cm] (sum1) {\Large$+$};
+  
+  \draw node [output, right of=sum1,node distance = 3cm] (out) {};
+  \draw[->] (inp) -- node {}(sum1);
+  % \draw[->] (junct) |- node {}(delay);
+  \draw[->] (delay.east) -| node {}(sum1.north);
+
+  \draw[->] (2.5, -0.001) |- node {}(delay.west);
+
+
+  \draw[->] (sum1) -- node {\Large$y[n]$}(out);
+    
+  \node[text width=3cm] at (1.7,0.4) 
+    {\Large$x[n]$};
+
+\node[text width=3cm] at (6.7,0.9) 
+    {\Large$-$};
+
+
+  \end{tikzpicture}
+  \caption{A very simple highpass filter. Please compare to \ref{fig:blockDiagr}. }
+  \label{fig:blockDiagrHigh}
+\end{figure}
+
+You will notice that figure \ref{fig:blockDiagrHigh} and figure \ref{fig:blockDiagr} are identical with oly one little exception. In this highpass filter we \textbf{subtract} the delayed signal from the input. This is denoted by the little $-$ sign next to one line leading to the addition. One might think, ``Why don't we just use a minus sign instead of the addition sign?'' Because order matters with subtraction, it makes a difference if we subtract 3 from 5 or 5 from 3.\\
+The structure above is also called a differentiator, since it is a way of approximating the derivative of a signal.
+
+
+
+
+% subsection filter_types (end)
+
 \subsection{Video Filters}
 
 \video{
-	Filters in video work the same way and are as common as in audio. But in video we have another question to answer before we start filtering: Does our operation (adding two neighboring samples) apply to time, or to space? In other words: Doe we want to add neighboring pixels to produce an output pixel or do we want to add whole frames over time to produce an output frame?
+	Filters in video work the same way and are as common as in audio. But in video we have another question to answer before we start filtering: Does our operation (adding two neighboring samples) apply to time, or to space? In other words: Do we want to add neighboring pixels to produce an output pixel or do we want to add whole frames over time to produce an output frame?\\
+	Have a look at figure \ref{fig:v_origianl}. We will take this still from a video as a reference. We send the video through a couple of filters (one at a time, not in series) and watch the output. (Sorry, it is not always exactly the same frame of the video.)\\
+	For each of the output frames, try to think about how this could have been generated from the input, what kind of a filter could have been used!? 
+
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width = 14cm]{vidFilters_o.png}
+			\caption[Video Filters: Original]{Frame from the original video}
+			\label{fig:v_origianl}
+		\end{center}
+	\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{vidFiltersFIRs.png}
+		\caption[Video Filters: Blur]{This effect is known as a \textit{blur}(Please ignore that it's a different frame than the still from the original). It is generalted by using a FIR lowpass in the space domain. That means, in the simplest case, each output pixel is the average of the input pixel at the same location and its neighbors. In practice, weighting functions are used to control, how much the input pixel and how much its neighbors contribute. These weighting functions are called kernels, (since this FIR filtering is the same as convolution). Typical kernels are: Gaussian, Box, the sinc function, etc. }
+		\label{fig:v_blur}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{vidFilters_IIRt.png}
+		\caption[Video Filters: IIR Lowpass, time domain]
+		{Here we can see a kind of lowpass (IIR) in the time domain. The current input-frame and a mixture of past (output-)frames are added up to generate this output frame.}
+		\label{fig:v_TLP}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{vidFiltersHPFIRs.png}
+		\caption[Video Filters: FIR Highpass, space domain]
+		{We can hardly see anything here, but if you look closely, edges from the original are still visible. What happened here is a FIR filtering in the space domain, so the opposite of blurring: Edge detection.}
+		\label{fig:name}
+	\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{vidFiltersHPFIRt.png}
+		\caption[Video Filters: FIR Highpass, time domain]
+		{What we can see here is another highpass, but in the time domain. It computes the difference between the current and the last frame.}
+		\label{fig:name}
+	\end{center}
+\end{figure}
+
+
+
+
 
 }
+
+\section{Filters in pd}
+Please note that what we did so far was filtering signals, but we \textbf{built} the filters with very low level operations (Addition, multiplication and time shift = delay). This was in order to understand how filters work. Sometimes we need to build a filter, but often we can just \textit{use} filters, which are built in to pd or any other environment.\\
+In pd, we can use \pd{lores\textasciitilde }, \pd{onepole\textasciitilde}. More basic building blocks that can be used to realize a lowpass are \pd{rpole\textasciitilde }, \pd{rzero\textasciitilde }, \pd{cpole\textasciitilde }. \pd{czero\textasciitilde }.\\
+As a highpass, we can just use a structure that subtracts a lowpassed version from our original signal. For example:
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{pdhighpass.png}
+		\caption{caption}
+		\label{fig:name}
+	\end{center}
+\end{figure}
+
 
 
 
@@ -384,6 +498,7 @@ topology & Feedback & no feedback \\
 	\item Make sure you can make an educated guess what kind of a filter we see if you encounter a block diagram.
 	\item Make sure you can do simple translations between pd, blockdiagrams and difference equations.
 	\item Make sure you know when a combfilter turns into a lowpass.
+	\item Make sure you know and understand the formula to calculate the first phase cancellation in a combfilter.
 \end{itemize}
 
 
