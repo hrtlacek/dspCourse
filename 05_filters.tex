@@ -402,10 +402,11 @@ The structure above is also called a differentiator, since it is a way of approx
 
 \section{Filters in pd}
 Please note that what we did so far was filtering signals, but we \textbf{built} the filters with very low level operations (Addition, multiplication and time shift = delay). This was in order to understand how filters work. Sometimes we need to build a filter, but often we can just \textit{use} filters, which are built in to pd or any other environment.\\
-In pd, we can use \pd{lores\textasciitilde }, \pd{onepole\textasciitilde}. More basic building blocks that can be used to realize a lowpass are \pd{rpole\textasciitilde }, \pd{rzero\textasciitilde }, \pd{cpole\textasciitilde }. \pd{czero\textasciitilde }.\\
-As a highpass, we can just use a structure that subtracts a lowpassed version from our original signal. For example:
+\subsection{Lowpass}
+In pd, we can use \pd{lop\textasciitilde}, \pd{onepole\textasciitilde}, \pd{lores\textasciitilde} and \pd{vcf\textasciitilde}. \pd{lores\textasciitilde } has a resonance parameter. This emphasizes frequencies at the cutoff frequency of the filter. \pd{vcf\textasciitilde} also has this parameter and an additional bandpass output.
 
-
+\subsection{Highpass}
+There is \pd{hip\textasciitilde}, which is a highpass filter. But we can just use a structure that subtracts a lowpassed version from our original signal also. For example:
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width = 14cm]{pdhighpass.png}
@@ -414,8 +415,22 @@ As a highpass, we can just use a structure that subtracts a lowpassed version fr
 	\end{center}
 \end{figure}
 
+\subsection{Bandpass} % (fold)
+There are three bandpass filters in pd, \pd{bp\textasciitilde}, \pd{reson\textasciitilde} and \pd{vcf\textasciitilde}.
+We can also make our own custom bandpass using a lowpass and a highpass in series:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{bandpass}
+	\caption[bandpass]
+	{CAPTION MISSING}
+	\label{fig:label}
+\end{figure}
+
+% subsection subsection_name (end)
 
 
+
+More basic building blocks that can be used to realize a filter are \pd{rpole\textasciitilde }, \pd{rzero\textasciitilde }, \pd{cpole\textasciitilde }. \pd{czero\textasciitilde }. \pd{biquad\textasciitilde } is a very powerful filter that allows more or less arbitrary responses.\\
 
 \section{Types of Digital Filters}
 
