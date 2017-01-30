@@ -21,7 +21,7 @@ Please take a moment and seriously ask yourself, knowing what you know about sig
 
 \section{Seeing Frequency Content in the Time Domain}
 
-Let's first try to get a fell for how signals \textit{look}. It's a lot easier to understand how a filter works afterwards. This might be obvious but let's state clearly:
+Let's first try to get a feel for how signals \textit{look}. It's a lot easier to understand how a filter works afterwards. This might be obvious but let's state clearly:
 
 \begin{framed}
 	High frequency signals have a short \textit{period}. That means the signal ``moves'' fast, or a lot in short time. Therefore: The more movement is in a signal or the more fluctuation or the faster the signal changes the more high frequency content it has.
@@ -32,7 +32,7 @@ Three Questions in order to make you think about signals:
 
 
 \begin{question}
-	Please look at the image below. Can you draw an approximation of its spectrum? What signals could have been mixed to obtain this result?
+	Please look at the image below. Can you draw an approximation of its spectrum? What signals could have been mixed to obtain this result? To help you think about this: How would you explain the graph to somebody who doesn't see it?
 % subsection raetsel (end)
 \begin{figure}[H]
 	\begin{center}
@@ -156,8 +156,61 @@ In figure \ref{fig:diffImpResp}, we can see a block diagram representation of eq
 
 Don't be irritated by the $z^{-1}$ block. This notation stands for a delay by one sample. A block $z^{-m}$ would stand for a delay by $m$ samples. This is a convention we need to remember. This way of notating a delay might seem unnecessarily complex, but it has its reasons.
 
-\bgInfo{This notation, $z^{-1}$, comes from the fact that analyzing the frequency response of a system is very easy when working with complex numbers (so compounds of real and imaginary numbers). Complex numbers are often denoted by $Z$, which is another convention. Not only do we work with complex numbers, but with complex sinusoids when analyzing such systems. We imagine complex sinusoids coming into our system. A multiplication by another complex sinusoid can cause a phase shift (a delay). And this multiplication}
+\bgInfo{This notation, $z^{-1}$, comes from the fact that analyzing the frequency response of a system is very easy when working with complex numbers (so compounds of real and imaginary numbers). Complex numbers are often denoted by $Z$, which is another convention. Not only do we work with complex numbers, but with complex sinusoids when analyzing such systems. We imagine complex sinusoids coming into our system. A multiplication by another complex sinusoid can cause a phase shift (a delay). Dividing ($z^{-1} = \frac{1}{z}$) an incoming complex sinusoid by the complex sinusoid at the same frequency causes a phase shift that is equals to a delay by 1 sample. If you want to understand all this and stop with mickey-mouse-explanations I can recommend reading \cite{miller_puckette_theory_2006} and \cite{smith_introduction_2007}. Both of these works can be found on-line for free.\
 
+But let's quickly calculate the frequency response, so you've seen it once:
+We take our difference equation (we could also start from the block diagram):
+\begin{equation}
+	y(n) = x(n)+x(n-1)
+\end{equation}
+We then do a process called the z-transform, that is, we get rid of all the indexing. We now think about applying the process of filtering to the whole signal at once and we denote the delay by a multipliaction with a complex sinusoid that causes a phase shift:
+\begin{equation}
+	Y = X + X \cdot Z^{-1}
+\end{equation}
+
+We then solve the equation for $Y/X$:
+
+\begin{equation}
+	Y = X \cdot (1 + Z^{-1})
+\end{equation}
+\begin{equation}
+	\frac{Y}{X} = 1+Z^{-1}
+\end{equation}
+
+Typically we substitute $\frac{Y}{X}$ with a new name, typically $H$ and now make this a function of $Z$.
+
+\begin{equation}
+	H(Z) = 1 + Z^{-1}
+\end{equation}
+This is called a system's transfer function. This is the actual standard for talking about systems. Typically we do two things with this, either, we draw a so called \textit{Pole-Zero-Plot}, or we evaluate the function for complex sinusoids.\\
+The absolute value of $H$ is the output amplitude, if we just plot this value for all complex numbers we see this:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{zPlane.png}
+	\caption[shortCaption]
+	{CAPTION MISSING}
+	\label{fig:label}
+\end{figure}
+
+It's OK if this plot doesn't tell you much. The really important thing is to evaluate this surface using complex sinusoids: 
+$cos(\omega) + i\cdot sin(\omega)$ we can now plot the magnitude response over $\omega$. So we effectively evaluate the formula
+\begin{equation}
+	|H(\omega)| = |1 + cos(-\omega)+i \cdot sin(-\omega)|
+\end{equation}
+Where $\omega$ ranges from $0$ to $\pi$(sic!). Then we finally get the magnitude response:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{magResp.png}
+	\caption[shortCaption]
+	{CAPTION MISSING}
+	\label{fig:label}
+\end{figure}
+
+
+
+}
 
 \subsection{pd Code} % (fold)
 \label{sub:pd_code}
@@ -171,6 +224,8 @@ In figure \ref{fig:pdSimpleFir} you can see the translation to pd.
 	{A simple filter in pure data.}
 	\label{fig:pdSimpleFir}
 \end{figure}
+
+
 
 % subsection pd_code (end)
 
@@ -295,6 +350,20 @@ How is \textit{average} defined? There are a lot of different ways to compute an
 
 Looking back at our filter, we will notice that we are adding up the current sample and the last sample. If we were to divide that sum by two (so the number of elements, since it's two samples we are adding up), we would arrive at the definition above. So we could say, that our lowpass is always outputting the average of the current and the last sample. It is therefore called a moving average filter. \\
 Taking the average of something always reduces information and we get something that is fluctuating less than its input. If we would make a website or something that would always show the average temperature in Vienna of the last two weeks, this display wouldn't start jumping around if there was a single hot day in winter. It would remove high frequency data (jumps). It would be some kind of lowpass filter.
+
+
+\subsection{A sine at Nyquist}
+Here is yet another way of understanding why the structure we saw is a lowpass. Let's imagine a sine wave at Nyquist frequency, the highest frequency we can work with. We can see what such a sine looks like in Figure~\ref{fig:nyqSine}. If we apply this moving average filter, so that lowpass we have been talking about, what do you think comes out? Go ahead and calculate the average for each sample and its previous sample. We add $1 + -1 = 0$, $-1 + 1 = 0$, $1 + -1 = 0$, ... So you can see, if we feed a sine at nyquist into our lowpass, what we get is silence. 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{sineWaveNyq.png}
+	\caption[shortCaption]
+	{CAPTION MISSING}
+	\label{fig:nyqSine}
+\end{figure}
+
 
 \subsection{Highpass} % (fold)
 \label{sub:Highpass}

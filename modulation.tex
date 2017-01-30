@@ -244,32 +244,45 @@ for $n$ being all integers. So the carrier frequency plus and minus integer mult
 		\includegraphics[width=11cm]{bessel}
 }
 
-Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental Frequency. The Index, ${I}$ is given by Modulation Depth and Modulator Frequency.
-
-\begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
-
-\begin{equation}
-I = \frac{A_m}{f_m}
-\end{equation}
-
-A more controllable Implementation will generate the naive parameters from a Ratio, ${R}$, the Carrier Frequency and the Index:
-\begin{equation}
-	f_m = \frac{f_c}{R}
-\end{equation}
-
-\begin{equation}
-	A_m = \frac{I}{f_m}
-\end{equation}
+Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental Frequency. 
+% The Index, ${I}$ is given by Modulation Depth and Modulator Frequency.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width = 14cm]{img/FMcorrect.png}
-		\caption{FM with Index and Ratio}
-		\label{fig:fmComplete}
-	\end{center}
+	\centering
+	\includegraphics[width=5cm]{fmMillerPuckette}
+	\caption[shortCaption]
+	{Fm implementation from \cite{miller_puckette_theory_2006}}
+	\label{fig:label}
 \end{figure}
 
-\end{mdframed}
+% =============Something is wrong with this.============================
+
+% \begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
+
+% \begin{equation}
+% I = \frac{A_m}{f_m}
+% \end{equation}
+
+% A more controllable Implementation will generate the naive parameters from a Ratio, ${R}$, the Carrier Frequency and the Index:
+% \begin{equation}
+% 	f_m = \frac{f_c}{R}
+% \end{equation}
+
+% \begin{equation}
+% 	A_m = \frac{I}{f_m}
+% \end{equation}
+
+% \begin{figure}[H]
+% 	\begin{center}
+% 		\includegraphics[width = 14cm]{img/FMcorrect.png}
+% 		\caption{FM with Index and Ratio}
+% 		\label{fig:fmComplete}
+% 	\end{center}
+% \end{figure}
+
+% \end{mdframed}
+% =========================================================================
+
 
 \begin{figure}[h!]
 	\centering
