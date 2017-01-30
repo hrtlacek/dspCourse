@@ -85,7 +85,7 @@
 % \end{enumerate}
 
 \section{Waveshaping}
-Wikipedia quote, page ``wavesahper'':\\
+Wikipedia quote, page ``waveshaper'':\\
 \glqq{}The mathematics of non-linear operations on audio signals is difficult, and not well understood.\grqq{}
 Waveshaping means distortion. It adds overtones, take a look at figure ~\ref{fig:waveshapedSIne}.
 
@@ -132,7 +132,7 @@ Other linear transfer functions might \textit{only} change the amplitude. For ex
 \end{figure}
 
 
-Non-liner transfer functions behave differently. They map their input to other values, such as $f(x) = x^2$. And if we plot then, they don't look like a line.  You can also look at figure \ref{fig:farnellWaveShaping} in order to understand what's happening. We again see a linear transfer function but also a non linear one. 
+Non-liner transfer functions behave differently. They map their input to other values, such as $f(x) = x^2$. And if we plot then, they don't look like a line.  You can also look at figure \ref{fig:farnellWaveShaping} in order to understand what's happening. We again see a linear transfer function but also a non linear one.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=13cm]{waveshapingVizFarnell.png}
@@ -141,7 +141,7 @@ Non-liner transfer functions behave differently. They map their input to other v
 	\label{fig:farnellWaveShaping}
 \end{figure}
 
-But let's get back to our square function, since it's simpler and we will find some surprising results when analyzing it. Let's first simply plot it too. 
+But let's get back to our square function, since it's simpler and we will find some surprising results when analyzing it. Let's first simply plot it too.
 
 
 \begin{figure}[H]
@@ -316,7 +316,7 @@ and FM looks like this:
 	y = sin(sin(a))
 \end{equation}
 
-in practice, the a and b terms are a bit more complicated, but we will look at this later. That certain cases of AM are identical to waveshaping has been shown above, think about the square function again. 
+in practice, the a and b terms are a bit more complicated, but we will look at this later. That certain cases of AM are identical to waveshaping has been shown above, think about the square function again.
 This of course does not mean that waveshaping can do everything AM can do and it does not mean that AM can achieve everything that waveshaping can. This should just show that we can understand the techniques from the perspective of another.\
 What about FM? Well if our lookup function we use for waveshaping is a sine wave, we arrive at the exact same equation as how we defined FM above. Again, practically speaking, the results we get with these two techniques are very different, but we can see the connections.
 
@@ -326,7 +326,7 @@ The output spectrum is dependent on the input amplitude. This makes it easy to c
 
 \subsection{What are the problems with waveshaping?}
 
-Waveshaping adds overtones. When we build a waveshaper, we have to be aware of aliasing. Take a look at figures ~\ref{fig:clipped1} and ~\ref{fig:clipped2}. Sinewaves have been amplified and clipped here. 
+Waveshaping adds overtones. When we build a waveshaper, we have to be aware of aliasing. Take a look at figures ~\ref{fig:clipped1} and ~\ref{fig:clipped2}. Sinewaves have been amplified and clipped here.
 
 \begin{figure}[h!]
 	\centering
@@ -368,7 +368,7 @@ What does the output look like? Let's not only look at the spectra but also at t
 We see that we can arrive at a square-wave like result, but this square-wave is not anti-aliased.\\
 
 The problem of aliasing in waveshaping is usually treated by over-sampling. This does not solve the problem but lessens it significantly resulting in cleaner, arguably better sound. Oversampling means that, if we work at a sample-rate of 44.1kHz, the input is up-sampled, essentially interpolated, to be at a sample-rate of 88.2kHz. Then the waveshaping is applied, leaving room for high frequencies up to 44.1kHz. Using a lowpass filter, high frequencies over 22.1kHz are then attenuated as much as possible, in order to be able to down-sample again to reach our initial sample-rate of 44.1kHz. \\
-To state it more simple: Waveshaping is usually encapsulated in a process that runs at higher sampling rates in order to lessen aliasing. 
+To state it more simple: Waveshaping is usually encapsulated in a process that runs at higher sampling rates in order to lessen aliasing.
 
 
 % Wieso ist waveshaping praktisch? Amplitudenabhängigkeit d. spectrums.
@@ -468,4 +468,3 @@ baue ein audio Testmodul mit folgener spezifikation:\\
 		\label{fig:audiotester}
 	\end{center}
 \end{figure}
-

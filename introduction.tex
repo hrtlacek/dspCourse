@@ -80,7 +80,7 @@ So why don't we always do a stem- or scatter-plot? Simply because it gets too cr
 
 \section{What is aliasing?}
 Aliasing in audio means problems caused by signals that exceed the nyquist rate.\\
-The nyquist rate,let's call it $f_n$ for now, is defined by the half of the sample rate ($f_s$). So, 
+The nyquist rate,let's call it $f_n$ for now, is defined by the half of the sample rate ($f_s$). So,
 \begin{equation}
 	f_n=\frac{f_s}{2}
 \end{equation}
@@ -103,7 +103,7 @@ Visually speaking, frequencies higher than nyquist fold back. So, let's assume w
 \footnotetext[4]{https://www.youtube.com/watch?v=jcOKTTnOIV8}
 
 
-In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time domain.  
+In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time domain.
 
 \begin{figure}[H]
 	\centering
@@ -158,7 +158,7 @@ So we can move signals around by adding constant values. We can scale them by mu
  	\caption[sine 0 to 1]
  	{Sine with a range of 0-1. Obtained by taking a sine wave, adding 1 and dividing by two afterwards.}
  	\label{fig:sine01}
- \end{figure} 
+ \end{figure}
 
 Using what we got now in figure \ref{fig:sine01}, we can just multiply by 10, easy! Beware that there are always multiple solutions to this kind of a problem. Try to find another one for the problem above!
 
@@ -175,7 +175,7 @@ We could subtract 1.5 to center the wave around zero first. Afterwards we take c
 
 What we did above by adding a constant value to a signal can be called adding DC-offset (``Gleichspannungsversatz''), DC-Bias or a DC component. These are different words for the same thing.\\
 DC-offset can also be encountered in signals we recorded (caused by old or broken equipment mainly). But we have seen that we can also generate DC-offset.\\
-To state it again clearly: 
+To state it again clearly:
 \begin{framed}
 DC-Offset is a constant value over time, or a constant offset from the zero value in Y. So for example in figure \ref{fig:sine01} we see a DC-offset of 0.5 since subtracting this value would center the wave around 0.
 \end{framed}
@@ -229,7 +229,7 @@ Different people will define what's an impulse in different ways:
 
 }
 
-For us, strictly speaking, an impulse will be a signal that contains only zeros, but one sample with the value one. We can see such an impulse in figure \ref{fig:unitImpulse}. On the x-axis, we have the time in samples\footnote{Don't be irritated by the fact that the sample numbers on the x-axis are ranging from $-5$ to $5$. You can just as well imagine them going from 0 to 10 or 1 to 11. It doesn't really matter. However, this way of displaying an impulse is very common since if the impulse is filtered, it's symmetry is an important factor.}. 
+For us, strictly speaking, an impulse will be a signal that contains only zeros, but one sample with the value one. We can see such an impulse in figure \ref{fig:unitImpulse}. On the x-axis, we have the time in samples\footnote{Don't be irritated by the fact that the sample numbers on the x-axis are ranging from $-5$ to $5$. You can just as well imagine them going from 0 to 10 or 1 to 11. It doesn't really matter. However, this way of displaying an impulse is very common since if the impulse is filtered, it's symmetry is an important factor.}.
 
 
 \begin{figure}[H]
@@ -255,7 +255,7 @@ Usually we describe a \textit{digital} signal by a name, say $x$, (but you can c
 \begin{equation}
 	x_5=1
 \end{equation}
-or 
+or
 \begin{equation}
 	x(5)=1
 \end{equation}
@@ -277,7 +277,7 @@ Sometimes, we will simplify even more and just write $sin(a)$ or $sin(b)$ or sim
 In literature, we sometimes encounter $x(t) = sin(t \cdot \omega)$. $\omega$ stands for a ``frequency''(actually for the rotational speed) in \textit{radians per second}. $2\pi$ radians per second are 1 Hz and we can therefore convert radians per second to frequency, $v$, with:
 \begin{equation}
   	v = \omega / 2\pi
-  \end{equation}  
+  \end{equation}
 This notation is only covered since it is very common, but it will not be used here, since it is considered more intuitive to work with frequency in Hz.
 \vspace{0.5cm}
 
@@ -288,7 +288,7 @@ In most cases for us, this does not matter at all. The difference between sine a
 % \comm{work in progress.}
 
 \subsection{systems}
-There are many ways to describe systems. Digital LTI systems (Linear, time invariant Systems) can be described using 
+There are many ways to describe systems. Digital LTI systems (Linear, time invariant Systems) can be described using
 \begin{itemize}
 	\item difference equations
 	\item Block diagrams
@@ -322,7 +322,7 @@ Takes it's input sample and the previous input sample, adds them together and sp
 This is just a preview, but it really gets interesting if we start working with feedback:
 \begin{equation}
  	y(n) = x(n)+y(n-1)
- \end{equation} 
+ \end{equation}
 
 
 \section{Message Domain/Signal Domain}
@@ -332,7 +332,7 @@ Messages on the other hand are not calculated that often and not all the time. M
 
 \begin{itemize}
 	\item pd is indicating the signal domain with thicker patch cords
-	\item signal domain inlets/outlets are back (look closely)
+	\item signal domain inlets/outlets are black (look closely)
 	\item objects that deal with the signal domain have a tilde (\textasciitilde ) at the end of their name.
 \end{itemize}
  % by indicating the signal domain with thicker patch cords and black inlets/outlets on the objects (look closely).
@@ -386,6 +386,6 @@ In pure data (but also in general) this problem can be solved by interpolation. 
 	\item Make sure you understand and know the mathematical notation. It will be how we talk in the remaining chapters.
 	\item Make sure you understand what aliasing means in audio.
 	\item Make sure you are comfortable with basic mathematical operations on signals, such as adding constants and multiplying with constants
-	\item Make sure you understand the difference between message and signal domain and the problem with using a message domain ``signal'' controlling an audio stream. 
+	\item Make sure you understand the difference between message and signal domain and the problem with using a message domain ``signal'' controlling an audio stream.
 	\item Make sure you know what the spectrum and time domain signal of an impulse and DC-Offset look like.
 \end{itemize}
