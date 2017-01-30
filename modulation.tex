@@ -244,9 +244,37 @@ for $n$ being all integers. So the carrier frequency plus and minus integer mult
 		\includegraphics[width=11cm]{bessel}
 }
 
-Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental Frequency. 
-% The Index, ${I}$ is given by Modulation Depth and Modulator Frequency.
 
+Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental Frequency. 
+The Index, ${I}$ is given by Modulation Depth and Modulator Frequency.
+
+
+% =============Something is wrong with this.============================
+
+% \begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
+\bgInfo{
+\begin{equation}
+I = \frac{A_m}{f_m} % verified via http://computermusicresource.com/FM.synthesis.html
+\end{equation}
+
+A more controllable Implementation will generate the naive parameters from a Ratio, ${R}$, the Carrier Frequency and the Index:
+\begin{equation}
+	f_m = \frac{f_c}{R}
+\end{equation}
+
+\begin{equation}
+	A_m = I \cdot f_m
+\end{equation}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width = 14cm]{img/FMcorrect.png}
+		\caption{FM with Index and Ratio}
+		\label{fig:fmComplete}
+	\end{center}
+\end{figure}
+
+But there are also different implementations such as:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm]{fmMillerPuckette}
@@ -255,34 +283,10 @@ Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental 
 	\label{fig:label}
 \end{figure}
 
-% =============Something is wrong with this.============================
-
-% \begin{mdframed}[backgroundcolor=black!10,rightline=false,leftline=false]
-
-% \begin{equation}
-% I = \frac{A_m}{f_m}
-% \end{equation}
-
-% A more controllable Implementation will generate the naive parameters from a Ratio, ${R}$, the Carrier Frequency and the Index:
-% \begin{equation}
-% 	f_m = \frac{f_c}{R}
-% \end{equation}
-
-% \begin{equation}
-% 	A_m = \frac{I}{f_m}
-% \end{equation}
-
-% \begin{figure}[H]
-% 	\begin{center}
-% 		\includegraphics[width = 14cm]{img/FMcorrect.png}
-% 		\caption{FM with Index and Ratio}
-% 		\label{fig:fmComplete}
-% 	\end{center}
-% \end{figure}
 
 % \end{mdframed}
 % =========================================================================
-
+}
 
 \begin{figure}[h!]
 	\centering
