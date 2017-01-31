@@ -102,7 +102,7 @@ It is an important skill to be able to switch between these representations, for
 \subsection{Difference Equations}
 \label{sub:diff}
 
-A difference equation is of the form mentioned in the introduction. So for example 
+A difference equation is of the form mentioned in the introduction. So for example
 \begin{equation}
 	y(n) = x(n)+x(n-1)
 	\label{eq:simple}
@@ -123,19 +123,19 @@ Let's visualize this idea. Given the input signal in figure \ref{fig:diffImpResp
 \label{sub:block}
 
 Block diagrams are nice because they are very visual and sometimes easier to understand. Also, if we work in pure data, or a different graphical programming language (such as Max/MSP or MATLAB Simulink) it's very straight forward to implement a block diagram. Translating from a block diagram to text code or difference equations or vice versa can be hard sometimes.\\
-In figure \ref{fig:diffImpResp}, we can see a block diagram representation of equation \ref{eq:simple}. This \textit{is} the same thing. 
+In figure \ref{fig:diffImpResp}, we can see a block diagram representation of equation \ref{eq:simple}. This \textit{is} the same thing.
 
 % subsection subsection_name (end)
 
 \begin{figure}[H]
-  \centering  
+  \centering
   \label{fig:string}
   \begin{tikzpicture}[auto, thick, node distance=2.5cm, >=triangle 45]
   \draw node at (0,0) [input] (inp) {};
   \draw node at (2.5,-0.001) (junct) {\textbullet};
   \draw node at (4,2) [block] (delay) {\Large$z^{-1}$};
   \draw node [sum, right of=inp, node distance = 5.cm] (sum1) {\Large$+$};
-  
+
   \draw node [output, right of=sum1,node distance = 3cm] (out) {};
   \draw[->] (inp) -- node {}(sum1);
   % \draw[->] (junct) |- node {}(delay);
@@ -145,8 +145,8 @@ In figure \ref{fig:diffImpResp}, we can see a block diagram representation of eq
 
 
   \draw[->] (sum1) -- node {\Large$y[n]$}(out);
-    
-  \node[text width=3cm] at (1.7,0.4) 
+
+  \node[text width=3cm] at (1.7,0.4)
     {\Large$x[n]$};
 
   \end{tikzpicture}
@@ -250,7 +250,7 @@ caption=A script that creates an impulse implements a vectorized filter and plot
 % subsection code (end)
 
 % \begin{figure}[htb]
-%   \centering  
+%   \centering
 %   \label{fig:string}
 
 %   \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
@@ -270,7 +270,7 @@ caption=A script that creates an impulse implements a vectorized filter and plot
 
 
 %   \draw[->] (delay) -- node {\Large$y[n]$}(out);
-    
+
 %   \end{tikzpicture}
 %   \caption{einzelne Saite, $G(z)$ ein lowpass, \glqq{}Loss Filter\grqq{}}
 % \end{figure}
@@ -284,7 +284,7 @@ So now we learned some ways to define a filter, to talk about a filter. But what
 First let's view the problem from another angle. We know what this structure from above is: It's a combfilter, right? It's taking a signal and adding a delayed version of it. Let's quickly review what a combfilter is:
 The combfilter effect can come up if we record something with a microphone and we get the direct signal and a delayed (e.g. via a reflection) signal also. These two signals mix together and this is what we get in our recording.\\
 The result is that some frequencies cancel out.\\
-We can simply simulate this situation in pd using a delay and an addition. 
+We can simply simulate this situation in pd using a delay and an addition.
 
 \begin{figure}[H]
 	\centering
@@ -294,7 +294,7 @@ We can simply simulate this situation in pd using a delay and an addition.
 	\label{fig:label}
 \end{figure}
 
-This canceling out of frequencies \footnote{also called destructive interference} can be imagined if we look at figure \ref{fig:destIntereference}. 
+This canceling out of frequencies \footnote{also called destructive interference} can be imagined if we look at figure \ref{fig:destIntereference}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{destInterference}
@@ -327,7 +327,7 @@ In figure \ref{fig:combToLowpass} we can see the \textit{frequency response}\foo
 
 \bgInfo{
 	We can also calculate what's happening with our equation from above:
-	The delay is $1/f_s$, so 1 over samplerate. This is called the sampling intervall, let's call it $I_s$, just to get rid of the fraction. The frequency that cancels out is then $1/2I$. By inspection we find that this means the frequency that has double the wavelength of the sampling frequency, so half the sampling frequency, so \textit{Nyquist}. 
+	The delay is $1/f_s$, so 1 over samplerate. This is called the sampling intervall, let's call it $I_s$, just to get rid of the fraction. The frequency that cancels out is then $1/2I$. By inspection we find that this means the frequency that has double the wavelength of the sampling frequency, so half the sampling frequency, so \textit{Nyquist}.
 }
 
 
@@ -372,14 +372,14 @@ You should already be familiar with the basic types of filters, so lowpass, high
 
 
 \begin{figure}[H]
-  \centering  
+  \centering
   \label{fig:string}
   \begin{tikzpicture}[auto, thick, node distance=2.5cm, >=triangle 45]
   \draw node at (0,0) [input] (inp) {};
   \draw node at (2.5,-0.001) (junct) {\textbullet};
   \draw node at (4,2) [block] (delay) {\Large$z^{-1}$};
   \draw node [sum, right of=inp, node distance = 5.cm] (sum1) {\Large$+$};
-  
+
   \draw node [output, right of=sum1,node distance = 3cm] (out) {};
   \draw[->] (inp) -- node {}(sum1);
   % \draw[->] (junct) |- node {}(delay);
@@ -389,11 +389,11 @@ You should already be familiar with the basic types of filters, so lowpass, high
 
 
   \draw[->] (sum1) -- node {\Large$y[n]$}(out);
-    
-  \node[text width=3cm] at (1.7,0.4) 
+
+  \node[text width=3cm] at (1.7,0.4)
     {\Large$x[n]$};
 
-\node[text width=3cm] at (6.7,0.9) 
+\node[text width=3cm] at (6.7,0.9)
     {\Large$-$};
 
 
@@ -414,8 +414,8 @@ The structure above is also called a differentiator, since it is a way of approx
 
 \video{
 	Filters in video work the same way and are as common as in audio. But in video we have another question to answer before we start filtering: Does our operation (adding two neighboring samples) apply to time, or to space? In other words: Do we want to add neighboring pixels to produce an output pixel or do we want to add whole frames over time to produce an output frame?\\
-	Have a look at figure \ref{fig:v_origianl}. We will take this still from a video as a reference. We send the video through a couple of filters (one at a time, not in series) and watch the output. (Sorry, it is not always exactly the same frame of the video.)\\
-	For each of the output frames, try to think about how this could have been generated from the input, what kind of a filter could have been used!? 
+	Have a look at figure \ref{fig:v_origianl}. We will take this still from a video as a reference. We send the video through a couple of filters (one at a time, not in series) and watch the output. \\
+	For each of the output frames, try to think about how this could have been generated from the input, what kind of a filter could have been used!?
 
 	\begin{figure}[H]
 		\begin{center}
@@ -428,7 +428,7 @@ The structure above is also called a differentiator, since it is a way of approx
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width = 14cm]{vidFiltersFIRs.png}
-		\caption[Video Filters: Blur]{This effect is known as a \textit{blur}(Please ignore that it's a different frame than the still from the original). It is generalted by using a FIR lowpass in the space domain. That means, in the simplest case, each output pixel is the average of the input pixel at the same location and its neighbors. In practice, weighting functions are used to control, how much the input pixel and how much its neighbors contribute. These weighting functions are called kernels, (since this FIR filtering is the same as convolution). Typical kernels are: Gaussian, Box, the sinc function, etc. }
+		\caption[Video Filters: Blur]{This effect is known as a \textit{blur} It is generalted by using a FIR lowpass in the space domain. That means, in the simplest case, each output pixel is the average of the input pixel at the same location and its neighbors. In practice, weighting functions are used to control, how much the input pixel and how much its neighbors contribute. These weighting functions are called kernels, (since this FIR filtering is the same as convolution). Typical kernels are: Gaussian, Box, the sinc function, etc. }
 		\label{fig:v_blur}
 	\end{center}
 \end{figure}
@@ -503,7 +503,7 @@ More basic building blocks that can be used to realize a filter are \pd{rpole\te
 
 \section{Types of Digital Filters}
 
-It is important to understand that there are two types of filters\footnote{We are going to ignore that one can also filter by using FFT approaches}. 
+It is important to understand that there are two types of filters\footnote{We are going to ignore that one can also filter by using FFT approaches}.
 \begin{itemize}
 	\item Finite Impulse Response (FIR) Filters
 	\item Infinite Impulse Response (IIR) Filters
@@ -513,7 +513,7 @@ We have been dealing with a FIR filter so far. An infinite impulse response filt
 
 
 \begin{figure}[htb]
-  \centering  
+  \centering
   \label{fig:IIRlowpass}
 
   \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
@@ -534,13 +534,13 @@ We have been dealing with a FIR filter so far. An infinite impulse response filt
 
 
   \draw[->] (sum1) -- node {\Large$y[n]$}(out);
-    
+
   \end{tikzpicture}
   \caption{A simple IIR filter. Note that the arrows are circling, there is feedback involved.}
 \end{figure}
 
 
-If we look at the impulse Response, we can see that it is  ``longer'' than what we had before. If you look closely, we can see that the output sample at which the impulse arrives(n=3), just has the value of the input(1). After that, we can see that the next value is always the sample before times 0.5, so the impulse respopnse is a \textit{geometric series}: $\{1,0.5,0.25,0.125,..\}$ or $\{1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, ...\}$. This is the case since the coefficient in the feedback path is 0.5, so $\frac{1}{2}$. 
+If we look at the impulse Response, we can see that it is  ``longer'' than what we had before. If you look closely, we can see that the output sample at which the impulse arrives(n=3), just has the value of the input(1). After that, we can see that the next value is always the sample before times 0.5, so the impulse respopnse is a \textit{geometric series}: $\{1,0.5,0.25,0.125,..\}$ or $\{1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, ...\}$. This is the case since the coefficient in the feedback path is 0.5, so $\frac{1}{2}$.
 
 
 \begin{figure}[H]
@@ -554,11 +554,11 @@ If we look at the impulse Response, we can see that it is  ``longer'' than what 
 Let's translate the above diagram to a difference equation, so we see another representation of the same system.
 \begin{equation}
  	y(n) = x(n)+y(n-1) \cdot 0.5
- \end{equation} 
+ \end{equation}
 
 Finally, let's quickly summarize some of the differences between the two filter types:
 \begin{center}
-	
+
 \begin{tabular}{l|l|l}
 
 & \textbf{IIR} & \textbf{FIR} \\
@@ -571,7 +571,7 @@ topology & Feedback & no feedback \\
 \end{center}
 
 % \section{Convolution}
-% Convolution is a very important concept in DSP. We already encountered it in chapter \ref{Modulation}. We know that convolution reverbs use impulse responses of rooms to simulate these rooms. But how is this done? It \textit{can} be done using a FIR filter. 
+% Convolution is a very important concept in DSP. We already encountered it in chapter \ref{Modulation}. We know that convolution reverbs use impulse responses of rooms to simulate these rooms. But how is this done? It \textit{can} be done using a FIR filter.
 
 
 
@@ -615,7 +615,7 @@ topology & Feedback & no feedback \\
 % -frequenzgang
 % ausl\"oschungen, rechnen..
 
-% \item 
+% \item
 % FIR one sample delay\\
 
 % FIR bauen, vllt. an tafel blockdiagramm.\\
@@ -623,7 +623,7 @@ topology & Feedback & no feedback \\
 % FIR hipass\\
 
 
-% \item 
+% \item
 
 % mehrere Samples delay
 % IR
@@ -719,13 +719,13 @@ topology & Feedback & no feedback \\
 % 	\item Linear:
 % 		\begin{itemize}
 % 			\item Superpositionsprinzip \(f(x)+f(y) = f (x + y)\)
-% 			\item Homogenität \(a*f(x) = f(a*x)\) 
+% 			\item Homogenität \(a*f(x) = f(a*x)\)
 % 		\end{itemize}
 % 	\item Time Invariant (zeit-invariant)
 % \end{itemize}
 
 
-% Zurück zu filter: 
+% Zurück zu filter:
 % was glauben sie wie er funktioniert. \\
 % \\
 
@@ -806,7 +806,7 @@ topology & Feedback & no feedback \\
 % \textbf{Wo hat der kammfilter immer sein erstes Tal im spectrum?}
 % Sinus an tafel malen.
 % Antwort:
-% bei 
+% bei
 
 % \(\lambda =  (2* \Delta t) \)
 % (wobei \(\Delta t\) die delay zweit in sekunden. und \(\lambda\)  die periodendauer der gesuchten frequenz.) Daher:\\
@@ -839,7 +839,7 @@ topology & Feedback & no feedback \\
 %  	\item hipass
 %  	\item notch
 %  	\item nichts von alledem
-%  \end{enumerate} 
+%  \end{enumerate}
 
 
 % wie könnte ein highpass realisiert werden? Wie schaut der effekt eines highpass filters in der frequenz- und wie in der timedomain aus?
@@ -866,7 +866,7 @@ topology & Feedback & no feedback \\
 
 % Je steiler die Filterflanke sein, je komplexer der filter sein soll, desto mehr delays werden benötigt.\\
 
-% Wieso: einfache Erklärung: Um aus einem signal, das alle frequenzen enthält (zB dirac impuls) ein signal zu machen, das hauptsächlich sehr tiefe frequenzen enthält wird ein system benötigt das \glqq{}lange wellen\grqq{} zu produzieren im stande ist. 
+% Wieso: einfache Erklärung: Um aus einem signal, das alle frequenzen enthält (zB dirac impuls) ein signal zu machen, das hauptsächlich sehr tiefe frequenzen enthält wird ein system benötigt das \glqq{}lange wellen\grqq{} zu produzieren im stande ist.
 
 % An tafel zeichnen: dirac impuls und unit step/ DC. Frage nach spectrum.\\
 
@@ -914,4 +914,3 @@ topology & Feedback & no feedback \\
 % \section{Hausübung}
 
 % hausübung: Baue einen einen chorus. TESTSIGNAL AUSBESSERN! nicht noise!!
-
