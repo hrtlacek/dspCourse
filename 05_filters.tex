@@ -193,7 +193,7 @@ The absolute value of $H$ is the output amplitude, if we just plot this value fo
 	\label{fig:label}
 \end{figure}
 
-It's OK if this plot doesn't tell you much. The really important thing is to evaluate this surface using complex sinusoids: 
+It's OK if this plot doesn't tell you much. The really important thing is to evaluate this surface using complex sinusoids:
 $cos(\omega) + i\cdot sin(\omega)$ we can now plot the magnitude response over $\omega$. So we effectively evaluate the formula
 \begin{equation}
 	|H(\omega)| = |1 + cos(-\omega)+i \cdot sin(-\omega)|
@@ -353,7 +353,7 @@ Taking the average of something always reduces information and we get something 
 
 
 \subsection{A sine at Nyquist}
-Here is yet another way of understanding why the structure we saw is a lowpass. Let's imagine a sine wave at Nyquist frequency, the highest frequency we can work with. We can see what such a sine looks like in Figure~\ref{fig:nyqSine}. If we apply this moving average filter, so that lowpass we have been talking about, what do you think comes out? Go ahead and calculate the average for each sample and its previous sample. We add $1 + -1 = 0$, $-1 + 1 = 0$, $1 + -1 = 0$, ... So you can see, if we feed a sine at nyquist into our lowpass, what we get is silence. 
+Here is yet another way of understanding why the structure we saw is a lowpass. Let's imagine a sine wave at Nyquist frequency, the highest frequency we can work with. We can see what such a sine looks like in Figure~\ref{fig:nyqSine}. If we apply this moving average filter, so that lowpass we have been talking about, what do you think comes out? Go ahead and calculate the average for each sample and its previous sample. We add $1 + -1 = 0$, $-1 + 1 = 0$, $1 + -1 = 0$, ... So you can see, if we feed a sine at nyquist into our lowpass, what we get is silence.
 
 
 \begin{figure}[H]
