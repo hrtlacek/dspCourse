@@ -32,7 +32,14 @@ This document tries to explain digital signals. It does this by use of audio sig
 
 pd objects will always be in courier new and square brackets. Like this: \pd{metro}
 
-
+\subsection{Pure data Version}
+This document was written using some version of \textit{pd-extended}. It is now in the process of migrating everything to version:\\
+Pd 0.47.1, everything tested on a Linux Debian system.
+The following Libraries will be used:
+\begin{itemize}
+	\item cyclone
+	\item zexy
+\end{itemize}
 
 \section{About plotting signals}
 
@@ -84,7 +91,7 @@ The nyquist rate,let's call it $f_n$ for now, is defined by the half of the samp
 \begin{equation}
 	f_n=\frac{f_s}{2}
 \end{equation}
-A digital system can only describe signals up to his nyquist rate. If we try to make signals higher than this frequency, we will fail and encounter strange effects.\\
+A digital system can only describe signals up to its nyquist rate. If we try to make signals higher than this frequency, we will fail and encounter strange effects.\\
 Visually speaking, frequencies higher than nyquist fold back. So, let's assume we have a sampling rate of 100Hz. Nyquist would be at 50Hz. If we try to synthesize a sine wave with 51Hz, what we will get is a 49Hz one. If we try to make a 52Hz one, we will get 48Hz. So you see, it simply folds back.
 
 \begin{framed}
