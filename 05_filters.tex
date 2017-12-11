@@ -15,6 +15,44 @@
 
 \comm{lecture mind map missing}
 
+\begin{center}
+\begin{figure}[h!]
+\tikzset{concept/.append style={fill={none}}}
+\begin{tikzpicture}
+  \path[mindmap,concept color=black,text=black]
+    node[concept] {Filters}
+    [clockwise from=0]
+    child[concept color=red!50!black] {
+      node[concept] {Systems}
+      % }
+      [clockwise from=90]
+      child { node[concept] {Impulse Response} }
+      child { node[concept] {Difference Equation} }
+      child { node[concept] {Transfer Function} }
+      % child { node[concept] {pro\-gramming languages} }
+      % child { node[concept] {software engineer\-ing} }
+    }
+    child[concept color=blue] {
+      node[concept] (IIR) {IIR}
+      [clockwise from=-30]
+    }
+    child[concept color=red] { node[concept] (FIR){FIR} }
+    child[concept color=orange] { node[concept] (sd) {Sound design Challenge} };
+
+
+\begin{pgfonlayer}{background}
+    \draw [circle connection bar]
+      (fm) edge (sd)
+      (fm) edge (pm);
+  \end{pgfonlayer}
+
+\end{tikzpicture}
+\caption{Lecture Contents}
+\end{figure}
+\end{center}
+
+
+
 
 What is a filter? We use filters a lot. We often need to shape the spectrum of a signal. Be it for technical reasons (DC-Offset removal, Anti-aliasing filters, crossovers, interpolation, ...) or for aesthetic ones (EQ-ing, subtractive synthesis)\\
 Please take a moment and seriously ask yourself, knowing what you know about signals, knowing what we can do with a computer: How do we actually do this? What is a digital Filter? This is what this chapter will try to explain.\\
@@ -491,7 +529,7 @@ We can also make our own custom bandpass using a lowpass and a highpass in serie
 	\centering
 	\includegraphics[width=\textwidth]{bandpass}
 	\caption[bandpass]
-	{CAPTION MISSING}
+	{Bandpass Filter in pd}
 	\label{fig:label}
 \end{figure}
 

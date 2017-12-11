@@ -29,9 +29,9 @@
       child { node[concept] {Ring Modulation} }
       % child { node[concept] {pro\-gramming languages} }
       % child { node[concept] {software engineer\-ing} }
-    }  
+    }
     child[concept color=blue] {
-      node[concept] (fm) {FM} 
+      node[concept] (fm) {FM}
       [clockwise from=-30]
     }
     child[concept color=red] { node[concept] (pm){Phase Modulation} }
@@ -58,7 +58,7 @@
 % Passt garnicht: (weil eher additive synth)
 % https://www.youtube.com/watch?v=oKv9S6mxnXE
 
-
+% Convolution anreissen?
 % Notation durchgehen.
 
 % Aliasing besprochen?
@@ -88,7 +88,7 @@ In this section we will try amplitude modulation. Amplitude modulation is used f
 	\item seeing it as convolution in the frequency domain
 \end{itemize}
 
-Amplitude modulation means modulating the amplitude of a signal(surprise!). Modulating means changing over time by another signal. So we have some signal, say, a sine wave, and change its amplitude with another signal, say, another sine wave. Talking this concept and reducing it radically, we end up with figure \ref{fig:simpleAM}. 
+Amplitude modulation means modulating the amplitude of a signal(surprise!). Modulating means changing over time by another signal. So we have some signal, say, a sine wave, and change its amplitude with another signal, say, another sine wave. Talking this concept and reducing it radically, we end up with figure \ref{fig:simpleAM}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -131,7 +131,7 @@ Enough words, let's look at what AM looks like, look at figure \ref{fig:AMViz}.
 	Next question, same plot, same signal. So hopefully you found out that we hear a 30 Hz sine with rising and falling amplitude. At what frequency does the amplitude rise and fall? Remember we are modulating with a 1 Hz sine.
 \end{question}
 \begin{Answer}
-	Two Hertz. 
+	Two Hertz.
 \end{Answer}
 
 Maybe you remember from the waveshaping chapter that we actually calculated what frequencies should come out of AM. Also maybe you remember that:
@@ -169,7 +169,7 @@ Let's use pure data to help us understand. Make two oscillators, one with 29Hz a
 	\label{fig:beating}
 \end{figure}
 
-If you listen to what is depicted in figure \ref{fig:beating}, you will in fact hear the same as if you do the 30Hz /1 Hz amplitude modulation (which indicates that our formula above is correct). What we hear is a phenomenon called beating(``Schwebung''). The phase of the two oscillators is canceling each other out at regular intervals because the frequencies are so close to each other. In fact the frequency of the beating $f_{beat}$ is always 
+If you listen to what is depicted in figure \ref{fig:beating}, you will in fact hear the same as if you do the 30Hz /1 Hz amplitude modulation (which indicates that our formula above is correct). What we hear is a phenomenon called beating(``Schwebung''). The phase of the two oscillators is canceling each other out at regular intervals because the frequencies are so close to each other. In fact the frequency of the beating $f_{beat}$ is always
 \begin{equation}
 	f{beat}=|f_1-f_2|
 \end{equation}
@@ -187,7 +187,7 @@ So the difference of the two frequencies.
 
 \bgInfo{
 \paragraph{Convolution}
-We will look at convolution in a later chapter. If you  are eager to know what convolution exactly does you can have a look at 
+We will look at convolution in a later chapter. If you  are eager to know what convolution exactly does you can have a look at
 \href{https://youtu.be/_vyke3vF4Nk?t=25m14s}{this}\footnote{https://youtu.be/\_vyke3vF4Nk?t=25m14s}
 . But why mention convolution if it is not explained at this point? Amplitude modulation and convolution just have a very close relationship, an that is:
 \textbf{Multiplying two signals in the time domain is equivalent to convolution in the frequency domain and convolution in the time domain is equivalent to multiplication in the frequency domain.
@@ -199,14 +199,14 @@ We will look at convolution in a later chapter. If you  are eager to know what c
 \label{sub:FM}
 
 Frequency modulation can be used to modulate the frequency, meaning to vary the pitch of a sound, see figure \ref{fig:fmSlow}. But it can also be used to generate overtones and an overall richer spectrum, see figure \ref{fig:fmFast}. The two ``different versions'' only differ from each other by different parameter\footnote{We see which parameters can be adjusted in a minute. But if you want to know them now: modulation frequency, modulation amount and carrier frequency.} values being used.
-We can think of Frequency Modulation (FM) as something of the form: 
+We can think of Frequency Modulation (FM) as something of the form:
 
 \begin{equation}
 	y(t) = cos(cos(b))
 \end{equation}
 
-This really is a simplification, but the overall structure of the formula is correct. 
-% FM is mathematically very similar to phase modulation. 
+This really is a simplification, but the overall structure of the formula is correct.
+% FM is mathematically very similar to phase modulation.
 Looking at figure \ref{fig:fmIdea} we can see the very basic idea implemented in pure data.
 \begin{figure}[H]
 	\begin{center}
@@ -236,7 +236,7 @@ The output frequencies will be
 	f_c \pm n \cdot f_m
 \end{equation}
 
-for $n$ being all integers. So the carrier frequency plus and minus integer multiples of the modulation frequency. We get many (theoretically infinitely) many overtones with different amplitudes this way. 
+for $n$ being all integers. So the carrier frequency plus and minus integer multiples of the modulation frequency. We get many (theoretically infinitely) many overtones with different amplitudes this way.
 }
 \bgInfo{
 	The amplitudes of the different frequencies are determined by Bessel functions which makes it so seemingly random.
@@ -245,7 +245,7 @@ for $n$ being all integers. So the carrier frequency plus and minus integer mult
 }
 
 
-Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental Frequency. 
+Typically, FM is controlled via \textit{Index}, \textit{Ratio}, and fundamental Frequency.
 The Index, ${I}$ is given by Modulation Depth and Modulator Frequency.
 
 
@@ -309,12 +309,12 @@ But there are also different implementations such as:
 \section{Key Points}
 \begin{itemize}
 	\item Make sure you understand the differences between AM and FM
-	\item Make sure you recognize what form of modulation is present if you see a patcher or a simplfied formula (like: $sin(a) \cdot sin(b)$ what form of modulation is this?) 
+	\item Make sure you recognize what form of modulation is present if you see a patcher or a simplfied formula (like: $sin(a) \cdot sin(b)$ what form of modulation is this?)
 	\item make sure you could make such a simplified formula if you see a patch and vice versa.
 	\item make sure you know what frequencies result from an amplitude modulation
 	\item make sure you know what frequencies result from a frequency modulation
 \end{itemize}
-    
+
 % \section{Hausübung}
 % \label{sub:Hausuebung}
 % Andy Farnell, \href{http://aspress.co.uk/ds/pdf/pd_intro.pdf}{pd intro} chapter 6, lesen
