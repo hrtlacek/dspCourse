@@ -88,6 +88,14 @@ y(n) = \sum_{k=0}^{N-1} x(n-k) h (k)
 \end{equation}
 In words: for every output sample $y(n)$ take the current input sample $x(n)$ times the first sample of the convolution Kernel $h(0)$ plus take the previous input sample $x(n-1)$ times the second sample of the convolution kernel $h(1)$ plus the third last input sample $x(n-2)$ times the third sample of the convolution kernel $h(2)$ and so on... until the $Nth$ sample of $h$. It can be viewed as a a weighted average of the previous input samples, with weighting coefficients found in $h$.
 
+We will look at convolution in a later chapter. If you  are eager to know more about convolution can have a look at
+\href{https://youtu.be/_vyke3vF4Nk?t=25m14s}{this}\footnote{https://youtu.be/\_vyke3vF4Nk?t=25m14s}
+. But why mention convolution if it is not explained at this point? Amplitude modulation and convolution just have a very close relationship, an that is:
+\important{Multiplying two signals in the time domain is equivalent to convolution in the frequency domain and convolution in the time domain is equivalent to multiplication in the frequency domain.
+}
+
+
+
 \section{AM} % (fold)
 \label{sub:AM}
 In this section we will try amplitude modulation. Amplitude modulation is used for radio communication (so you'll need to understand this as a technician, modulation techniques are extremely important and this is maybe the simplest one) but also in sound design. We will try to understand the problem from different perspectives at once:
@@ -194,16 +202,6 @@ So the difference of the two frequencies.
 		\label{fig:name}
 	\end{center}
 \end{figure}
-
-\bgInfo{
-\paragraph{Convolution}
-We will look at convolution in a later chapter. If you  are eager to know what convolution exactly does you can have a look at
-\href{https://youtu.be/_vyke3vF4Nk?t=25m14s}{this}\footnote{https://youtu.be/\_vyke3vF4Nk?t=25m14s}
-. But why mention convolution if it is not explained at this point? Amplitude modulation and convolution just have a very close relationship, an that is:
-\textbf{Multiplying two signals in the time domain is equivalent to convolution in the frequency domain and convolution in the time domain is equivalent to multiplication in the frequency domain.
-}
-}
-
 
 \section{FM} % (fold)
 \label{sub:FM}
