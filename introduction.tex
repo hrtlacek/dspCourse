@@ -126,7 +126,7 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 	\begin{center}
 		\includegraphics[width = \textwidth]{aliasingFreqDomain.png}
 		\caption[Aliasing in the Frequency Domain]
-		{Here we can see the phenomenon of aliasing in the frequency domain. We try to synthesize a sine wave at about 26kHz. At a sampling rate of 44100 Hz, this is not possible, nyquist is at 22050 Hz. What we actually get is a sine wave at about 17kHz. In this plot, the nyquist frequency is marked with the red line. Please note that the distance between the red line to both peaks is identical. This is why the phenomeno is also called \textit{fold-back}}
+		{Here we can see the phenomenon of aliasing in the frequency domain. We try to synthesize a sine wave at about 26kHz. At a sampling rate of 44100 Hz, this is not possible, nyquist is at 22050 Hz. What we actually get is a sine wave at about 17kHz. In this plot, the nyquist frequency is marked with the red line. Please note that the distance between the red line to both peaks is identical. This is why the phenomenon is also called \textit{fold-back}}
 		\label{fig:name}
 	\end{center}
 \end{figure}
@@ -138,18 +138,17 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 \section{Scaling and Mapping Signals}
 It is an important skill to be able to scale signals from one range to another. We need it a lot and we will be able to think about signals more easily if we mastered this task. It's actually quite simple, we just have to imagine the signals visually.\\
 So what exactly do we have to do here? We are confronted with the following problem: Given some signal, say, a sine wave with its maximum at the value 1 and its minimum at the value -1. How to bring it to a different range, say, 0-10?\\
-It helps me a lot to solve this problem in two parts: first get the input in the range 0-1, then from there go to the desired range. What can we do to the signal? Let's take a sine wave:
+It helps me a lot to solve this problem in two parts: first get the input in the range 0-1, then from there go to the desired range. What can we do to the signal? Let's take a sine wave like the one in Figure ~\ref{fig:aSine}. Well we can add and subtract to move the wave vertically, so let's add 1 to move it up, have a look at Figure~\ref{fig:aShiftedSine}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=11cm]{stdSine.png}
 	\caption[a sine wave]
 	{a sine wave}
 	\label{fig:aSine}
 \end{figure}
-Well we can add and subtract to move the wave vertically, so let's add 1 to move it up:
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=11cm]{sinePlusOne.png}
 	\caption[a sine wave]
@@ -159,13 +158,15 @@ Well we can add and subtract to move the wave vertically, so let's add 1 to move
 
 So we can move signals around by adding constant values. We can scale them by multiplication. So if we take our sine that now ranges from 0 to 2 and multiply it by 0.5, we get whats in figure \ref{fig:sine01}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
  	\centering
  	\includegraphics[width=11cm]{sine01.png}
  	\caption[sine 0 to 1]
  	{Sine with a range of 0-1. Obtained by taking a sine wave, adding 1 and dividing by two afterwards.}
  	\label{fig:sine01}
  \end{figure}
+
+\hspace{1cm}
 
 Using what we got now in figure \ref{fig:sine01}, we can just multiply by 10, easy! Beware that there are always multiple solutions to this kind of a problem. Try to find another one for the problem above!
 
@@ -229,14 +230,19 @@ Impulses are very useful signals. We can produce an impulse using the \pd{dirac\
 Different people will define what's an impulse in different ways:
 \begin{itemize}
 	\item A sound engineer might tell you, that clapping your hands or shooting with a gun creates an impulse
-	\item a mathematician will maybe give you the definition of the \textit{dirac delta function} (that's where the name for pd's impulse object comes from)
-	\item Somebody working with discrete (so digital) signals will give you rather the definition of the Kroneker delta function.
+	\item a mathematician will maybe give you the definition of the \textit{dirac delta function} (that's where the name for pd's impulse object comes from). A dirac function is a continuous function having infinite height and being infinitely short. Its integral (area under the curve) is 1.
+	\item Somebody working with discrete (so digital) signals will give you rather the definition of the Kronecker delta function\footnote{Irritatingly, the \pd{dirac\textasciitilde} object is producing a Kronecker delta. It's very common and kind of wrong to call digital impulses "dirac functions" or "dirac impulses". Sometimes people like to use "big" words. So instead of saying "impulse", they say "dirac delta function". Dirac delta functions have importance in mathematics and analysis. But since they have infinite value and are infinitely short they can't exist in reality. They are a theoretical idea. Therefore, more often than not, the term is used incorrectly in an audio context.}:
+	\begin{equation}
+		\delta(i) = \begin{cases}
+0, & \mbox{if } i \ne 0  \\
+1, & \mbox{if } i=0 \end{cases}
+	\end{equation}
 \end{itemize}
 
 
 }
 
-For us, strictly speaking, an impulse will be a signal that contains only zeros, but one sample with the value one. We can see such an impulse in figure \ref{fig:unitImpulse}. On the x-axis, we have the time in samples\footnote{Don't be irritated by the fact that the sample numbers on the x-axis are ranging from $-5$ to $5$. You can just as well imagine them going from 0 to 10 or 1 to 11. It doesn't really matter. However, this way of displaying an impulse is very common since if the impulse is filtered, it's symmetry is an important factor.}.
+For us, strictly speaking, an impulse will be a signal that contains only zeros, but one sample with the value one (so we will mean the Kronecker delta function if we say 'impulse'). We can see such an impulse in figure \ref{fig:unitImpulse}. On the x-axis, we have the time in samples\footnote{Don't be irritated by the fact that the sample numbers on the x-axis are ranging from $-5$ to $5$. You can just as well imagine them going from 0 to 10 or 1 to 11. It doesn't really matter. However, this way of displaying an impulse is very common since if the impulse is filtered, it's symmetry is an important factor.}.
 
 
 \begin{figure}[H]
@@ -289,7 +295,9 @@ This notation is only covered since it is very common, but it will not be used h
 \vspace{0.5cm}
 
 \textbf{What is actually the significance of using either $sin$ or $cos$?}\\
-In most cases for us, this does not matter at all. The difference between sine and cosine is just in phase. Since we are most of the time describing a sine (or cosine) wave oscillator as a function of time, the only difference between the two would be their phase if given some moment in time. This is nothing one could hear also.
+In most cases for us, this does not matter at all. The difference between sine and cosine is just in phase. Since we are most of the time describing a sine (or cosine) wave oscillator as a function of time, the only difference between the two would be their phase if given some moment in time. This is nothing one could hear also.\\
+That being said, there are certain formulas that consist of sine and cosine terms, and that only work that particular way. For example, Euler's famous formula, $e^{ix}=cos(x)+i\cdot sin(x)$. We can't interchange $sin$ and $cos$ here.
+
 
 \end{mdframed}
 % \comm{work in progress.}

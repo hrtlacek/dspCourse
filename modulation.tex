@@ -35,7 +35,8 @@
       [clockwise from=-30]
     }
     child[concept color=red] { node[concept] (pm){Phase Modulation} }
-    child[concept color=orange] { node[concept] (sd) {Sound design Challenge} };
+    child[concept color=orange] { node[concept] (sd) {Sound design Challenge} }
+    child[concept color=green] { node[concept] (conv) {Convolution} };
 
 
 \begin{pgfonlayer}{background}
@@ -75,8 +76,17 @@
 
 % Hü
 
+\section{Convolution}
+\label{sub:conv}
+Before talking about modulation, we should quickly look at what's convolution\footnote{'Faltung' in German}.\\
+Convolution is a mathematical operation, widely used in signal processing but also in other fields. Convolution of two functions, say, $x$ and $h$ is typically denoted as $x*h$. \textbf{Note that $*$ does not mean multiplication here, it means convolving $x$ with $h$}. Obviously this can lead to confusion in some cases, but notation problems are not uncommon in sciences.\footnote{e.g while mathematicians use $i$ as the imaginary number, electrical engineering folks use $j$ (their $i$ is electrical current.).}\\
 
+We will define Convolution of a function $x$ with a convolution kernel $h$ of length $N$as\footnote{You will find different definitions online. The given definition seems more intuitive but is not very common. Here is a common one:$y(n) = \sum_{k=-\infty}^{\infty} x(k) h (n-k)$}:
 
+\begin{equation}
+y(n) = \sum_{k=0}^{N-1} x(n-k) h (k)
+\end{equation}
+In words: for every output sample $y(n)$ take the current input sample $x(n)$ times the first sample of the convolution Kernel $h(0)$ plus take the previous input sample $x(n-1)$ times the second sample of the convolution kernel $h(1)$ plus the third last input sample $x(n-2)$ times the third sample of the convolution kernel $h(2)$ and so on... until the $Nth$ sample of $h$. It can be viewed as a a weighted average of the previous input samples, with weighting coefficients found in $h$.
 
 \section{AM} % (fold)
 \label{sub:AM}
@@ -106,7 +116,7 @@ Of course, we get no sound in figure \ref{fig:simpleAM} because the frequencies 
 
 And some more vocabulary to put what we are doing in a musical context:
 \begin{itemize}
-	\item Modulating the amplitude is called ``Tremolo'' in music \footnote{sadly, the fender stratocaster's ``Tremolo Arm'' is used to control the pitch. Ignore Fender, they got it wrong. You can trust that most guitar players are confused because of this.}
+	\item Modulating the amplitude is called ``Tremolo'' in music \footnote{sadly, the fender Stratocaster's ``Tremolo Arm'' is used to control the pitch. Ignore Fender, they got it wrong. You can trust that most guitar players are confused because of this.}
 	\item Modulating the pitch or frequency (``FM'') is called ``vibrato'' in a musical context.\footnote{Maybe think about it like this: The F in FM is a bit like the v in vibrato. Just to avoid confusion..}
 \end{itemize}
 
