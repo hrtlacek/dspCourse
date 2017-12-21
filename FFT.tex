@@ -31,8 +31,8 @@
 	% child[concept color=blue] {
 	% node[concept] {hauptteil FFT}
 	% [clockwise from=-90]
-		child[concept color=orange] { node[concept] {theorie} }
-		child[concept color=red] { node[concept] {praxis}
+		child[concept color=orange] { node[concept] {theory} }
+		child[concept color=red] { node[concept] {practice}
 			child[concept color=red] { node[concept] {spectrum display} }
 			child[concept color=red] { node[concept] {fft filter}
 				child[concept color=red] { node[concept] {random filter} }
@@ -44,7 +44,7 @@
 
 ;
 \end{tikzpicture}
-\caption{Lecture Contents: Fourier Transformation}
+\caption{Lecture Contents: Fourier Transform}
 \end{figure}
 \end{center}
 
@@ -67,12 +67,12 @@ spectral synyth,
 spectraum display.
 
 
-evtl auch:
-\begin{itemize}
-	\item send / receive, send / receive bei gui objekten.
-	\item initialisierung
-	\item
-\end{itemize}
+% evtl auch:
+% \begin{itemize}
+% 	\item send / receive, send / receive bei gui objekten.
+% 	\item initialisierung
+% 	\item
+% \end{itemize}
 
 
 Diskretes Signal -> Periodisches Spectrum \\
@@ -123,9 +123,10 @@ The discrete Fourier Transform (DFT) is defined as:
 \begin{equation}
 	x_f(m) = \sum_{n=0}^{N-1} x(n)\cdot e^{-i 2 \pi \frac{n m}{N} }
 \end{equation}
+\newpage
 As python code this could look like this:
-\lstinputlisting[language=Python]{code/fourierTransform.py}
-Beware that the python code above implements the formula directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT).
+\lstinputlisting[language=Python,caption={DFT in python},captionpos=b]{code/fourierTransform.py}
+Beware that the python code above implements the formula directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT). In python, there are several ways to compute an FFT in an efficient way such as \texttt{numpy.fft()}.
 
 \begin{figure}[h]
 	\begin{center}

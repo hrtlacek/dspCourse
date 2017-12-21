@@ -262,19 +262,28 @@ Typically we substitute $\frac{Y}{X}$ with a new name, typically $H$ and now mak
 \begin{equation}
 	H(Z) = 1 + Z^{-1}
 \end{equation}
-This is called a system's transfer function. This is the actual standard for talking about systems. Typically we do two things with this, either, we draw a so called \textit{Pole-Zero-Plot}, or we evaluate the function for complex sinusoids.\\
+This is called a system's transfer function. This is the actual standard for talking about systems. Typically we do two things with this, either, we draw a so called \textit{Pole-Zero-Plot}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{poleZero.png}
+	\caption[pole zero plot. ]
+	{a pole zero plot. This indicates where the function $H(z)$ has zeros(where its value is zero) or poles(where its value is infinity). Actually there is also a pole at $0+0i$ which is not shown here. This is because a pole at this position has no frequency dependent effect.}
+	\label{fig:label}
+\end{figure}
+
+We can also evaluate the function $H(z)$for complex sinusoids.\\
 The absolute value of $H$ is the output amplitude, if we just plot this value for all complex numbers we see this:
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{poleZero3dPlot.png}
 	\caption[shortCaption]
-	{Evaluation of the Transfer function in the complex plane. The unit circle is visible as a dotted line.}
+	{Evaluation of the Transfer function in the complex plane. The unit circle is visible as a dotted line. This plot is not too easy to read but if you look at the coordinate $-1+0i$, you can see that the value there is very low. This seems to indicate a lowpass. You can basically ignore the huge mountain in the middle. It sits at $0+0i$ and has therefore equal effect on all frequencies.}
 	\label{fig:label}
 \end{figure}
 
 It's OK if this plot doesn't tell you much. The really important thing is to evaluate this surface using complex sinusoids:
-$cos(\omega) + i\cdot sin(\omega)$. Ths is the same as looking at the values along the dotted line. We can now plot the magnitude response over $\omega$. So we effectively evaluate the formula
+$cos(\omega) + i\cdot sin(\omega)$. This is the same as looking at the values along the dotted line. We can now plot the magnitude response over $\omega$. So we effectively evaluate the formula
 \begin{equation}
 	|H(\omega)| = |1 + (cos(\omega)+i \cdot sin(\omega))^{-1}|
 \end{equation}
