@@ -1,0 +1,25 @@
+#N canvas 2 53 1276 1077 10;
+#X obj 13 80 openpanel;
+#X obj 13 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array array1 153400 float 2;
+#X coords 0 1 153400 -1 200 140 1;
+#X restore 187 60 graph;
+#X obj 13 169 prepend read -resize;
+#X obj 13 192 soundfiler;
+#X obj 14 146 pack s s;
+#X obj 13 103 t a b;
+#X msg 68 125 symbol array1;
+#X obj 12 26 import cyclone;
+#X text 45 6 Loading Audio into an Array (to RAM);
+#X floatatom 12 218 10 0 0 0 - - -, f 10;
+#X text 86 217 Number of Samples;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 6 1 7 0;
+#X connect 7 0 5 1;
