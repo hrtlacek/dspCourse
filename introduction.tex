@@ -39,6 +39,8 @@ The following Libraries will be used:
 \begin{itemize}
 	\item cyclone
 	\item zexy
+	\item jmmmp
+	\item iemlib
 \end{itemize}
 
 \section{About plotting signals}
@@ -92,7 +94,7 @@ The nyquist rate,let's call it $f_n$ for now, is defined by the half of the samp
 	f_n=\frac{f_s}{2}
 \end{equation}
 A digital system can only describe signals up to its nyquist rate. If we try to make signals higher than this frequency, we will fail and encounter strange effects.\\
-Visually speaking, frequencies higher than nyquist fold back. So, let's assume we have a sampling rate of 100Hz. Nyquist would be at 50Hz. If we try to synthesize a sine wave with 51Hz, what we will get is a 49Hz one. If we try to make a 52Hz one, we will get 48Hz. So you see, it simply folds back.
+Visually speaking, frequencies higher than nyquist fold back. So, let's assume we have a sampling rate of 100Hz. Nyquist would be at 50Hz. If we try to synthesize a sine wave with 51Hz, what we will get is a 49Hz one. If we try to make a 52Hz one, we will get 48Hz. So you see, it simply folds back. You can find an interactive example \link{https://jackschaedler.github.io/circles-sines-signals/sampling.html}{here}.
 
 \begin{framed}
 	\textbf{Video analogies}\\

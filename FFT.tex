@@ -1,6 +1,6 @@
 %!TEX root = main.tex
 
-\chapter{Fourier Transformation}
+\chapter{Fourier Transform}
 \label{Fourier Transformation}
 
 \begin{figure}[H]
@@ -19,28 +19,28 @@
 \tikzset{concept/.append style={fill={none}}}
 \begin{tikzpicture}
   \path[mindmap,concept color=black,text=black]
-	node[concept] {FFT uebung}
+	node[concept] {Fourier Tansform}
 	[clockwise from=0]
-	child[concept color=green!50!black] {
-	node[concept] {schuluebung v. letzem Mal}
-	}
-	child[concept color=green!50!black] {node[concept] {pd parxis}
-		child[concept color=green!50!black] {node[concept] {send/receive}}
-		child[concept color=green!50!black] {node[concept] {initialisierung}}
-		}
-	child[concept color=blue] {
-	node[concept] {hauptteil FFT}
-	[clockwise from=-90]
+	% child[concept color=green!50!black] {
+	% node[concept] {schuluebung v. letzem Mal}
+	% }
+	% child[concept color=green!50!black] {node[concept] {pd parxis}
+	% 	child[concept color=green!50!black] {node[concept] {send/receive}}
+	% 	child[concept color=green!50!black] {node[concept] {initialisierung}}
+	% 	}
+	% child[concept color=blue] {
+	% node[concept] {hauptteil FFT}
+	% [clockwise from=-90]
 		child[concept color=orange] { node[concept] {theorie} }
-		child[concept color=red] { node[concept] {praxis} 
+		child[concept color=red] { node[concept] {praxis}
 			child[concept color=red] { node[concept] {spectrum display} }
-			child[concept color=red] { node[concept] {fft filter} 
+			child[concept color=red] { node[concept] {fft filter}
 				child[concept color=red] { node[concept] {random filter} }
 				}
 			child[concept color=red] { node[concept] {fft reverb} }
 			child[concept color=red] { node[concept] {pitch shift} }
-			}
-	}
+		}
+
 
 ;
 \end{tikzpicture}
@@ -71,7 +71,7 @@ evtl auch:
 \begin{itemize}
 	\item send / receive, send / receive bei gui objekten.
 	\item initialisierung
-	\item 
+	\item
 \end{itemize}
 
 
@@ -118,6 +118,14 @@ Inverse Fourier Transformation:\\
 \begin{equation}
 	x(t)= \mathcal{F}^{-1} \{X(f)\} = \int_{-\infty}^\infty \! X(f) e^{j2\pi ft} \, \mathrm{d}f
 \end{equation}
+
+The discrete Fourier Transform (DFT) is defined as:
+\begin{equation}
+	x_f(m) = \sum_{n=0}^{N-1} x(n)\cdot e^{-i 2 \pi \frac{n m}{N} }
+\end{equation}
+As python code this could look like this:
+\lstinputlisting[language=Python]{code/fourierTransform.py}
+Beware that the python code above implements the formula directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT).
 
 \begin{figure}[h]
 	\begin{center}

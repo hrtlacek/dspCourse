@@ -134,6 +134,48 @@ Below is an (incomplete) list of methods that are all able to describe a filter.
 	\item Unit Step Response
 \end{itemize}
 
+
+\begin{figure}[htb]
+  \centering
+  \label{fig:string}
+
+  \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
+
+  % \draw node at (0,0) [input] (excitation) {};
+  \draw node at (0,0) [block] (de) {difference Equation};
+  \draw node [block, right of=de, node distance = 8cm] (tf) {transfer function};
+  \draw node [block, below of= de] (ir) {impulse Response};
+  \draw node [block, below of= ir] (sr) {step Response};
+  \draw node [block, below of= tf] (fr) {frequency Response};
+  \draw node [block, above of= de] (bd) {block diagram};
+
+
+
+  % \draw node [block, below of=delay, node distance = 2cm] (loss) {\Large$G(z)$};
+  % \draw node at (6.,-0.001) {\textbullet};
+
+  % \draw node [output, right of=delay,node distance = 3cm] (out) {};
+  \draw[<->] (de) -- node {by inspection}(bd);
+  \draw[->] (de) -- node {\Large$z transform$}(tf);
+  \draw[->] (tf) -- node {evaluate on unit circle}(fr);
+  \draw[->] (de) -- node {set $x[n]=\delta[n]$}(ir);
+  % \draw[->] (sum1) -- node {}(delay);
+  % \draw[->] (loss.west) -| node {}(sum1.south);
+
+  % \draw[->] (6., -0.001) |- node {}(loss.east);
+
+
+  \draw[->] (ir) -- node {\Large$\int x dt$}(sr);
+  \draw[->] (ir) -- node {\Large$\mathcal{F} $}(fr);
+  % \draw[<-] (ir) -- node {\Large$\mathcal{F^{-1}} $}(fr);
+
+  \end{tikzpicture}
+  \caption{Ways of describing LTI systems and how to get from one to the other}
+\end{figure}
+
+
+
+
 While in practice, the transfer function is very important, we will mostly work with block diagrams, pd programs and difference equations.\\
 It is an important skill to be able to switch between these representations, for example to calculate the impulse response from a difference equation or block diagram.
 
@@ -225,24 +267,24 @@ The absolute value of $H$ is the output amplitude, if we just plot this value fo
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{zPlane.png}
+	\includegraphics[width=\textwidth]{poleZero3dPlot.png}
 	\caption[shortCaption]
-	{CAPTION MISSING}
+	{Evaluation of the Transfer function in the complex plane. The unit circle is visible as a dotted line.}
 	\label{fig:label}
 \end{figure}
 
 It's OK if this plot doesn't tell you much. The really important thing is to evaluate this surface using complex sinusoids:
-$cos(\omega) + i\cdot sin(\omega)$ we can now plot the magnitude response over $\omega$. So we effectively evaluate the formula
+$cos(\omega) + i\cdot sin(\omega)$. Ths is the same as looking at the values along the dotted line. We can now plot the magnitude response over $\omega$. So we effectively evaluate the formula
 \begin{equation}
-	|H(\omega)| = |1 + cos(-\omega)+i \cdot sin(-\omega)|
+	|H(\omega)| = |1 + (cos(\omega)+i \cdot sin(\omega))^{-1}|
 \end{equation}
-Where $\omega$ ranges from $0$ to $\pi$(sic!). Then we finally get the magnitude response:
+Where $\omega$ ranges from $0$ to $\pi$(sic!). This is the same as going along the dotted line, starting at $1+0i$ (lowest frequency) and ending at $-1+0i$ (the highest frequency). Then we finally get the magnitude response:
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{magResp.png}
 	\caption[shortCaption]
-	{CAPTION MISSING}
+	{Magnitude response, so $|H(\omega)| = |1 + (cos(\omega)+i \cdot sin(\omega))^{-1}|$}
 	\label{fig:label}
 \end{figure}
 
@@ -280,39 +322,7 @@ Below, we can see a code implementation in the language MATLAB.
 \lstinputlisting[label=code,
 captionpos=b,
 caption=A script that creates an impulse implements a vectorized filter and plots the result.]{code/FIRvectorized.m}
-
 }
-% FIRvectorized.m
-
-
-% subsection code (end)
-
-% \begin{figure}[htb]
-%   \centering
-%   \label{fig:string}
-
-%   \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
-
-%   \draw node at (0,0) [input] (excitation) {};
-%   \draw node [sum, right of=excitation, node distance = 2.cm] (sum1) {\Large$+$};
-%   \draw node [block, right of=sum1, node distance = 2cm] (delay) {\Large$z^{-m}$};
-%   \draw node [block, below of=delay, node distance = 2cm] (loss) {\Large$G(z)$};
-%   \draw node at (6.,-0.001) {\textbullet};
-
-%   \draw node [output, right of=delay,node distance = 3cm] (out) {};
-%   \draw[->] (excitation) -- node {\Large$x[n]$}(sum1);
-%   \draw[->] (sum1) -- node {}(delay);
-%   \draw[->] (loss.west) -| node {}(sum1.south);
-
-%   \draw[->] (6., -0.001) |- node {}(loss.east);
-
-
-%   \draw[->] (delay) -- node {\Large$y[n]$}(out);
-
-%   \end{tikzpicture}
-%   \caption{einzelne Saite, $G(z)$ ein lowpass, \glqq{}Loss Filter\grqq{}}
-% \end{figure}
-
 
 \section{Ways of Getting an Intuitive Understanding}
 
