@@ -1,8 +1,6 @@
 %!TEX root = main.tex
-\chapter{Karplus}
+\chapter{Physical Modeling}
 \label{Karplus}
-
-
 
 \begin{figure}[h]
   \begin{center}
@@ -13,9 +11,8 @@
 \end{figure}
 
 
-\section{Notes}
+\section{References}
 
-References:
 \begin{itemize}
   \item \cite{bilbao_numerical_2009}
   \item \cite{smith_physical_2010}
@@ -39,38 +36,36 @@ References:
 
 
 
-\section{Vorbereitung}
+\section{Further Information}
 
-
-Konzeptuelle Gedanken(imaginary number, complex numbers): \\
-https:\/\/www.youtube.com\/watch?v=-IJuqR6nz\_Q \\
-https:\/\/www.youtube.com\/watch?v=EIstpPXKWng
-wellengleichung:\\
-https:\/\/www.youtube.com\/watch?v=Li6OEMCtQ9k
-
+\begin{itemize}
+  \item \link{https://www.youtube.com/watch?v=Li6OEMCtQ9k}{Wave Equation}
+  \item \link{https://www.youtube.com/watch?v=dUcNzPhZdwk}{Julius O. Smith about Physical Modeling in Stanford}
+  \item \link{http://www.fon.hum.uva.nl/praat/}{Praat audio analysis}
+\end{itemize}
 
 
 
-\section{Uebersicht}
+\section{Overview}
 
 
 \begin{enumerate}
-	\item motivation: gewitter im ableton live
+	\item motivation: games, and efficient realistic sound generation
 	\item PM: erklärung
-	\item Karplus strong
+	\item Karplus-Strong
 	\item Schulübung: sounddesign challenge in pd.
 
 \end{enumerate}
 
-\section{Theorie, Schwingungsfähige systeme}
+\section{Theory: Oscillating Systems}
 
 
-Wellengleichung, unendliche eindimensionale saite:
+Wave equation, infinite one-dimensional string:
 \begin{equation}
 	c^2 \cdot \frac{\delta^2 f}{\delta x^2} = \frac{\delta ^2 f}{\delta t ^2}
 \end{equation}
 
-Visualisierung:
+Visualization:
 
 \begin{figure}[H]
   \begin{center}
@@ -83,31 +78,31 @@ Visualisierung:
 
 
 
-Zwei lösungs ansätze:
+Two possible solutions for the differential equation:
 \begin{itemize}
 	\item Bernoulli = ca. fourier, spectral, summe von sinus schwingungen.
 	\item D'Alembert = ca. Physical modeling, zwei funktionen die entlang der saite reisen (in entgegengesetzte richtung).
 \end{itemize}
 
+Bernoulli:
+\begin{equation}
+  y(t,x) = \sum^{\infty}_{k=0} A_k sin(k\pi x/L)cos(k\pi \nu t)
+\end{equation}
+(Displacement length $L$, vibrating string at time $t$ at position $x$, frequency $\nu$)
 
 \begin{equation}
 y(x, t) = y ^+ \Bigg(t - \frac{x}{c}\Bigg) + y^- \Bigg(t + \frac{x}{c} \Bigg)
 \end{equation}
 
-D'Alembert sagt also, es gäbe zwei wellen, die in zwei richtungen entlang der saite reisen, die Lässt sich einfach simulieren, mittels zwei in einander geschalteten delays.
+\section{Karplus Strong Synthesis}
+% D'Alembert sagt also, es gäbe zwei wellen, die in zwei richtungen entlang der saite reisen, die Lässt sich einfach simulieren, mittels zwei in einander geschalteten delays.
+So D'Alembert says, there are two waves, one traveling to the right and one traveling to the left. Their superposition is what makes up the actual wave along a string. \\
+Observing a string more closely, we find that a wave gets inverted at its borders and travels back.
+All this can easily be simulated in a computer, see Figure~\ref{fig:string}.
 
-\section{Parktical Karplus-Strong}
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale = 1.]{img/karplusSimple.png}
-		\caption{Basic setup}
-		\label{fig:karplusBasic}
-	\end{center}
-\end{figure}
 
   \begin{figure}[htb]
   \centering
-  \caption{grundsätzlches Waveguide/Karplus Strong Modell.}
   \label{fig:string}
 
   % \resizebox{10cm}{!}{%
@@ -124,13 +119,16 @@ D'Alembert sagt also, es gäbe zwei wellen, die in zwei richtungen entlang der s
   \draw[->] (m1) |- node {}(del1);
 
   \end{tikzpicture}
-  % }
+  \caption{general idea of Waveguide synthesis/Karplus-Strong Model.}
 \end{figure}
 
-\begin{figure}[htb]
+The model in Figure~\ref{fig:string} is a rather theoretical one\footnote{You might notice that there are no inputs and no outputs. This structure is theoretical for us, since we do not talk about something called the \textit{Wave Digital Filter}(WDF). When talking about WDFs we find similar structures since they are strongly inspired by physics. Since in physics we always have a force and another force counteracting the first one we always have left and right traveling energy.}. But it leads us to a more useful implementation. Since all elements in Figure~\ref{fig:string} are LTI, we can rearrange them in any order. Multiplying a signal times $-1$ two times is the same as doing nothing. And two delays of length $m$ are equivalent to one delay of length $2m$.\\
+So we arrive at a simple delay with feedback. To simulate energy loss we need to attenuate the feedback signal and to simulate frequency dependent loss, we can use a lowpass filter inside the feedback loop. After all this, we arrive at Figure~\ref{fig:string2}.
+
+\begin{figure}[h!]
   \centering
-  \caption{einzelne Saite, $G(z)$ ein lowpass, \glqq{}Loss Filter\grqq{}}
-  \label{fig:string}
+
+  \label{fig:string2}
 
   \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
 
@@ -151,10 +149,24 @@ D'Alembert sagt also, es gäbe zwei wellen, die in zwei richtungen entlang der s
   \draw[->] (delay) -- node {\Large$y[n]$}(out);
 
   \end{tikzpicture}
+  \caption{single string, $G(z)$ a lowpass, \glqq{}Loss Filter\grqq{}}
+\end{figure}
+
+\section{Practical Karplus-Strong}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale = 1.]{img/karplusSimple.png}
+		\caption{Basic setup}
+		\label{fig:karplusBasic}
+	\end{center}
 \end{figure}
 
 
+\section{Modal Synthesis with Bandpass filters}
+
+
 \section{Schulübung, Sounddesign challenge}
+
 zB:
 \begin{itemize}
 	\item Vokal
@@ -163,6 +175,6 @@ zB:
 
 \end{itemize}
 
-\section{Hausuebung}
-Andy Farnell, \href{http://aspress.co.uk/ds/pdf/pd_intro.pdf}{pd intro} chater 7, lesen
+% \section{Hausuebung}
+% Andy Farnell, \href{http://aspress.co.uk/ds/pdf/pd_intro.pdf}{pd intro} chater 7, lesen
 
