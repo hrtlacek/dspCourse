@@ -262,7 +262,7 @@ This is called a system's transfer function. This is the actual standard for tal
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{poleZero.png}
-	\caption[pole zero plot. ]
+	\caption[pole zero plot]
 	{a pole zero plot. This indicates where the function $H(z)$ has zeros(where its value is zero) or poles(where its value is infinity). Actually there is also a pole at $0+0i$ which is not shown here. This is because a pole at this position has no frequency dependent effect.}
 	\label{fig:label}
 \end{figure}
@@ -273,7 +273,7 @@ The absolute value of $H$ is the output amplitude, if we just plot this value fo
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{poleZero3dPlot.png}
-	\caption[shortCaption]
+	\caption[poles and zeros, 3D in the complex plane]
 	{Evaluation of the Transfer function in the complex plane. The unit circle is visible as a dotted line. This plot is not too easy to read but if you look at the coordinate $-1+0i$, you can see that the value there is very low. This seems to indicate a lowpass. You can basically ignore the huge mountain in the middle. It sits at $0+0i$ and has therefore equal effect on all frequencies.}
 	\label{fig:label}
 \end{figure}
@@ -288,7 +288,7 @@ Where $\omega$ ranges from $0$ to $\pi$(sic!). This is the same as going along t
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{magResp.png}
-	\caption[shortCaption]
+	\caption[Filter magnitude response]
 	{Magnitude response, so $|H(\omega)| = |1 + (cos(\omega)+i \cdot sin(\omega))^{-1}|$}
 	\label{fig:label}
 \end{figure}
@@ -342,8 +342,8 @@ We can simply simulate this situation in pd using a delay and an addition.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=11cm]{simpleComb}
-	\caption[shortCaption]
-	{realCaption}
+	\caption[simple comb filter]
+	{A very simple comb filter}
 	\label{fig:label}
 \end{figure}
 
@@ -373,8 +373,8 @@ In figure \ref{fig:combToLowpass} we can see the \textit{frequency response}\foo
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{FromCombfilterToLowpass}
-	\caption[shortCaption]
-	{realCaption}
+	\caption[From comb filter to lowpass]
+	{Different amounts of delays result in different magnitude responses. The extreme case of a comb filter, a delay of 1 sample, is looking like a lowpass.}
 	\label{fig:combToLowpass}
 \end{figure}
 

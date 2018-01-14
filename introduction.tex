@@ -6,7 +6,7 @@
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{intro}
-	\caption[shortCaption]
+	\caption[cover]
 	{Weird effects of digital signals in video}
 	\label{fig:label}
 \end{figure}
@@ -65,7 +65,7 @@ This can be misleading, so we should actually plot something more like figure \r
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=11cm]{sineScatter}
-	\caption[shortCaption]
+	\caption[Sine scatter-plot]
 	{Sine wave, 1Hz, sample rate 30Hz, scatter-plot}
 	\label{fig:scatter}
 \end{figure}
@@ -75,7 +75,7 @@ This can be misleading, so we should actually plot something more like figure \r
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=11cm]{sineStem}
-	\caption[shortCaption]
+	\caption[sine stem plot]
 	{Sine wave, 1Hz, sample rate 30Hz, stem-plot}
 	\label{fig:stem}
 \end{figure}
@@ -85,7 +85,7 @@ So why don't we always do a stem- or scatter-plot? Simply because it gets too cr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=11cm]{stem44100}
-	\caption[shortCaption]
+	\caption[sine stem plot, crowded]
 	{Sine wave, 1Hz, sample rate 44100Hz, stem-plot}
 	\label{fig:label}
 \end{figure}
@@ -121,7 +121,7 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{aliasingSine}
-	\caption[shortCaption]
+	\caption[Aliasing]
 	{Aliasing visualized in the time domain. A sampling rate of 4 Hz is used. Therefore frequencies will fold above 2 Hz, which is the nyquist frequency. The input cosine has a frequency of 3 Hz, labeled ``Orginal Signal''. What we would get is the sampled points. If these are digital-to-analog converted, we would get what is labeled ``Aliased signal '' in this plot, so a 1 Hz cosine.}
 	\label{fig:cosAlias}
 \end{figure}
@@ -198,7 +198,7 @@ If we try to think how this kind of signal looks in the frequency domain we find
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=11cm]{dcOffsetViz}
-	\caption[shortCaption]
+	\caption[Cosines to DC]
 	{Cosines with different very low frequencies approaching 0Hz, so DC offset.}
 	\label{fig:dcViz}
 \end{figure}
@@ -254,7 +254,7 @@ For us, strictly speaking, an impulse will be a signal that contains only zeros,
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width = \textwidth]{unitImpulse.png}
-		\caption{caption}
+		\caption{unit impulse function}
 		\label{fig:unitImpulse}
 	\end{center}
 \end{figure}
@@ -372,7 +372,7 @@ One key aspect here is: some kind of conversion between the two is necessary if 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm]{ampWrong}
-	\caption[shortCaption]
+	\caption[patcher \texttt{amplitudeWrongRight.pd}]
 	{The patcher \texttt{amplitudeWrongRight.pd} }
 	\label{fig:label}
 \end{figure}
@@ -383,7 +383,7 @@ And let's look at what kind of waveform it will produce:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{ampWrongViz}
-	\caption[shortCaption]
+	\caption[Amplitude control, message domain ]
 	{This is a cosine wave at 20 Hz and the message domain running at 100 millisecond interval to make the effect more extreme and visible}
 	\label{fig:label}
 \end{figure}
@@ -396,7 +396,7 @@ In pure data (but also in general) this problem can be solved by interpolation. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=4cm]{ampRight}
-	\caption[shortCaption]
+	\caption[Amplitude control, signal domain]
 	{Controlling the amplitude of an oscillator. The interpolation done with \pd{line\textasciitilde} suppresses clicks. }
 	\label{fig:ampRight}
 \end{figure}
