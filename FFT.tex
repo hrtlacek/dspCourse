@@ -223,15 +223,15 @@ We won't code a DFT in pd. Probably it's possible but didactically it wouldn't b
 	\item \pd{rifft\textasciitilde} fast (discrete) inverse fourier transform, real only
 \end{itemize}
 The 'real only' versions assume that our time domain signals are not complex, so have no imaginary component, which is almost always the case.
-
+\subsection{Filtering using the FFT}
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width = 14cm]{img/spectralFilter.png}
-		\caption{spectralFilter.pd}
+		\includegraphics[width = 14cm]{img/spectralFilter2.png}
+		\caption{patcher: \texttt{patchers/05\_fourier/fftFilter.pd}}
 		\label{fig:spectralFilter}
 	\end{center}
 \end{figure}
-
+\subsection{Displaying the spectrum}
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width = 14cm]{img/showspectrum.png}
@@ -239,3 +239,6 @@ The 'real only' versions assume that our time domain signals are not complex, so
 		\label{fig:showspectrum}
 	\end{center}
 \end{figure}
+
+% \subsection{Time Freeze}
+
