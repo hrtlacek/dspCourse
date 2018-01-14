@@ -23,7 +23,8 @@ plt.plot(x) #plotting the input
 plt.xlabel('time [samples]')
 plt.title('input, time domain')
 plt.subplot(212)
-plt.plot(abs(xf)) #plotting the magnitude spectrum (two-sided)
-plt.xlabel('frequency [bins/samples]')
+fAxis = np.linspace(0,sr,N) #make a frequency axis
+plt.plot(fAxis,abs(xf)) #plotting the magnitude spectrum (two-sided)
+plt.xlabel('frequency [Hz]')
 plt.title('output, frequency domain')
 plt.show() #displaying the output plot

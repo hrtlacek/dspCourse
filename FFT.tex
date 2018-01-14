@@ -107,8 +107,8 @@
 % \section{Fourier Transformation}
 \section{Concept}
 The Fourier transform is a way to switch domains. What does that mean? We can think of it as transforming a piece of information into another representation without loss of information. To give an analogy: \\
-If I tell you, we meet at \textit{Matthias Corvinus-Straße 15, 3100 St. Pölten} is the same as telling you we meet at GPS coordinates 48.2138731, 15.6320195. It is the same information in another format, another \textit{domain}.\\
-These two formats have different advantages and disadvantages. For example, would you know if the location in GSP format is in Austria? Probably not. On the other hand, the GSP coordinates can theoretically have a lot more precision. Do we meet at the back entrance? Where exactly? What if they decide to change the street name? \\
+If I tell you, we meet at \textit{Matthias Corvinus-Straße 15, 3100 St. Pölten} it is the same as telling you we meet at GPS coordinates 48.2138731, 15.6320195. It is the same information in another format, another \textit{domain}.\\
+These two formats have different advantages and disadvantages. For example, would you know if the location in GSP format is even in Austria? Probably not. On the other hand, in which direction (north, south, east, west) do I have to go from the FH to get to the main train station? easy to see GPS: the main train station is at 48.20850,15.62515. Both numbers are lower so it must be south west. Not so easy to see if I tell you the train station is at Bahnhofplatz 1,3100 St. Pölten. \\
 The point is, depending on what we want, different representations offer different possibilities and insights.
 \begin{figure}[H]
 	\centering
@@ -201,11 +201,20 @@ The above code produces the following plot:
 \end{figure}
 
 Beware that the python code above implements Equation \ref{eq:dft} directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT). In python, there are several ways to compute an FFT in an efficient way such as \texttt{numpy.fft.fft()}. The FFT is a classic \textit{divide and conquer} solution to performance boosting an algorithm.\\
-We need to address something here: We send a single frequency into the DFT and we expect a single spike, showing that we have energy at one frequency. And we get to peaks. This is because the FFT produces a mirrored, a two-sided spectrum. Basically, you can ignore half of the plot. Why is that? The explanation has to do with the fact that digital signals always have an infinite periodic spectrum.
+We need to address something here: We send a single frequency into the DFT and we expect a single spike, showing that we have energy at one frequency. And we get two peaks. This is because the FFT produces a mirrored, a two-sided spectrum. Basically, \textbf{you can ignore half of the plot}. Why is that? The explanation has to do with the fact that digital signals always have an infinite periodic spectrum. Beware also that the plot goes up to the sampling rate, not up to nyquist, so you might connect this to the phenomenon of aliasing.
 
-
-
-\subsection{Application in pd}
+\video{
+	In video and image processing, the DFT does not play such a big role as in audio, but the discrete cosine transform does. The differences between the DFT and the DCT are:
+	\begin{itemize}
+		\item The DCT produces a real output, the DFT a complex one
+		% \item The DCT has more resolution in the low-Frequency range
+		\item there are several different forms of DCT and there is also the discrete Sine Transform (DST)
+		\item The DCT tends to have more energy in its low frequency bins and is therefore more suitable for lossy data-compression (since we throw away high frequency or low energy bins)
+	\end{itemize}
+	For more information on the DCT and compression have a look at \href{https://www.youtube.com/watch?v=Q2aEzeMDHMA}{Jpeg compression and the discrete Cosine Transform}\footnotemark
+}
+\footnotetext{https://www.youtube.com/watch?v=Q2aEzeMDHMA}
+\section{Application in pd}
 We won't code a DFT in pd. Probably it's possible but didactically it wouldn't be very helpful and practically it would be a pita\footnote{Certain kind of bread.}. But we need how to use the fft in pd. There are 4 objects of particular interest here:
 \begin{itemize}
 	\item \pd{fft\textasciitilde} fast (discrete) fourier transform
