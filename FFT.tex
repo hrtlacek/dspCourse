@@ -201,7 +201,7 @@ The above code produces the following plot:
 \end{figure}
 
 Beware that the python code above implements Equation \ref{eq:dft} directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT). In python, there are several ways to compute an FFT in an efficient way such as \texttt{numpy.fft.fft()}. The FFT is a classic \textit{divide and conquer} solution to performance boosting an algorithm.\\
-We need to address something here: We send a single frequency into the DFT and we expect a single spike, showing we have energy at one frequency. And we get to peaks. This is because the FFT produces a mirrored, a two-sided spectrum. Basically, you can ignore half of the plot. Why is that? The explanation has to do with the fact that digital signals always have an infinite periodic spectrum.
+We need to address something here: We send a single frequency into the DFT and we expect a single spike, showing that we have energy at one frequency. And we get to peaks. This is because the FFT produces a mirrored, a two-sided spectrum. Basically, you can ignore half of the plot. Why is that? The explanation has to do with the fact that digital signals always have an infinite periodic spectrum.
 
 
 
