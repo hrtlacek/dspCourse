@@ -176,6 +176,7 @@ For the sake of completeness, here are some variants of the whole scheme:\\
 The discrete Fourier Transform (DFT) is defined as:
 \begin{equation}
 	x_f(m) = \sum_{n=0}^{N-1} x(n)\cdot e^{-i 2 \pi \frac{n m}{N} }
+	\label{eq:dft}
 \end{equation}
 
 
@@ -186,10 +187,22 @@ Inverse Fourier Transformation:\\
 
 \section{Implementation}
 
+
+As python code this could look like the following. Please refer to Equation \ref{eq:dft}. The code below uses the same variable names to make this as little confusing as possible.
 \newpage
-As python code this could look like this:
 \lstinputlisting[language=Python,caption={DFT in python},captionpos=b]{code/fourierTransform.py}
-Beware that the python code above implements the formula directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT). In python, there are several ways to compute an FFT in an efficient way such as \texttt{numpy.fft.fft()}. The FFT is a classic \textit{divide and conquer} solution to performance boosting an algorithm.
+The above code produces the following plot:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/pythonDFT.png}
+	\caption[DFT Plot]
+	{Plot produced by the script above.}
+	\label{fig:label}
+\end{figure}
+
+Beware that the python code above implements Equation \ref{eq:dft} directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT). In python, there are several ways to compute an FFT in an efficient way such as \texttt{numpy.fft.fft()}. The FFT is a classic \textit{divide and conquer} solution to performance boosting an algorithm.\\
+We need to address something here: We send a single frequency into the DFT and we expect a single spike, showing we have energy at one frequency. And we get to peaks. This is because the FFT produces a mirrored, a two-sided spectrum. Basically, you can ignore half of the plot. Why is that? The explanation has to do with the fact that digital signals always have an infinite periodic spectrum.
+
 
 
 \subsection{Application in pd}
