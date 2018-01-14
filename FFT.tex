@@ -193,6 +193,15 @@ Beware that the python code above implements the formula directly. It is \textit
 
 
 \subsection{Application in pd}
+We won't code a DFT in pd. Probably it's possible but didactically it wouldn't be very helpful and practically it would be a pita\footnote{Certain kind of bread.}. But we need how to use the fft in pd. There are 4 objects of particular interest here:
+\begin{itemize}
+	\item \pd{fft\textasciitilde} fast (discrete) fourier transform
+	\item \pd{ifft\textasciitilde} fast (discrete) inverse fourier transform
+	\item \pd{rfft\textasciitilde} fast (discrete) fourier transform, real only
+	\item \pd{rifft\textasciitilde} fast (discrete) inverse fourier transform, real only
+\end{itemize}
+The 'real only' versions assume that our time domain signals are not complex, so have no imaginary component, which is almost always the case.
+
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width = 14cm]{img/spectralFilter.png}
