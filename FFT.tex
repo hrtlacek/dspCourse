@@ -104,8 +104,8 @@
 		% pitch shift
 
 
-\section{Fourier Transformation}
-\subsection{Concept}
+% \section{Fourier Transformation}
+\section{Concept}
 The Fourier transform is a way to switch domains. What does that mean? We can think of it as transforming a piece of information into another representation without loss of information. To give an analogy: \\
 If I tell you, we meet at \textit{Matthias Corvinus-Straße 15, 3100 St. Pölten} is the same as telling you we meet at GPS coordinates 48.2138731, 15.6320195. It is the same information in another format, another \textit{domain}.\\
 These two formats have different advantages and disadvantages. For example, would you know if the location in GSP format is in Austria? Probably not. On the other hand, the GSP coordinates can theoretically have a lot more precision. Do we meet at the back entrance? Where exactly? What if they decide to change the street name? \\
@@ -128,7 +128,7 @@ In the case of the Fourier transform we want to switch to a spectral domain. We 
 	\label{fig:prism}
 \end{figure}
 
-\subsection{Math}
+\section{Math}
 So how do we do this domain switching? There are different approaches to explaining what's happening in the Fourier Transform, but I think this is the most intuitive one: Remember, we just want to know how much of a certain frequency is contained in a certain signal $x(t)$.\\
 If I give you 100 Euros and ask you to tell me how many 5 Euro bills are "in there", what would you do? Divide, of course. So can we just take a time domain signal and divide it by a sine at some frequency to see how much of it is contained in that signal? Yes!\\
 The Fourier transform is defined as
@@ -184,7 +184,7 @@ Inverse Fourier Transformation:\\
 	x(t)= \mathcal{F}^{-1} \{X(f)\} = \int_{-\infty}^\infty \! X(f) e^{j2\pi ft} \, \mathrm{d}f
 \end{equation}
 
-\subsection{Implementation}
+\section{Implementation}
 
 \newpage
 As python code this could look like this:
