@@ -185,14 +185,32 @@ A difference equation is of the form mentioned in the introduction. So for examp
 \end{equation}
 Here, $y$ is the output $x$ is the input and $n$ denotes indexing those two signals.\\
 $y(n)=x(n)$ means: take the incoming sample and make it the output. $x(n-1)$ denotes a delay by one sample. Please note that the above equation describes a \textit{system}, a filter in this case. But it can be seen as using an input array (the input signal), indexed by $n$ and creating an output array.\\
-Let's visualize this idea. Given the input signal in figure \ref{fig:diffImpResp}, we can create the output using the equation. Also it becomes obvious that the $n-1$ expression is a delay, since it makes us look up the 3rd index for creating the 4th sample at the output in this case, or $y(4) = x(4)+x(4-1)$.
-\begin{figure}[h!]
+Let's visualize this idea. Given the input signal in figure \ref{fig:diffImpResp}, we can create the output using the equation.
+
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{diffEqViz1}
 	\caption[shortCaption]
 	{The input and corresponding output of the equation given above.}
 	\label{fig:diffImpResp}
 \end{figure}
+ Also it becomes obvious that the $n-1$ expression is a delay, since it makes us look up the 3rd index for creating the 4th sample at the output in this case, or $y(4) = x(4)+x(4-1)$.\footnote{The impulse in this example input signal is at position $n=3$ so the third sample. This was chosen at random and has no meaning. It could just as well sit at $n=5$.}\\
+ So for more clarity, let's see all the values at all $n$s (compare this with figure \ref{fig:diffImpResp}):
+
+\begin{center}
+
+\begin{tabular}{l|l|l|l}
+	$n$ & $y(n)$ & $x(n)$ &$x(n-1)$\\
+	\hline
+	0 & 0 & 0 &0\\
+	1 & 0 & 0 &0\\
+	2 & 0 & 0 &0\\
+	3 & 1 & 1 &0\\
+	4 & 1 & 0 &1\\
+	5 & 0 & 0 &0\\
+\end{tabular}
+\end{center}
+
 
 
 \subsection{Block Diagrams} % (fold)

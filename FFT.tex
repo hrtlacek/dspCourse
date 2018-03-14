@@ -197,11 +197,13 @@ The above code produces the following plot:
 	\includegraphics[width=\textwidth]{img/pythonDFT.png}
 	\caption[DFT Plot]
 	{Plot produced by the script above.}
-	\label{fig:label}
+	\label{fig:pyfft}
 \end{figure}
 
+\comm{Note: X axis in fig \ref{fig:pyfft} is wrong! Should go from 0 to 22050 and back to 0.}
+
 Beware that the python code above implements Equation \ref{eq:dft} directly. It is \textit{very} slow. Typically, a different algorithm is used, such as an implementation of the Fast Fourier Transform (FFT). In python, there are several ways to compute an FFT in an efficient way such as \texttt{numpy.fft.fft()}. The FFT is a classic \textit{divide and conquer} solution to performance boosting an algorithm.\\
-We need to address something here: We send a single frequency into the DFT and we expect a single spike, showing that we have energy at one frequency. And we get two peaks. This is because the FFT produces a mirrored, a two-sided spectrum. Basically, \textbf{you can ignore half of the plot}. Why is that? The explanation has to do with the fact that digital signals always have an infinite periodic spectrum. Beware also that the plot goes up to the sampling rate, not up to nyquist, so you might connect this to the phenomenon of aliasing.
+We need to address something here: We send a single frequency into the DFT and we expect a single spike, showing that we have energy at one frequency. And we get two peaks. This is because the FFT produces a mirrored, a two-sided spectrum. Basically, \textbf{you can ignore half of the plot}. Why is that? The explanation has to do with the fact that digital signals always have an infinite periodic spectrum. You might connect this to the phenomenon of aliasing.
 
 \video{
 	In video and image processing, the DFT does not play such a big role as in audio, but the discrete cosine transform does. The differences between the DFT and the DCT are:
