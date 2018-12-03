@@ -56,6 +56,8 @@ It is probably best for now to load all those libraries on startup via:
  	\label{fig:startup}
  \end{figure}
 
+This document is in the process of transporting most plots to interactive Collab Notebooks \link{https://colab.research.google.com/notebooks/welcome.ipynb}{Collab Notebooks} where one can see how the plot is made using python and one can play around with the settings interactively.
+
 \section{About plotting signals}
 
 We will need to plot a lot of signals in order to understand them better. Most of the time, such a plot will look like figure \ref{fig:simpeSine}.
@@ -99,6 +101,8 @@ So why don't we always do a stem- or scatter-plot? Simply because it gets too cr
 	\label{fig:label}
 \end{figure}
 \textbf{But we should never forget that we don't actually have the values in between the dots. Digital signals are not defined between their sampled points.}
+
+You can look at how these signals where generated and plotted \link{https://colab.research.google.com/drive/10NRGmmLRGxy\_3j7ecGKcME0gkQKmCDOW}{in this Notebook}
 
 \section{What is aliasing?}
 Aliasing in audio means problems caused by signals that exceed the nyquist rate.\\
@@ -147,7 +151,16 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 \end{figure}
 
 
+But how is the aliased frequency calculated? To get a correct result also if you go 2 or more times past the Nyquist frequency, and still be correct in phase, please look at \link{https://colab.research.google.com/drive/10NRGmmLRGxy\_3j7ecGKcME0gkQKmCDOW}{this Notebook}. For the case where we go only once over the Nyquist Frequency we can just calculate:
 
+\begin{equation}
+	f_a = f_s-f_o
+\end{equation}
+Where $f_a$ is the Frequency we will hear, $f_o$ is the intended frequency and $f_s$ is the sampling rate. For cases where we pass Nyquist multiple times we need to use the modulo:
+
+\begin{equation}
+	f_a = f_o mod  \frac{f_s}{2}
+\end{equation}
 
 
 \section{Scaling and Mapping Signals}
