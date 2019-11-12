@@ -6,10 +6,10 @@
 *.sublime-project
 *.toc
 *.xml
-*.ipynb
 *.out
 *.blg
 *.bbl
 *.atfi
 *.lof
 *.gz
+notebooks/.ipynb_checkpoints/*
