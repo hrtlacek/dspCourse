@@ -237,7 +237,7 @@ The 'real only' versions assume that our time domain signals are not complex, so
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width = 14cm]{img/showspectrum.png}
-		\caption{showspectrum}
+		\caption{showspectrum (There is an error in this patch: after the FFT, the magnitude is calculated wrong. There is a \pd{sqrt\textasciitilde} object missing to correctly implement the pythagorean formula.)}
 		\label{fig:showspectrum}
 	\end{center}
 \end{figure}
