@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/147424631.svg)](https://zenodo.org/badge/latestdoi/147424631)
+
 # Dsp Course
 This is an introductory dsp course. Written by Patrik Lechner for a course(EPRO) that is still held the University of Applied Sciences Sankt.Pölten, it is now also released to the public.
 
