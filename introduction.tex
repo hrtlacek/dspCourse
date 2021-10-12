@@ -7,8 +7,8 @@
 	\centering
 	\includegraphics[width=\textwidth]{intro}
 	\caption[cover]
-	{Weird effects of digital signals in video}
-	\label{fig:label}
+	{Weird effects of digital signals in video. }
+	\label{fig:weirdVideo}
 \end{figure}
 \clearpage
 
@@ -19,7 +19,7 @@ Ideally, if you throughly understood the introduction section, you should be abl
 \section{About this document}
 Please report any mistakes, errors etc to \href{mailto:ptrk.lechner@gmail.com}{ptrk.lechner@gmail.com}.\\
 
-Some information in this document is relevant for understanding its contents but not relevant for the exam. For example in chapter \ref{Modulation} we will find a really complicated result of an equation. The point there is just that it's complicated. And it is shown how complicated, but this is nothing to be learned by heart. Importance is tried to be made clear using the following formats:\\
+Some information in this document is relevant for understanding its contents but not relevant for the exam. For example in chapter \ref{chap:modulation} we will find a really complicated result of an equation. The point there is just that it's complicated. And it is shown how complicated, but this is nothing to be learned by heart. Importance is tried to be made clear using the following formats:\\
 
 \bgInfo{
 Text, figures, and equations with a gray background like this are background information that is not to be learned by heart.}
@@ -30,31 +30,37 @@ This document tries to explain digital signals. It does this by use of audio sig
 
 \important{Very important things are framed.}
 
-pd objects will always be in courier new and square brackets. Like this: \pd{metro}.\\
+Max objects will always be in courier new and square brackets. Like this: \pd{metro}.\\
 
 Internal links are gray. You can click them to jump to another point in this document, such as Equation \ref{eq:dft}.\\
 
 External links are blue, these are mostly links on the web. The actual link is always available as a footnote as well. \link{https://www.youtube.com/watch?v=57PWqFowq-4}{Here is an example}
 
-\subsection{Pure data Version}
-This document was written using some version of \textit{pd-extended}. It is now in the process of migrating everything to version:\\
-Pd 0.47.1, everything tested on a Linux Debian system.
-The following Libraries will be used:
+\subsection{Max Version and Libraries}
+This document was originally written for \textit{pd-extended}, a free open source alternative to Max/MSP. It is now in the process of migrating everything to Max/MSPversion:\\
+8.0.0.
+The following additional libraries are used:
 \begin{itemize}
-	\item cyclone
-	\item zexy
-	\item jmmmp
-	\item iemlib
+	\item HISSTools Impulse Response Toolbox (HIRT) (mostly used for its improved spectrogram)
+	\item cv.jit (Computer vision)
 \end{itemize}
-It is probably best for now to load all those libraries on startup via:
-\texttt{Edit -> Preferences -> Startup} as shown in Figure \ref{fig:startup}.
-\begin{figure}[H]
- 	\centering
- 	\includegraphics[width=\textwidth]{img/startup.png}
- 	\caption[startup dialog]
- 	{Configuring which libraries to load on startup}
- 	\label{fig:startup}
- \end{figure}
+Additionally the following libraries are recommended:
+\begin{itemize}
+	\item Max ToolBox (Allowing for faster patching)
+	\item zsa.descriptors (Audio Feature extraction and analysis)
+	\item MuBu for Max (Advanced pattern recognition and audio analysis)
+\end{itemize}
+
+
+% It is probably best for now to load all those libraries on startup via:
+% \texttt{Edit -> Preferences -> Startup} as shown in Figure \ref{fig:startup}.
+% \begin{figure}[H]
+%  	\centering
+%  	\includegraphics[width=\textwidth]{img/startup.png}
+%  	\caption[startup dialog]
+%  	{Configuring which libraries to load on startup}
+%  	\label{fig:startup}
+%  \end{figure}
 
 \subsection{iPython}
 
@@ -109,7 +115,7 @@ So why don't we always do a stem- or scatter-plot? Simply because it gets too cr
 	\includegraphics[width=11cm]{stem44100}
 	\caption[sine stem plot, crowded]
 	{Sine wave, 1Hz, sample rate 44100Hz, stem-plot}
-	\label{fig:label}
+	\label{fig:sine1HzStemPlot}
 \end{figure}
 \textbf{But we should never forget that we don't actually have the values in between the dots. Digital signals are not defined between their sampled points.}
 
@@ -157,7 +163,7 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 		\includegraphics[width = \textwidth]{aliasingFreqDomain.png}
 		\caption[Aliasing in the Frequency Domain]
 		{Here we can see the phenomenon of aliasing in the frequency domain. We try to synthesize a sine wave at about 26kHz. At a sampling rate of 44100 Hz, this is not possible, nyquist is at 22050 Hz. What we actually get is a sine wave at about 17kHz. In this plot, the nyquist frequency is marked with the red line. Please note that the distance between the red line to both peaks is identical. This is why the phenomenon is also called \textit{fold-back}}
-		\label{fig:name}
+		\label{fig:aliasingFreqDomain}
 	\end{center}
 \end{figure}
 
@@ -167,12 +173,21 @@ But how is the aliased frequency calculated? To get a correct result also if you
 \begin{equation}
 	f_a = f_s-f_o
 \end{equation}
-Where $f_a$ is the Frequency we will hear, $f_o$ is the intended frequency and $f_s$ is the sampling rate. For cases where we pass Nyquist multiple times we need to use the modulo:
+Where $f_a$ is the Frequency we will hear, $f_o$ is the intended frequency and $f_s$ is the sampling rate. 
+\bgInfo{
+For cases where we pass Nyquist multiple times things start to get a bit complicated. In case we went over Nyquist odd times we can use the following Equation making use of the modulo. That is this equation os valid between $f_n$ and $f_s=2f_n$, between $3f_n$ and $4f_n$ and so on:
 
+
+\begin{equation}
+	f_a = (fs-f_o) mod  \frac{f_s}{2}
+\end{equation}
+
+otherwise we have to use the following Equation:
 \begin{equation}
 	f_a = f_o mod  \frac{f_s}{2}
 \end{equation}
 
+}
 
 \section{Scaling and Mapping Signals}
 It is an important skill to be able to scale signals from one range to another. We need it a lot and we will be able to think about signals more easily if we mastered this task. It's actually quite simple, we just have to imagine the signals visually.\\
@@ -241,10 +256,10 @@ Let's quickly state this differently, so we can appreciate the surprising connec
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = 5cm]{dcPd.png}
-		\caption[Dc-offset in pd]
-		{One of the ways to generate a DC signal in pd.}
-		\label{fig:name}
+		\includegraphics{dcPd.png}
+		\caption[Dc-offset in Max]
+		{One of the ways to generate a DC signal in Max.}
+		\label{fig:dcOffsetPD}
 	\end{center}
 \end{figure}
 
@@ -255,22 +270,22 @@ Let's quickly state this differently, so we can appreciate the surprising connec
 
 \section{What's an Impulse?}
 
-Impulses are very useful signals. We can produce an impulse using the \pd{dirac\textasciitilde} object.
+Impulses are very useful signals. We can produce an impulse using the \pd{click\textasciitilde} object.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = 3cm]{dirac.png}
-		\caption[The dirac object]
-		{The \pd{dirac\textasciitilde} object produces an impulse if we send it a \texttt{bang}.}
-		\label{fig:name}
+		\includegraphics{dirac.png}
+		\caption[The click object]
+		{The \pd{click\textasciitilde} object produces an impulse if we send it a \texttt{bang}.}
+		\label{fig:impulseInPd}
 	\end{center}
 \end{figure}
 \bgInfo{
 Different people will define what's an impulse in different ways:
 \begin{itemize}
 	\item A sound engineer might tell you, that clapping your hands or shooting with a gun creates an impulse
-	\item a mathematician will maybe give you the definition of the \textit{dirac delta function} (that's where the name for pd's impulse object comes from). A dirac function is a continuous function having infinite height and being infinitely short. Its integral (area under the curve) is 1.
-	\item Somebody working with discrete (so digital) signals will give you rather the definition of the Kronecker delta function\footnote{Irritatingly, the \pd{dirac\textasciitilde} object is producing a Kronecker delta. It's very common and kind of wrong to call digital impulses "dirac functions" or "dirac impulses". Sometimes people like to use "big" words. So instead of saying "impulse", they say "dirac delta function". Dirac delta functions have importance in mathematics and analysis. But since they have infinite value and are infinitely short they can't exist in reality. They are a theoretical idea. Therefore, more often than not, the term is used incorrectly in an audio context.}:
+	\item a mathematician will maybe give you the definition of the \textit{dirac delta function}. A dirac function is a continuous function having infinite height and being infinitely short. Its integral (area under the curve) is 1.
+	\item Somebody working with discrete (so digital) signals will give you rather the definition of the Kronecker delta function\footnote{It's very common and kind of wrong to call digital impulses "dirac functions" or "dirac impulses". Sometimes people like to use "big" words. So instead of saying "impulse", they say "dirac delta function". Dirac delta functions have importance in mathematics and analysis. But since they have infinite value and are infinitely short they can't exist in reality. They are a theoretical idea. Therefore, more often than not, the term is used a bit incorrectly in an audio context.}:
 	\begin{equation}
 		\delta(i) = \begin{cases}
 0, & \mbox{if } i \ne 0  \\
@@ -380,13 +395,13 @@ This is just a preview, but it really gets interesting if we start working with 
 
 
 \section{Message Domain/Signal Domain}
-This is not pure data specific although it might sound like it.
-In pure data we can have audio signals. Audio signals are processed in buffers. They are just numbers, but these numbers are calculated at a rate of 44100 Hz \textit{all the time} if we choose to have our sample rate at 44100 Hz.\\
-Messages on the other hand are not calculated that often and not all the time. Messages are processed \textit{on demand}. They are event based. This means that, for example, if we hit a note on our midi keyboard or enter a number in a \pd{Numberbox} this \textit{event} will pass through its following objects \textit{once}. Have a look at figure ~\ref{fig:mesSig} or at the patcher. Also note that pd helps us in understanding if we deal with message or signal domain:
+This is not Max/MSP specific although it might sound like it.
+In Max/MSP we can have audio signals. Audio signals are processed in buffers. They are just numbers, but these numbers are calculated at a rate of 44100 Hz \textit{all the time} if we choose to have our sample rate at 44100 Hz.\\
+Messages on the other hand are not calculated that often and not all the time. Messages are processed \textit{on demand}. They are event based. This means that, for example, if we hit a note on our midi keyboard or enter a number in a \pd{Numberbox} this \textit{event} will pass through its following objects \textit{once}. Have a look at figure ~\ref{fig:mesSig} or at the patcher. Also note that Max helps us in understanding if we deal with message or signal domain:
 
 \begin{itemize}
-	\item pd is indicating the signal domain with thicker patch cords
-	\item signal domain inlets/outlets are black (look closely)
+	\item Max is indicating the signal domain with colored thicker patch cords
+	% \item signal domain cables offer 
 	\item objects that deal with the signal domain have a tilde (\textasciitilde ) at the end of their name.
 \end{itemize}
  % by indicating the signal domain with thicker patch cords and black inlets/outlets on the objects (look closely).
@@ -395,19 +410,19 @@ Messages on the other hand are not calculated that often and not all the time. M
 	\centering
 	\includegraphics[width=\textwidth]{messageDomainSignalDomain}
 	\caption[message domain vs. signal domain]
-	{The patcher \href{./patchers/00\_introduction/messageDomainSignalDomain.pd}{\texttt{messageDomainSignalDomain.pd}} should demonstrate the differences between message domain and signal domain in pure data.}
+	{The patcher \href{./patchers/00\_introduction/00\_messageDomainSignalDomain.maxpat}{\texttt{00\_messageDomainSignalDomain.maxpat}} should demonstrate the differences between message domain and signal domain in Max/MSP.}
 	\label{fig:mesSig}
 \end{figure}
 
-\paragraph{How is this not specific to pure data?} The key points here are not specific to this programming language. If we, for example adjust the volume of a track in pro tools or ableton live or similar, then the information of our fader movement will also be in some kind of message domain.\\
+\paragraph{How is this not specific to Max/MSP?} The key points here are not specific to this programming language. If we, for example adjust the volume of a track in pro tools or ableton live or similar, then the information of our fader movement will also be in some kind of message domain.\\
 One key aspect here is: some kind of conversion between the two is necessary if we want to switch between them. If we want to control the volume of an audio signal from the message domain we have a problem: we will get noisy output since the message domain is not running at sample rate. Look at a naive attempt to controlling the amplitude of a sine wave:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5cm]{ampWrong}
-	\caption[patcher \texttt{amplitudeWrongRight.pd}]
-	{The patcher \href{./patchers/00\_introduction/amplitudeWrongRight.pd}{\texttt{amplitudeWrongRight.pd}}}
-	\label{fig:label}
+	\includegraphics{ampWrong}
+	\caption[patcher \texttt{00\_ampWrong.maxpat}]
+	{The patcher \href{./patchers/00\_introduction/00\_ampWrong.maxpat}{\texttt{00\_ampWrong.maxpat}}}
+	\label{fig:ampWrongRight}
 \end{figure}
 
 
@@ -418,17 +433,17 @@ And let's look at what kind of waveform it will produce:
 	\includegraphics[width=\textwidth]{ampWrongViz}
 	\caption[Amplitude control, message domain ]
 	{This is a cosine wave at 20 Hz and the message domain running at 100 millisecond interval to make the effect more extreme and visible}
-	\label{fig:label}
+	\label{fig:msgDomainAmpControl}
 \end{figure}
 
 
 This is a problem, since the sudden jumps produce clicks, crackling or zipper noise (reproduce or open the patcher and hear it for yourself!). These clicks are caused by the fact that the message domain just doesn't produce
 the numbers at the rate of the sampling rate. It's too slow, so to speak.\\
-In pure data (but also in general) this problem can be solved by interpolation. pure data offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127} object within 20 milliseconds\footnote{20ms is just an example. It is a reasonable time for this kind of interpolation but really, it is just an example. It could just as well be 50 ms.}. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
+In Max/MSP (but also in general) this problem can be solved by interpolation. Max/MSP offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127} object within 20 milliseconds\footnote{20ms is just an example. It is a reasonable time for this kind of interpolation but really, it is just an example. It could just as well be 50 ms.}. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=4cm]{ampRight}
+	\includegraphics{ampRight}
 	\caption[Amplitude control, signal domain]
 	{Controlling the amplitude of an oscillator. The interpolation done with \pd{line\textasciitilde} suppresses clicks. }
 	\label{fig:ampRight}

@@ -7,6 +7,9 @@
 
 %Dokumentklasse
 \documentclass[a4paper,11pt]{scrreprt}
+% scrbook
+% \documentclass[a4paper,11pt]{scrbook}
+
 \usepackage[left= 3.5cm,right = 3cm, bottom = 3.5 cm, top = 3 cm]{geometry}
 \usepackage[onehalfspacing]{setspace}
 % ============= Packages =============
@@ -14,9 +17,59 @@
 % \usepackage{silence}
 % \WarningFilter[pdftoc]{hyperref}{Token not allowed in a PDF string}
 
+% Standard Packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} % english
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphicx, subfigure}
+\graphicspath{{img/}} %setze pfad fuer Bilder
+% \usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{transparent}
+% Citation style
+\usepackage[comma,authoryear]{natbib}
+% zusätzliche Schriftzeichen der American Mathematical Society
+\usepackage{amsfonts}
+\usepackage{mathtools}
+% BlockDiagram Drawing Package
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepackage{textcomp}
+%Package for using the [H] option on graphics to force them into place
+\usepackage{float}
+%iPython packages:
+\usepackage{adjustbox} % Used to constrain images to a maximum size
+\usepackage{enumerate} % Needed for markdown enumerations to work
+% \usepackage{geometry} % Used to adjust the document margins
+\usepackage{amsmath} % Equations
+\usepackage{amssymb} % Equations
+% \usepackage{mathrsfs}
+\usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+% \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+\usepackage{fancyvrb} % verbatim replacement that allows latex
+\usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+% \usepackage{hyperref}
+\usepackage{longtable} % longtable support required by pandoc >1.10
+\usepackage{scrhack}
+\usepackage{framed}
+
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+
+\usepackage{listings}
+% \usepackage{todonotes}
+\usepackage{courier}
+
 % Dokumentinformationen
 \usepackage[
-	pdftitle={EPRO UEBUNG},
+	pdftitle={dsp course},
 	pdfsubject={},
 	pdfauthor={Patrik Lechner},
 	pdfkeywords={}
@@ -30,7 +83,7 @@
 ]{hyperref}
 
 \hypersetup{
-    bookmarks=true,         % show bookmarks bar?
+    % bookmarks=true,         % show bookmarks bar?
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
     pdftoolbar=true,        % show Acrobat’s toolbar?
     pdfmenubar=true,        % show Acrobat’s menu?
@@ -50,71 +103,9 @@
     urlcolor=blue           % color of external links
 }
 
-% Standard Packages
-\usepackage[utf8]{inputenc}
-
-% deutsch
-% \usepackage[ngerman]{babel}
-% \usepackage[ngerman, num]{isodate}
-
-% english
-\usepackage[english]{babel}
-
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{graphicx, subfigure}
-%setze pfad fuer Bilder
-\graphicspath{{img/}}
-\usepackage{fancyhdr}
-\usepackage{lmodern}
-\usepackage{color}
-\usepackage{transparent}
 
 
-% Citation style
-\usepackage[comma,authoryear]{natbib}
-%\usepackage{natbib}
 
-% zusätzliche Schriftzeichen der American Mathematical Society
-\usepackage{amsfonts}
-\usepackage{mathtools}
-
-
-% BlockDiagram Drawing Package
-% ---tikz
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.10}
-\usepackage{textcomp}
-
-
-%Package for using the [H] option on graphics to force them into place
-\usepackage{float}
-
-% \usepackage{framed}
-
-%iPython packages:
-\usepackage{graphicx} % Used to insert images
-\usepackage{adjustbox} % Used to constrain images to a maximum size
-\usepackage{color} % Allow colors to be defined
-\usepackage{enumerate} % Needed for markdown enumerations to work
-\usepackage{geometry} % Used to adjust the document margins
-\usepackage{amsmath} % Equations
-\usepackage{amssymb} % Equations
-% \usepackage{mathrsfs}
-\usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
-% \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
-\usepackage{fancyvrb} % verbatim replacement that allows latex
-\usepackage{grffile} % extends the file name processing of package graphics
-                         % to support a larger range
-    % The hyperref package gives us a pdf with properly built
-    % internal navigation ('pdf bookmarks' for the table of contents,
-    % internal cross-reference links, web links for URLs, etc.)
-\usepackage{hyperref}
-\usepackage{longtable} % longtable support required by pandoc >1.10
-
-\usepackage{framed}
 
 % embedding of audio/video files etc.
 % \usepackage{attachfile}
@@ -187,22 +178,21 @@
 
 
 % ============= Kopf- und Fußzeile =============
-\pagestyle{fancy}
+% \pagestyle{fancy}
 %
-\lhead{}
-\chead{}
-\rhead{\slshape \leftmark}
+% \lhead{}
+% \chead{}
+% \rhead{\slshape \leftmark}
 %%
-\lfoot{}
-\cfoot{}
-\rfoot{\thepage}
+% \lfoot{}
+% \cfoot{}
+% \rfoot{\thepage}
 %%
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
+% \renewcommand{\headrulewidth}{0.4pt}
+% \renewcommand{\footrulewidth}{0pt}
 
 % ============= Remove first Page======
 
-\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
 \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 
 %======================================
@@ -268,9 +258,6 @@
 
 
 
-\usepackage{listings}
-\usepackage{courier}
-\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 
@@ -312,10 +299,10 @@
 \renewcommand*\l@part[2]{\partbackup{#1}{}}
 
 % Chapter number reset at new part.
-\@addtoreset{chapter}{part}
+% \@addtoreset{chapter}{part}
 
 %Seitennummerierung neu beginnen, Zahlen [arabic], röm.Zahlen [roman,Roman], Buchstaben [alph,Alph]
-\pagenumbering{Roman}
+% \pagenumbering{Roman}
 
 % \newpage
 %
@@ -324,20 +311,21 @@
 % \include{03_zusammenfassung}
 
 \newpage
+% \include{tester}
 \include{01_titel}
 \include{introduction}
 
 \newpage
-\pagestyle{fancy}
+% \pagestyle{fancy}
 %Inhaltsverzeichnis
 \tableofcontents
 
 \newpage
 %Seitennummerierung neu beginnen, Zahlen [arabic], röm.Zahlen [roman,Roman], Buchstaben [alph,Alph]
-\pagenumbering{arabic}
+% \pagenumbering{arabic}
 
 % pagestyle für gesamtes Dokument aktivieren
-\pagestyle{fancy}
+% \pagestyle{fancy}
 
 
 \newpage
@@ -348,9 +336,10 @@
 \include{waveshaping}
 \include{modulation}
 \include{05_filters}
-% \include{polyPhony}
 \include{Karplus}
 \include{FFT}
+% \include{polyPhony}
+
 % ---------SEMESTER4----------
 \part{Semester 4} % (fold)
 \label{prt:semester4}
@@ -368,6 +357,6 @@
 \newpage
 % unsrtdin
 \bibliographystyle{apalike}
-\bibliography{eproLib2}
+\bibliography{eproLib}
 
 \end{document}
