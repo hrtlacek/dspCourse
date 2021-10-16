@@ -30,13 +30,17 @@ This document tries to explain digital signals. It does this by use of audio sig
 
 \important{Very important things are framed.}
 
-Max objects will always be in courier new and square brackets. Like this: \pd{metro}.\\
-
 Internal links are gray. You can click them to jump to another point in this document, such as Equation \ref{eq:dft}.\\
 
 External links are blue, these are mostly links on the web. The actual link is always available as a footnote as well. \link{https://www.youtube.com/watch?v=57PWqFowq-4}{Here is an example}
 
-\subsection{Max Version and Libraries}
+Max objects will always be in courier new and square brackets. Like this: \pd{metro}.\\
+
+
+\subsection{Programming Languages}
+This Document tries to give examples in different programming languages. \link{https://cycling74.com/}{Max/MSP 8}, \link{https://www.python.org/}{python} in the form of \link{https://jupyter.org/}{jupyter notebooks} and \link{https://www.khronos.org/opengl/wiki/Core\_Language\_(GLSL)}{GLSL} in the form of \link{https://shadertoy.com/}{shadertoy} links.
+
+\subsubsection*{Max/MSP}
 This document was originally written for \textit{pd-extended}, a free open source alternative to Max/MSP. It is now in the process of migrating everything to Max/MSPversion:\\
 8.0.0.
 The following additional libraries are used:
@@ -51,18 +55,7 @@ Additionally the following libraries are recommended:
 	\item MuBu for Max (Advanced pattern recognition and audio analysis)
 \end{itemize}
 
-
-% It is probably best for now to load all those libraries on startup via:
-% \texttt{Edit -> Preferences -> Startup} as shown in Figure \ref{fig:startup}.
-% \begin{figure}[H]
-%  	\centering
-%  	\includegraphics[width=\textwidth]{img/startup.png}
-%  	\caption[startup dialog]
-%  	{Configuring which libraries to load on startup}
-%  	\label{fig:startup}
-%  \end{figure}
-
-\subsection{iPython}
+\subsubsection*{iPython}
 
 This document is in the process of transporting most plots and examples to interactive Collab Notebooks \link{https://colab.research.google.com/notebooks/welcome.ipynb}{Collab Notebooks} where one can see how the plot is made using python and one can play around with the settings interactively. You can run these notebooks in the browser with a google account(recommended) or you can install jupyter notebook on your machine to run them locally. Here is the notebook for the introduction section: \link{https://colab.research.google.com/github/hrtlacek/dspCourse/blob/master/notebooks/00\_Introduction.ipynb}{click here}.
 
@@ -74,6 +67,8 @@ This document is in the process of transporting most plots and examples to inter
 	\label{fig:ipython}
 \end{figure}
 
+\subsubsection*{GLSL}
+\todo[inline]{unfinished}
 
 \section{About plotting signals}
 
@@ -81,7 +76,8 @@ We will need to plot a lot of signals in order to understand them better. Most o
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=11cm]{simpleSine}
+	\input{plots/sinPlot1}
+	% \includegraphics[width=11cm]{simpleSine}
 	\caption[simple sine plot]
 	{Sine wave, 1Hz, sampled at 30Hz sample rate}
 	\label{fig:simpeSine}
@@ -92,7 +88,8 @@ This can be misleading, so we should actually plot something more like figure \r
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=11cm]{sineScatter}
+	\input{plots/sinPlotScatter}
+	% \includegraphics[width=11cm]{sineScatter}
 	\caption[Sine scatter-plot]
 	{Sine wave, 1Hz, sample rate 30Hz, scatter-plot}
 	\label{fig:scatter}
@@ -102,7 +99,8 @@ This can be misleading, so we should actually plot something more like figure \r
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=11cm]{sineStem}
+	\input{plots/sinPlotStem}
+	% \includegraphics[width=11cm]{sineStem}
 	\caption[sine stem plot]
 	{Sine wave, 1Hz, sample rate 30Hz, stem-plot}
 	\label{fig:stem}
@@ -150,7 +148,8 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{aliasingSine}
+	\input{plots/aliasTime}
+	% \includegraphics[width=\textwidth]{aliasingSine}
 	\caption[Aliasing]
 	{Aliasing visualized in the time domain. A sampling rate of 4 Hz is used. Therefore frequencies will fold above 2 Hz, which is the nyquist frequency. The input cosine has a frequency of 3 Hz, labeled ``Orginal Signal''. What we would get is the sampled points. If these are digital-to-analog converted, we would get what is labeled ``Aliased signal '' in this plot, so a 1 Hz cosine.}
 	\label{fig:cosAlias}
@@ -160,9 +159,10 @@ In figure \ref{fig:cosAlias} you can see a visualization of aliasing in the time
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = \textwidth]{aliasingFreqDomain.png}
+		\input{plots/aliasFreq}
+		% \includegraphics[width = \textwidth]{aliasingFreqDomain.png}
 		\caption[Aliasing in the Frequency Domain]
-		{Here we can see the phenomenon of aliasing in the frequency domain. We try to synthesize a sine wave at about 26kHz. At a sampling rate of 44100 Hz, this is not possible, nyquist is at 22050 Hz. What we actually get is a sine wave at about 17kHz. In this plot, the nyquist frequency is marked with the red line. Please note that the distance between the red line to both peaks is identical. This is why the phenomenon is also called \textit{fold-back}}
+		{Here we can see the phenomenon of aliasing in the frequency domain. We try to synthesize a sine wave at 120Hz. At a sampling rate of 200 Hz, this is not possible, nyquist is at 100 Hz. What we actually get is a sine wave at about 80Hz. In this plot, the nyquist frequency is marked with the red line. Please note that the distance between the red line to both peaks is identical. This is why the phenomenon is also called \textit{fold-back}.}
 		\label{fig:aliasingFreqDomain}
 	\end{center}
 \end{figure}
@@ -439,7 +439,7 @@ And let's look at what kind of waveform it will produce:
 
 This is a problem, since the sudden jumps produce clicks, crackling or zipper noise (reproduce or open the patcher and hear it for yourself!). These clicks are caused by the fact that the message domain just doesn't produce
 the numbers at the rate of the sampling rate. It's too slow, so to speak.\\
-In Max/MSP (but also in general) this problem can be solved by interpolation. Max/MSP offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127} object within 20 milliseconds\footnote{20ms is just an example. It is a reasonable time for this kind of interpolation but really, it is just an example. It could just as well be 50 ms.}. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
+In Max/MSP (but also in general) this problem can be solved by interpolation. Max/MSP offers the \pd{line\textasciitilde} object for this situation. It can be used to create signals at sampling rate and we can tell it to ramp to a specified value in a given amount of time. In figure \ref{fig:ampRight} we see it ramping to any value that comes from the \pd{/ 127.} object within 20 milliseconds\footnote{20ms is just an example. It is a reasonable time for this kind of interpolation but really, it is just an example. It could just as well be 50 ms.}. This interpolation reduces the clicks and noise dramatically. Note that the output of \pd{line\textasciitilde} is in the signal domain (thick cable).
 
 \begin{figure}[H]
 	\centering

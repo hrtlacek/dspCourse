@@ -2,9 +2,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {4.1}A script that creates an impulse implements a vectorized filter and plots the result.}{70}{lstlisting.4.1}%
+\contentsline {lstlisting}{\numberline {4.1}A script that creates an impulse implements a vectorized filter and plots the result.}{69}{lstlisting.4.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {6.1}DFT in python}{95}{lstlisting.6.1}%
+\contentsline {lstlisting}{\numberline {6.1}DFT in python}{94}{lstlisting.6.1}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
