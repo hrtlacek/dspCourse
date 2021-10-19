@@ -117,7 +117,9 @@ Waveshaping means distortion. It adds overtones, take a look at figure ~\ref{fig
 \label{sub:linearTrans}
 See \ref{fig:linfunct}. A linear transfer function is used as a lookup table for a sinosoidal input.
 
-\begin{figure}[H]
+\newpage
+
+\begin{figure}[h]
 	\begin{center}
 		\includegraphics[scale = 1]{img/waveShapingVisual.png}
 		\caption{Linear Transfer function}
@@ -186,11 +188,11 @@ f(x) = x ^ 2
 % Ein polynom ungeradzahliger ordnung \(n\) als Transferfunktion produziert immer alle ungeradzahligen obertöne von \(n\) bis 1, also der grundfrequenz.
 %   }
 % }
-Let's simply listen to what's happening, building it in pd:
+Let's simply listen to what's happening, building it in Max:
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = 3cm]{img/pd_square.png}
+		\includegraphics{img/pd_square.png}
 		\caption{The square function in pure data, using a 100Hz sine as a test signal. What do you hear?}
 		\label{fig:squarePd}
 	\end{center}
@@ -350,12 +352,12 @@ Waveshaping adds overtones. When we build a waveshaper, we have to be aware of a
 	\label{fig:clipped2}
 \end{figure}
 
-In pd we could achieve this like in figure \ref{fig:pdClipping}.
+In Max we could achieve this like in figure \ref{fig:pdClipping}.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = 4cm]{img/pdSineClipping.png}
-		\caption{Clipping an amplified sine wave in pd}
+		\includegraphics{img/pdSineClipping.png}
+		\caption{Clipping an amplified sine wave in Max}
 		\label{fig:pdClipping}
 	\end{center}
 \end{figure}
@@ -391,25 +393,25 @@ In pure data (but also in general) we can choose to play a sound from RAM or mor
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale = 1]{img/sampler.png}
-		\caption{simpleSampler}
+		\includegraphics{img/sampler.png}
+		\caption{Playback an audio file from disk.}
 		\label{fig:simpleSampler}
 	\end{center}
 \end{figure}
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale = 0.5]{img/soundFileToRam2.png}
-		\caption{sound in Ram}
-		\label{fig:soundRam}
-	\end{center}
-\end{figure}
+% \begin{figure}[H]
+% 	\begin{center}
+% 		\includegraphics[scale = 0.5]{img/soundFileToRam2.png}
+% 		\caption{sound in Ram}
+% 		\label{fig:soundRam}
+% 	\end{center}
+% \end{figure}
 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale = 1]{img/RamFilePlayback.png}
-		\caption{RamFilePlayback}
+		\includegraphics{img/RamFilePlayback.png}
+		\caption{Audio file playback from RAM.}
 		\label{fig:RamFilePlayback}
 	\end{center}
 \end{figure}
@@ -418,7 +420,7 @@ In pure data (but also in general) we can choose to play a sound from RAM or mor
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = 14cm]{writingAudio.png}
+		\includegraphics{writingAudio.png}
 		\caption{writing Audio to disk}
 		\label{fig:writing}
 	\end{center}
@@ -445,7 +447,7 @@ In figure \ref{fig:granular} you see the basic structure of granular sampling. G
 	\item what are the problems with waveshaping?
 	\item Make sure you understand that waveshaping can produce overtones.
 	\item Make sure if you see a (simple) mathematical expression you can decide if it is non-linear or not.
-	\item Make sure you recognize waveshaping in pd if you see it (e.g. figure \ref{fig:squarePd} )
+	\item Make sure you recognize waveshaping in Max if you see it (e.g. figure \ref{fig:squarePd} )
 \end{itemize}
 
 

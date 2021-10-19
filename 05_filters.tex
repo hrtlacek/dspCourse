@@ -7,7 +7,7 @@
 	\begin{center}
 		\includegraphics[width = 14cm]{img/Narciss_Caravaggio.jpg}
 		\caption{Caravaggio, Narziss. ad Feedback: Echo liebt Narziss etc.}
-		\label{fig:name}
+		\label{fig:narziss}
 	\end{center}
 \end{figure}
 
@@ -123,7 +123,7 @@ Below is an (incomplete) list of methods that are all able to describe a filter.
 	\item Difference Equation
 	\item Magnitude and Phase Response
 	\item Impulse Response
-	\item Code (graphical, such as pd)
+	\item Code (graphical, such as Max/MSP, pure data, simulink)
 	\item Code (text, such as C++)
 	\item Block Diagram
 	\item Transfer Function (Rational Function)
@@ -133,7 +133,7 @@ Below is an (incomplete) list of methods that are all able to describe a filter.
 
 \begin{figure}[htb]
   \centering
-  \label{fig:string}
+  \label{fig:conversions}
 
   \begin{tikzpicture}[auto, thick, node distance=2.3cm, >=triangle 45]
 
@@ -223,7 +223,7 @@ In figure \ref{fig:diffImpResp}, we can see a block diagram representation of eq
 
 \begin{figure}[H]
   \centering
-  \label{fig:string}
+  \label{fig:simpleLPdiag}
   \begin{tikzpicture}[auto, thick, node distance=2.5cm, >=triangle 45]
   \draw node at (0,0) [input] (inp) {};
   \draw node at (2.5,-0.001) (junct) {\textbullet};
@@ -282,7 +282,7 @@ This is called a system's transfer function. This is the actual standard for tal
 	\includegraphics[width=\textwidth]{poleZero.png}
 	\caption[pole zero plot]
 	{a pole zero plot. This indicates where the function $H(z)$ has zeros(where its value is zero) or poles(where its value is infinity). Actually there is also a pole at $0+0i$ which is not shown here. This is because a pole at this position has no frequency dependent effect.}
-	\label{fig:label}
+	\label{fig:poleZero}
 \end{figure}
 
 We can also evaluate the function $H(z)$for complex sinusoids.\\
@@ -293,7 +293,7 @@ The absolute value of $H$ is the output amplitude, if we just plot this value fo
 	\includegraphics[width=\textwidth]{poleZero3dPlot.png}
 	\caption[poles and zeros, 3D in the complex plane]
 	{Evaluation of the Transfer function in the complex plane. The unit circle is visible as a dotted line. This plot is not too easy to read but if you look at the coordinate $-1+0i$, you can see that the value there is very low. This seems to indicate a lowpass. You can basically ignore the huge mountain in the middle. It sits at $0+0i$ and has therefore equal effect on all frequencies.}
-	\label{fig:label}
+	\label{fig:poleZero3d}
 \end{figure}
 
 It's OK if this plot doesn't tell you much. The really important thing is to evaluate this surface using complex sinusoids:
@@ -308,7 +308,7 @@ Where $\omega$ ranges from $0$ to $\pi$(sic!). This is the same as going along t
 	\includegraphics[width=\textwidth]{magResp.png}
 	\caption[Filter magnitude response]
 	{Magnitude response, so $|H(\omega)| = |1 + (cos(\omega)+i \cdot sin(\omega))^{-1}|$}
-	\label{fig:label}
+	\label{fig:magResp}
 \end{figure}
 
 
@@ -322,7 +322,7 @@ In figure \ref{fig:pdSimpleFir} you can see the translation to pd.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5cm]{simpleFir}
+	\includegraphics{simpleFir}
 	\caption[FIR filter in pd]
 	{A simple filter in pure data.}
 	\label{fig:pdSimpleFir}
@@ -355,14 +355,14 @@ So now we learned some ways to define a filter, to talk about a filter. But what
 First let's view the problem from another angle. We know what this structure from above is: It's a combfilter, right? It's taking a signal and adding a delayed version of it. Let's quickly review what a combfilter is:
 The combfilter effect can come up if we record something with a microphone and we get the direct signal and a delayed (e.g. via a reflection) signal also. These two signals mix together and this is what we get in our recording.\\
 The result is that some frequencies cancel out.\\
-We can simply simulate this situation in pd using a delay and an addition.
+We can simply simulate this situation in Max using a delay and an addition.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=11cm]{simpleComb}
+	\includegraphics{simpleComb}
 	\caption[simple comb filter]
 	{A very simple comb filter}
-	\label{fig:label}
+	\label{fig:simpleComb}
 \end{figure}
 
 This canceling out of frequencies \footnote{also called destructive interference} can be imagined if we look at figure \ref{fig:destIntereference}.
@@ -444,7 +444,7 @@ You should already be familiar with the basic types of filters, so lowpass, high
 
 \begin{figure}[H]
   \centering
-  \label{fig:string}
+  \label{fig:sipleHP}
   \begin{tikzpicture}[auto, thick, node distance=2.5cm, >=triangle 45]
   \draw node at (0,0) [input] (inp) {};
   \draw node at (2.5,-0.001) (junct) {\textbullet};
@@ -519,7 +519,7 @@ The structure above is also called a differentiator, since it is a way of approx
 		\includegraphics[width = 14cm]{vidFiltersHPFIRs.png}
 		\caption[Video Filters: FIR Highpass, space domain]
 		{We can hardly see anything here, but if you look closely, edges from the original are still visible. What happened here is a FIR filtering in the space domain, so the opposite of blurring: Edge detection.}
-		\label{fig:name}
+		\label{fig:vidFiltHP}
 	\end{center}
 \end{figure}
 
@@ -530,7 +530,7 @@ The structure above is also called a differentiator, since it is a way of approx
 		\includegraphics[width = 14cm]{vidFiltersHPFIRt.png}
 		\caption[Video Filters: FIR Highpass, time domain]
 		{What we can see here is another highpass, but in the time domain. It computes the difference between the current and the last frame.}
-		\label{fig:name}
+		\label{fig:vidFilHPt}
 	\end{center}
 \end{figure}
 
@@ -540,8 +540,8 @@ The structure above is also called a differentiator, since it is a way of approx
 
 }
 
-\section{Filters in pd}
-Please note that what we did so far was filtering signals, but we \textbf{built} the filters with very low level operations (Addition, multiplication and time shift = delay). This was in order to understand how filters work. Sometimes we need to build a filter, but often we can just \textit{use} filters, which are built in to pd or any other environment.\\
+\section{Filters in Max/MSP}
+Please note that what we did so far was filtering signals, but we \textbf{built} the filters with very low level operations (Addition, multiplication and time shift = delay). This was in order to understand how filters work. Sometimes we need to build a filter, but often we can just \textit{use} filters, which are built in to Max or any other environment.\\
 \subsection{Lowpass}
 In pd, we can use \pd{lop\textasciitilde}, \pd{onepole\textasciitilde}, \pd{lores\textasciitilde} and \pd{vcf\textasciitilde}. \pd{lores\textasciitilde } has a resonance parameter. This emphasizes frequencies at the cutoff frequency of the filter. \pd{vcf\textasciitilde} also has this parameter and an additional bandpass output.
 
@@ -549,21 +549,21 @@ In pd, we can use \pd{lop\textasciitilde}, \pd{onepole\textasciitilde}, \pd{lore
 There is \pd{hip\textasciitilde}, which is a highpass filter. But we can just use a structure that subtracts a lowpassed version from our original signal also. For example:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = 14cm]{pdhighpass.png}
+		\includegraphics{pdhighpass.png}
 		\caption{Highpass filter}
-		\label{fig:name}
+		\label{fig:pdHP}
 	\end{center}
 \end{figure}
 
 \subsection{Bandpass} % (fold)
-There are three bandpass filters in pd, \pd{bp\textasciitilde}, \pd{reson\textasciitilde} and \pd{vcf\textasciitilde}.
+There are two bandpass filters in Max, \pd{reson\textasciitilde} and \pd{svf\textasciitilde}. Additionally \pd{biquad\textasciitilde} can be used in bandpass mode.
 We can also make our own custom bandpass using a lowpass and a highpass in series:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{bandpass}
+	\includegraphics{bandpass}
 	\caption[bandpass]
 	{Bandpass Filter in pd}
-	\label{fig:label}
+	\label{fig:filterInPd}
 \end{figure}
 
 % subsection subsection_name (end)
@@ -592,7 +592,7 @@ We have been dealing with a FIR filter so far. An infinite impulse response filt
   \draw node at (0,0) [input] (excitation) {};
   \draw node [sum, right of=excitation, node distance = 2.cm] (sum1) {\Large$+$};
   \draw node at (5,-2) [block ] (delay) {\Large$z^{-1}$};
-  \draw node [mult,shape border rotate=180, left of=delay, node distance = 2cm] (loss) {$\cdot 0.5$};
+  \draw node [mult,shape border rotate=180, left of=delay, node distance = 2cm] (loss) {$0.5$};
   \draw node at (6.,-0.001) {\textbullet};
 
   \draw node [output, right of=sum1,node distance = 5cm] (out) {};
@@ -619,7 +619,7 @@ If we look at the impulse Response, we can see that it is  ``longer'' than what 
 	\includegraphics[width=\textwidth]{IIR1}
 	\caption[Impulse Response of $y(n)=x(n)+\frac{1}{2}y(n-1)$]
 	{Impulse Response of $y(n)=x(n)+\frac{1}{2}y(n-1)$}
-	\label{fig:label}
+	\label{fig:iir2}
 \end{figure}
 
 Let's translate the above diagram to a difference equation, so we see another representation of the same system.
@@ -641,6 +641,18 @@ topology & Feedback & no feedback \\
 \end{tabular}
 \end{center}
 
+\subsection{IIR Filters in Max}
+There are several ways to use IIR filters in Max (\pd{biquad\textasciitilde}, \pd{onepole\textasciitilde}, \pd{cascade\textasciitilde}, ... ). If we want to \textit{create} an IIR filter from scratch, we should use \pd{gen\textasciitilde}. After creating a \pd{gen\textasciitilde} object, we can double click it to edit it. In there we are allowed to do signal processing on a sample-by-sample level. This is necessary in order to use feedback with a single sample delay. A simple IIR lowpass filter would look like depicted in Figure \ref{fig:iirGen}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics{img/genIIR.PNG}
+	\caption[IIR lowpass filter made in gen.]
+	{IIR lowpass filter made in gen. $y(n)=x(n)+0.99 \cdot y(n-1)$}
+	\label{fig:iirGen}
+\end{figure}
+
 % \section{Convolution}
 % Convolution is a very important concept in DSP. We already encountered it in chapter \ref{Modulation}. We know that convolution reverbs use impulse responses of rooms to simulate these rooms. But how is this done? It \textit{can} be done using a FIR filter.
 
@@ -651,14 +663,14 @@ topology & Feedback & no feedback \\
 \begin{itemize}
 	\item Make sure you understood the differences between a FIR and an IIR filter.
 	\item Make sure you can make an educated guess what kind of a filter we see if you encounter a block diagram.
-	\item Make sure you can do simple translations between pd, blockdiagrams and difference equations.
+	\item Make sure you can do simple translations between Max, blockdiagrams and difference equations.
 	\item Make sure you know when a combfilter turns into a lowpass.
 	\item Make sure you know and understand the formula to calculate the first phase cancellation in a combfilter.
 \end{itemize}
 
 \section{Homework}
 
-Build the structure depicted in Figure~\ref{fig:genFx} in pd.
+Build the structure depicted in Figure~\ref{fig:genFx} in Max/MSP.
 
 \begin{figure}[H]
 	\centering

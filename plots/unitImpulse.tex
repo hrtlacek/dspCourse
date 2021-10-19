@@ -1,0 +1,98 @@
+% This file was created with tikzplotlib v0.9.14.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+\definecolor{color1}{rgb}{0.83921568627451,0.152941176470588,0.156862745098039}
+
+\begin{axis}[
+height=5cm,
+tick align=outside,
+tick pos=left,
+width=14cm,
+x grid style={white!69.0196078431373!black},
+xlabel={\(\displaystyle N\), the Sample Number },
+xmajorgrids,
+xmin=-5.5, xmax=5.5,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ymajorgrids,
+ymin=-0.05, ymax=1.05,
+ytick style={color=black}
+]
+\addplot [semithick, color0]
+table {%
+-5 0
+-5 0
+};
+\addplot [semithick, color0]
+table {%
+-4 0
+-4 0
+};
+\addplot [semithick, color0]
+table {%
+-3 0
+-3 0
+};
+\addplot [semithick, color0]
+table {%
+-2 0
+-2 0
+};
+\addplot [semithick, color0]
+table {%
+-1 0
+-1 0
+};
+\addplot [semithick, color0]
+table {%
+0 0
+0 1
+};
+\addplot [semithick, color0]
+table {%
+1 0
+1 0
+};
+\addplot [semithick, color0]
+table {%
+2 0
+2 0
+};
+\addplot [semithick, color0]
+table {%
+3 0
+3 0
+};
+\addplot [semithick, color0]
+table {%
+4 0
+4 0
+};
+\addplot [semithick, color0]
+table {%
+5 0
+5 0
+};
+\addplot [semithick, color0, mark=*, mark size=3, mark options={solid}, only marks]
+table {%
+-5 0
+-4 0
+-3 0
+-2 0
+-1 0
+0 1
+1 0
+2 0
+3 0
+4 0
+5 0
+};
+\addplot [semithick, color1]
+table {%
+-5 0
+5 0
+};
+\end{axis}
+
+\end{tikzpicture}

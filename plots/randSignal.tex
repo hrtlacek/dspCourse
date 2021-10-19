@@ -1,0 +1,78 @@
+% This file was created with tikzplotlib v0.9.14.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+
+\begin{groupplot}[group style={group size=2 by 1}]
+\nextgroupplot[
+height=5cm,
+legend cell align={left},
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, draw=white!80!black},
+tick align=outside,
+tick pos=left,
+width=7cm,
+x grid style={white!69.0196078431373!black},
+xlabel={\(\displaystyle t\), time[seconds]},
+xmajorgrids,
+xmin=-0.0483333333333333, xmax=1.015,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ylabel={\(\displaystyle y\)},
+ymajorgrids,
+ymin=0.0392144542339375, ymax=1.01832890308994,
+ytick style={color=black}
+]
+\addplot [semithick, color0]
+table {%
+0 0.235621978151893
+0.0333333333333333 0.973823700869215
+0.0666666666666667 0.651665597627898
+0.1 0.454633873381738
+0.133333333333333 0.837279732850819
+0.166666666666667 0.744984260241175
+0.2 0.921901834079666
+0.233333333333333 0.402807798332594
+0.266666666666667 0.129684135121294
+0.3 0.545110113821923
+0.333333333333333 0.185968408195422
+0.366666666666667 0.410019551441513
+0.4 0.575660363580382
+0.433333333333333 0.482259416743055
+0.466666666666667 0.430973318905604
+0.5 0.801034305349296
+0.533333333333333 0.09294582932741
+0.566666666666667 0.83892115766844
+0.6 0.592937879796559
+0.633333333333333 0.596004693829301
+0.666666666666667 0.0837196564546649
+0.7 0.578930005543894
+0.733333333333333 0.673700691442343
+0.766666666666667 0.198244046839318
+0.8 0.516705292712326
+0.833333333333333 0.140747087319865
+0.866666666666667 0.43847563815737
+0.9 0.696983632248657
+0.933333333333333 0.328177900290687
+0.966666666666667 0.159649425292901
+};
+\addlegendentry{$x(t)=y$}
+
+\nextgroupplot[
+height=5cm,
+tick align=outside,
+tick pos=left,
+width=7cm,
+x grid style={white!69.0196078431373!black},
+xlabel={u},
+xmin=-0.5, xmax=4.5,
+xtick style={color=black},
+y dir=reverse,
+y grid style={white!69.0196078431373!black},
+ylabel={v},
+ymin=-0.5, ymax=4.5,
+ytick style={color=black}
+]
+\addplot graphics [includegraphics cmd=\pgfimage,xmin=-0.5, xmax=4.5, ymin=4.5, ymax=-0.5] {plots/randSignal-000.png};
+\end{groupplot}
+
+\end{tikzpicture}

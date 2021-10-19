@@ -56,8 +56,9 @@ Additionally the following libraries are recommended:
 \end{itemize}
 
 \subsubsection*{iPython}
+This document is in the process of transporting most plots and examples to interactive \link{https://colab.research.google.com/notebooks/welcome.ipynb}{Collab Notebooks} where one can see how the plot is made using python and one can play around with the settings interactively. You can run these notebooks in the browser with a google account(recommended) or you can install jupyter notebook on your machine to run them locally. Links to note books will be highlighted using a button-like badge. For example click on the following buttopn to get to the notebook for the introduction section: \colab{https://colab.research.google.com/github/hrtlacek/dspCourse/blob/master/notebooks/00\_Introduction.ipynb}.
 
-This document is in the process of transporting most plots and examples to interactive Collab Notebooks \link{https://colab.research.google.com/notebooks/welcome.ipynb}{Collab Notebooks} where one can see how the plot is made using python and one can play around with the settings interactively. You can run these notebooks in the browser with a google account(recommended) or you can install jupyter notebook on your machine to run them locally. Here is the notebook for the introduction section: \link{https://colab.research.google.com/github/hrtlacek/dspCourse/blob/master/notebooks/00\_Introduction.ipynb}{click here}.
+% \link{https://colab.research.google.com/github/hrtlacek/dspCourse/blob/master/notebooks/00\_Introduction.ipynb}{click here}.
 
 \begin{figure}[H]
 	\centering
@@ -68,7 +69,59 @@ This document is in the process of transporting most plots and examples to inter
 \end{figure}
 
 \subsubsection*{GLSL}
+
+
+
+
 \todo[inline]{unfinished}
+In order to show examples in a highly common, industry standard video language, GLSL (Graphics Library Shading Language) code is provided. Examples can be run interactively on \link{http://shadertoy.com}{shadertoy.com}. Such examples will be highlighted with shadertoy's logo. Click the following to get to an example shader:\shader{https://www.shadertoy.com/view/ws3fD4}
+
+\section{How to Describe Media Signals Mathematically}
+
+If we want to talk about signals, or if we want to analyze them, it is often useful to look at the problem mathematically. First, let's introduce some conventions. They might look unfamiliar or complicated. But in fact it is not very complicated and knowing these conventions makes it easy to communicate (e.g. reading scientific papers about our topics or explaining something to another person).
+
+\subsection*{Signals}
+Mathematically speaking the types of signals we will be working with (images, audio, video, control signals) are \textit{functions}. The simplest of these cases is a mono audio signal. It is a function of time $t$, mapping a point in time to a value. If we call our signal $x$ we can write $x(t)$. A digital gray-scale image would complicate things since we would get one value only if we provide 2 coordinates. For example we could decide to call it $x$ and make it a function of horizontal and vertical coordinates, $u$ and $v$: $x(u,v)$. Maybe it is obvious that describing color video or multichannel audio starts to get a bit crowded\footnote{Take video for example. Video is a function of time and space(pixel coordinates). Color video has 3 to 4 channels. So, to retrieve a single value, we look at it as a function of time $t$, coordinates $u,v$ and channel number $c$: $x(t,u,v,c)$},so lets stick to mono audio for now.  
+
+\begin{figure}[H]
+	\centering
+	\input{plots/randSignal}
+	% \includegraphics[width=11cm]{sineScatter}
+	\caption[random signals]
+	{two random signals. A one dimensional one, similar to mono audio and a two dimensional one, similar to a digital image.}
+	\label{fig:randSigs}
+\end{figure}
+
+
+
+% Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fifth sample of $x$ is 1, we could write:
+
+% \begin{equation}
+% 	x_5=1
+% \end{equation}
+% or
+% \begin{equation}
+% 	x(5)=1
+% \end{equation}
+% Oftentimes we like to talk about a signal more generally and we use $n$ as a place holder for this index, so we might write $x_n$, meaning the nth sample of $x$.
+
+\subsubsection*{Continuous Time vs Discrete Time}
+In Figure \ref{fig:randSigs} we can see a plot if the function $x(t)$. Let's imagine for a moment that we have a simple sine wave as a function of time: $x(t) = sin(t)$. This function is defined for all values of $t$. It is \textit{continuous}. The same is true for $x(t) = t$ for example. But in this document, we concentrate on \textit{digital} signals. Digital signals are sampled at discrete points in time, so are not defined for all values of t. If we choose a sampling rate $f_s$ and therefore a sampling interval $t_s = \frac{1}{f_s}$. We create a new sampled \textit{discrete} function, $x_s(n)$ where n is any integer ($n \in \mathbb{Z}$). And we defined it so it is exactly the same as our original function $x$:
+\begin{equation}
+x_s(n) = x(n \cdot t_s)
+\end{equation}
+
+This idea is tried to visualize in Figure \ref{fig:sampledSine}. In this document we will sometimes treat signals as continuous time (defining signals as $x(t)$) and sometimes as discrete ($x(n)$). This is done to keep things as simple as possible. In the end, on a computer, signals are always discrete time signals.
+
+
+\begin{figure}[h!]
+	\centering
+	\input{plots/sampling}
+	\caption[sampling]
+	{A plot of a continuous variable, time $t$ and a discrete sampled ($t_s=0.2 seconds$) function of $n$.}
+	\label{fig:sampledSine}
+\end{figure}
+
 
 \section{About plotting signals}
 
@@ -83,7 +136,7 @@ We will need to plot a lot of signals in order to understand them better. Most o
 	\label{fig:simpeSine}
 \end{figure}
 
-This plot looks nice but it has a problem. The sine wave is sampled at a sampling rate of 30 Hz, but we see a continuous line. This ``connection of the dots'' is created by plotting. It is kind of similar to what our \textit{digital-to-analog-converter} does. It somehow\footnote{linear interpolation in case of the plot} interpolates the values we have. \\
+This plot looks nice but it has a problem. As just discussed, this sine wave is sampled at a sampling rate of 30 Hz, but we see a continuous line. This ``connection of the dots'' is created by plotting. It is kind of similar to what our \textit{digital-to-analog-converter} does. It somehow\footnote{linear interpolation in case of the plot} interpolates the values we have. \\
 This can be misleading, so we should actually plot something more like figure \ref{fig:scatter}. Often we can see plots that look like figure \ref{fig:stem} as well when a signal is analyzed.
 
 \begin{figure}[H]
@@ -117,20 +170,67 @@ So why don't we always do a stem- or scatter-plot? Simply because it gets too cr
 \end{figure}
 \textbf{But we should never forget that we don't actually have the values in between the dots. Digital signals are not defined between their sampled points.}
 
-You can look at how these signals where generated and plotted \link{https://colab.research.google.com/github/hrtlacek/dspCourse/blob/master/notebooks/00\_Introduction.ipynb}{in this Notebook}
+You can look at how these signals where generated and plotted in this Notebook:\colab{https://colab.research.google.com/github/hrtlacek/dspCourse/blob/master/notebooks/00\_Introduction.ipynb}
+ % \link{https://colab.research.google.com/github/hrtlacek/dspCourse/blob/master/notebooks/00\_Introduction.ipynb}{in this Notebook}
+
+\subsection{Looking at Signals in Max}
+\todo[inline]{todo}
+\begin{figure}[H]
+	\centering
+	% \input{plots/aliasTime}
+	\includegraphics{metering}
+	\caption[metering]
+	{Metering Audio in Max}
+	\label{fig:meteringAudio}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	% \input{plots/aliasTime}
+	\includegraphics[width = \textwidth]{img/lookAtMatrix.png}
+	\caption[metering]
+	{Inspecting Jitter Matrices in Max}
+	\label{fig:matrixIns[ection]}
+\end{figure}
+
+
 
 \section{What is aliasing?}
 Aliasing in audio means problems caused by signals that exceed the nyquist rate.\\
-The nyquist rate,let's call it $f_n$ for now, is defined by the half of the sample rate ($f_s$). So,
+The nyquist rate, let's call it $f_n$ for now, is defined by the half of the sample rate ($f_s$). So,
 \begin{equation}
 	f_n=\frac{f_s}{2}
 \end{equation}
-A digital system can only describe signals up to its nyquist rate. If we try to make signals higher than this frequency, we will fail and encounter strange effects.\\
+A digital system can only describe signals up to its nyquist rate. If we try to make signals higher than this frequency, we will fail and encounter strange effects. So the idea is that the highest frequency in a signal $f_{max}$ should be lower than half the sampling rate. This is called the \textit{Nyquist criterion}:\\
+\begin{equation}
+f_{max} < \frac{f_s}{2} 
+\end{equation}
+This is the same as saying the sampling rate should be at least double the highest frequency in the signal of interest:
+\begin{equation}
+f_{max}\cdot2 < f_s 
+\end{equation}
+
 Visually speaking, frequencies higher than nyquist fold back. So, let's assume we have a sampling rate of 100Hz. Nyquist would be at 50Hz. If we try to synthesize a sine wave with 51Hz, what we will get is a 49Hz one. If we try to make a 52Hz one, we will get 48Hz. So you see, it simply folds back. You can find an interactive example \link{https://jackschaedler.github.io/circles-sines-signals/sampling.html}{here}.
 
 \begin{framed}
 	\textbf{Video analogies}\\
 	Aliasing in graphics usually means \textit{spacial} aliasing, so aliasing in the space domain. This is what we see in figure \ref{fig:spAlias}. But there is also time domain aliasing in film. It is actually more natural to think about the sampling rate in audio as the same as the frame rate in video. For some really weird effects that arise in video due to time domain aliasing see \href{https://www.youtube.com/watch?v=LVwmtwZLG88}{airplane}\footnotemark , \href{https://www.youtube.com/watch?v=GBtHeR-hY9Y}{Water experiment}\footnotemark or \href{https://www.youtube.com/watch?v=jcOKTTnOIV8}{Guitar strings}\footnotemark .
+	The \textit{moiré pattern} is also an example of aliasing. Figures \ref{fig:moire1} and \ref{fig:moire2} are stills generated with a shader you can find here: \shader{https://www.shadertoy.com/view/NdKSDz}. It essentially renders a varying amount of circles, resulting in aliasing. 
+
+	\begin{center}
+		% \centering
+		\includegraphics[width=7cm]{moire1.png}
+		\captionof{figure}{A couple of circles without moiré pattern.}
+		\label{fig:moire1}
+	\end{center}
+	\begin{center}
+		% \centering
+		\includegraphics[width=7cm]{moire2.png}
+		\captionof{figure}{Much more circles, resulting in a moiré pattern.}
+		\label{fig:moire2}
+	\end{center}
+
 	\begin{center}
 		% \centering
 		\includegraphics[width=7cm]{spacialAliasing1.png}
@@ -196,17 +296,19 @@ It helps me a lot to solve this problem in two parts: first get the input in the
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=11cm]{stdSine.png}
-	\caption[a sine wave]
-	{a sine wave}
+	\input{plots/stdSine}
+	% \includegraphics[width=11cm]{stdSine.png}
+	\caption[a sine wave, $f=2Hz$]
+	{a sine wave, $f=2Hz$}
 	\label{fig:aSine}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=11cm]{sinePlusOne.png}
-	\caption[a sine wave]
-	{the same sine wave, 1 added to a each sample, therefore shifted upwards.}
+	\input{plots/sinePlusOne}
+	% \includegraphics[width=11cm]{sinePlusOne.png}
+	\caption[a sine wave plus 1]
+	{the same sine wave, $f=2Hz$, 1 added to a each sample, therefore shifted upwards.}
 	\label{fig:aShiftedSine}
 \end{figure}
 
@@ -214,9 +316,10 @@ So we can move signals around by adding constant values. We can scale them by mu
 
 \begin{figure}[H]
  	\centering
- 	\includegraphics[width=11cm]{sine01.png}
+ 	% \includegraphics[width=11cm]{sine01.png}
+ 	\input{plots/sine01}
  	\caption[sine 0 to 1]
- 	{Sine with a range of 0-1. Obtained by taking a sine wave, adding 1 and dividing by two afterwards.}
+ 	{Sine, $f=2Hz$, with a range of 0-1. Obtained by taking a sine wave, adding 1 and dividing by two afterwards.}
  	\label{fig:sine01}
  \end{figure}
 
@@ -245,7 +348,8 @@ If we try to think how this kind of signal looks in the frequency domain we find
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=11cm]{dcOffsetViz}
+	\input{plots/dcOffsetViz}
+	% \includegraphics[width=11cm]{dcOffsetViz}
 	\caption[Cosines to DC]
 	{Cosines with different very low frequencies approaching 0Hz, so DC offset.}
 	\label{fig:dcViz}
@@ -301,8 +405,9 @@ For us, strictly speaking, an impulse will be a signal that contains only zeros,
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width = \textwidth]{unitImpulse.png}
-		\caption{unit impulse function}
+		\input{plots/unitImpulse}
+		% \includegraphics[width = \textwidth]{unitImpulse.png}
+		\caption{The unit impulse function.}
 		\label{fig:unitImpulse}
 	\end{center}
 \end{figure}
@@ -311,30 +416,14 @@ So in the time domain, an impulse's samples have the values $\{...,0,0,0,1,0,0,0
 
 
 
-\section{How to describe audio mathematically}
 
-If we want to talk about signals, or if we want to analyze them, it is often useful to look at the problem mathematically. First, let's introduce some conventions. They might look unfamiliar or complicated. But in fact it is not very complicated and knowing these conventions makes it easy to communicate (e.g. reading scientific papers about our topics or explaining something to another person).
-
-\subsection{signals}
-
-Usually we describe a \textit{digital} signal by a name, say $x$, (but you can call it however you want). If we want to talk about the individual samples, or values of the (mono) signal, we can use a subscript or parenthesis. So if the fifth sample of $x$ is 1, we could write:
-
-\begin{equation}
-	x_5=1
-\end{equation}
-or
-\begin{equation}
-	x(5)=1
-\end{equation}
-Oftentimes we like to talk about a signal more generally and we use $n$ as a place holder for this index, so we might write $x_n$, meaning the nth sample of $x$.
-
-\subsubsection{sine waves}
+\section{Working with Sine Waves}
 We use sine waves a lot. The syntax can get a bit overwhelming at first, so let's quickly explain what's going on in a standard sine wave oscillator.
 \begin{equation}
 	x(t) = A \cdot sin(2\pi f t + \phi)
 \end{equation}
 Where $f$ is the frequency in Hertz and $t$ is the time in seconds. $\phi$ Is a (possibly constant) phase offset and $A$ can be used to scale the whole thing. Since cosine and sine have their peaks at -1 and 1, $A$ will be the amplitude. If $A$ is set to 0.5, the resulting signal will have it's peaks at -0.5 and 0.5. \\
-The upper equation is rather complete. Most of the time, we will just ignor the phase and the amplitude and just write:
+The upper equation is rather complete. Often we will just ignore the phase as well as the amplitude and just write:
 \begin{equation}
 	x(t) = sin(2\pi f t )
 \end{equation}
@@ -356,7 +445,7 @@ That being said, there are certain formulas that consist of sine and cosine term
 \end{mdframed}
 % \comm{work in progress.}
 
-\subsection{systems}
+\section{Describing Systems}
 There are many ways to describe systems. Digital LTI systems (Linear, time invariant Systems) can be described using
 \begin{itemize}
 	\item difference equations
@@ -365,11 +454,9 @@ There are many ways to describe systems. Digital LTI systems (Linear, time invar
 	\item and other things.
 \end{itemize}
 
-For us, the most important ways to describe a system are block diagrams and difference equations.
+For us, the most important ways to describe a system are block diagrams, difference equations and code of course.
 
-\subsection{systems}
-
-There are multiple ways in which we can describe linear time invariant (LTI) systems. We will talk more about this in chapter \ref{chap:filters}. Here, we will just look at how \textit{difference equations} work. These are one possibility to describe a digital LTI system. They are the discrete equivalent of difference equations. It's really not that complicated:
+We will talk more about this in Chapter \ref{chap:filters}. Here, we will just look at how \textit{difference equations} work. They are the discrete equivalent of differential equations. It's really not that complicated:
 \begin{equation}
 	y(n) = x(n)
 \end{equation}
@@ -417,6 +504,14 @@ Messages on the other hand are not calculated that often and not all the time. M
 \paragraph{How is this not specific to Max/MSP?} The key points here are not specific to this programming language. If we, for example adjust the volume of a track in pro tools or ableton live or similar, then the information of our fader movement will also be in some kind of message domain.\\
 One key aspect here is: some kind of conversion between the two is necessary if we want to switch between them. If we want to control the volume of an audio signal from the message domain we have a problem: we will get noisy output since the message domain is not running at sample rate. Look at a naive attempt to controlling the amplitude of a sine wave:
 
+% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics{ampWrong}
@@ -430,7 +525,8 @@ And let's look at what kind of waveform it will produce:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{ampWrongViz}
+	\input{plots/ampWrongViz}
+	% \includegraphics[width=\textwidth]{ampWrongViz}
 	\caption[Amplitude control, message domain ]
 	{This is a cosine wave at 20 Hz and the message domain running at 100 millisecond interval to make the effect more extreme and visible}
 	\label{fig:msgDomainAmpControl}
